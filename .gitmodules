@@ -1,0 +1,3 @@
+[submodule "bowling-api-client"]
+	path = bowling-api-client
+	url = https://github.com/BLC/bowling-api-client.git

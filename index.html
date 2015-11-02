@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <!-- Title -->
+        <title>Bowling Jackpot</title>
+        
+        <!-- load in libraries -->
+        <!-- Bootstrap -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+        
+        <!-- Font-awesome 4.3.0 -->
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css"> 
+        
+        <!-- jQuery -->
+        <script src='https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+        <!--<script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>-->
+        
+        <!-- bowling api client by NextCapital -->
+        <script src="bowling-api-client/lib/client.js"></script>
+    </head>
+    
+    <body>
+        <button id="createUser">Create a user!</button>
+        
+        <!--
+        <button id="createUser2" onclick="myFunc()">PLS</button>
+        <script type="text/javascript">
+            function myFunc() {
+                var client2 = new BowlingApiClient('http://bowling-api.nextcapital.com/api');
+                
+                console.log('Creating acc via myFunc()...');
+                
+                client2.createUser({
+                    email: 'test66@example.com',
+                    password: 'pleasework23234',
+                    success: function(user) {
+                        console.log(user);
+                    },
+                    error: function(xhr) {
+                        console.log(JSON.parse(xhr.responseText));
+                    }
+                });
+                
+                client2.getLeagues({
+                    success: function(leagues) {
+                        console.log(leagues);
+                    },
+                    error: function(xhr) {
+                        console.log(JSON.parse(xhr.responseText));
+                    }
+                });
+            };
+        </script> -->
+        
+        <button id="getBowlers">Get all bowlers</button>
+        
+        <button id="getBowler390">Get bowler ID: 390</button>
+        
+        <p id='paragraph'></p>
+        
+        <!-- jQuery -->
+        <script src='https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+        <!--<script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>-->
+        
+        <!-- bowling api client by NextCapital -->
+        <script src="bowling-api-client/lib/client.js"></script>
+        
+        <!-- main.js -->
+        <script src="js/main.js"></script>
+    </body>
+</html>
