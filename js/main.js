@@ -7,6 +7,26 @@ var password = '';
 // is the user logged in? Defaulted to 'false'
 var logged_in = false;
 
+// TEMP initialize session
+if (sessionStorage.getItem('logged_in') == null) {
+    sessionStorage.setItem('logged_in', 'false');
+}
+
+//TEMP
+//console.log('loading main.js...');
+console.log(sessionStorage.getItem('logged_in'));
+
+// TEMP
+$('#session').click(function() {
+    console.log(sessionStorage.getItem('logged_in'));
+    console.log(typeof(sessionStorage.getItem('logged_in')));
+    if (sessionStorage.getItem('logged_in') == 'true') {
+        alert('Logged in!');
+    } else {
+        alert('Not logged in!');
+    }
+});
+
 // update the status of user
 var updateStatus = function() {
     if (logged_in) {
@@ -31,6 +51,9 @@ $('#login_button').click(function() {
         success: function(user) {
             alert('Successfully logged in: ' + userText);
             console.log(JSON.stringify(user, null, 4));
+            
+            //TEMP
+            sessionStorage.setItem('logged_in', 'true');
             
             // flip the 'logged_in' flag and update status
             logged_in = true;
