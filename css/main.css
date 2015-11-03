@@ -1,0 +1,31 @@
+html, 
+body, 
+.carousel, 
+.carousel-inner, 
+.carousel-inner .item {
+    min-height: 500px;
+}
+
+.item:nth-child(1) {
+    background-image: url('/img/test-img1');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.item:nth-child(2) {
+    background-image: url('/img/test-img1');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.item:nth-child(3) {
+    background-image: url('/img/test-img1');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+/* navbar */
+#navbar {
+    position: absolute;
+    opacity: 0.5;
+}

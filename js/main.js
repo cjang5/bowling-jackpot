@@ -10,6 +10,11 @@ var logged_in = false;
 // TEMP initialize session
 if (sessionStorage.getItem('logged_in') == null) {
     sessionStorage.setItem('logged_in', 'false');
+    $('#userStatus').text('Not logged in.');
+} else if (sessionStorage.getItem('logged_in') == 'false') {
+    $('#userStatus').text('Not logged in.');
+} else {
+    $('#userStatus').text('Logged in as: ' + sessionStorage.getItem('username'));
 }
 
 //TEMP
@@ -28,13 +33,14 @@ $('#session').click(function() {
 });
 
 // update the status of user
+/*
 var updateStatus = function() {
     if (logged_in) {
         $('#userStatus').text('Logged in as: ' + username);
     } else {
         $('#userStatus').text('Not logged in.');
     }
-}
+} */
 
 // Login button
 $('#login_button').click(function() {
@@ -54,19 +60,32 @@ $('#login_button').click(function() {
             
             //TEMP
             sessionStorage.setItem('logged_in', 'true');
+            sessionStorage.setItem('username', userText);
             
             // flip the 'logged_in' flag and update status
             logged_in = true;
             username = userText; // update username
             password = passText; // update password
-            updateStatus();
+            //updateStatus();
+            window.location.reload();
         },
         error: function(xhr) { 
             alert('Login failed'); // TODO: Determine whether it was incorrect email or password using 
             console.log(JSON.parse(xhr.responseText));
         }
     });
+    
+    //window.location.reload();
 });
+
+// Logout button
+$('#logout_button').click(function() {
+    // close the session
+    sessionStorage.clear();
+    
+    // reload the page
+    window.location.reload();
+})
 
 // Register button
 $('#register_button').click(function() {
@@ -88,11 +107,15 @@ $('#register_button').click(function() {
             logged_in = true;
             username = userText; // update username
             password = passText; // update password
-            updateStatus();
+            //updateStatus();
+            window.location.reload();
         },
         error: function(xhr) {
             alert('Account with provided email already exists!');
             console.log(JSON.parse(xhr.responseText));
         }
     });
+    
+    //TEMP
+    //window.location.reload();
 });

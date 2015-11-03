@@ -11,6 +11,9 @@
         <!-- Font-awesome 4.3.0 -->
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css"> 
         
+        <!-- main.css -->
+        <link rel="stylesheet" href="css/main.css">
+        
     </head>
     
     <body>
@@ -44,16 +47,47 @@
             };
         </script> -->
         <!-- TEMP element to show status; Logged in or not -->
-        <h1 id='userStatus'>Not logged in.</h1>
+        <!--<h1 id='userStatus'></h1>-->
         
-        <!-- login form -->
-        <input type='text' id='username' name='username' value='test43@example.com'><br> 
-        <input type='password' id='password' name='password' value='password'><br>
-        <button id='login_button'>LOGIN</button> 
-        <button id='register_button'>REGISTER</button>
+        <!-- Login form -->
+        <!-- username input -->
+        <!--<input type='text' id='username' name='username' value='test43@example.com'><br>-->
+        <!-- password input -->
+        <!--<input type='password' id='password' name='password' value='password'><br>-->
+        <!-- Login button -->
+        <!--<button id='login_button'>LOGIN</button>-->
+        <!-- Logout button -->
+        <!--<button id='logout_button'>LOGOUT</button>-->
+        <!-- Register button -->
+        <!--<button id='register_button'>REGISTER</button>-->
         
         <!-- TEMP -->
-        <button id='session'>Session status</button>
+        <!--<button id='session'>Session status</button>-->
+        
+        <!-- navbar -->
+        <nav id='navbar' class='navbar navbar-default navbar-fixed-top'>
+            <div class='container-fluid'>
+                <div class='navbar-brand'>
+                    Hello
+                </div>
+            </div>
+        </nav>
+        
+        <!-- Carousel -->
+        <div id="carousel" class="carousel slide carousel-fade" data-ride="carousel">
+            <ol class="carousel-indicators">
+                <li data-target="#carousel" data-slide-to="0" class="active"></li>
+                <li data-target="#carousel" data-slide-to="1"></li>
+                <li data-target="#carousel" data-slide-to="2"></li>
+            </ol>
+            <!-- Carousel items -->
+            <div class="carousel-inner">
+                <div class="active item">1</div>
+                <div class="item">2</div>
+                <div class="item">3</div>
+            </div>
+        </div>
+
         
         <!-- Libraries/Scripts -->
         <!-- jQuery -->
@@ -68,5 +102,8 @@
         
         <!-- main.js -->
         <script src="js/main.js"></script>
+        
+        <!-- carousel.js -->
+        <script src="js/carousel.js"></script>
     </body>
 </html>
