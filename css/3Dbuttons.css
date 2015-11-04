@@ -2,8 +2,13 @@
 .light-blue {
     background: #4b97ff;
     box-shadow: 0px 5px 0px 0px #3b81e1;
+    text-shadow: 0px -1.5px #3b81e1;
 }
-
+.light-blue:hover {
+    background: #5ca1ff;
+    box-shadow: 0px 5px 0px 0px #4f8de2;
+    text-shadow: 0px -1.5px #4f8de2;
+}
 .light-blue:active {
     box-shadow: 0px 1px 0px 0px #3b81e1;   
 }
@@ -13,7 +18,11 @@
     box-shadow: 0px 5px 0px 0px #d0704a;
     text-shadow: 0px -1.5px #d0704a;
 }
-
+.orange1:hover {
+    background: #f89a76;
+    box-shadow: 0px 5px 0px 0px #d17f5f;
+    text-shadow: 0px -1.5px #d17f5f;
+}
 .orange1:active {
     background: #e9825a;
     box-shadow: 0px 1px 0px 0px #d0704a;   
