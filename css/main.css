@@ -36,13 +36,13 @@ body,
 }
 
 .item:nth-child(2) {
-    background-image: url('/img/test-img1');
+    background-image: url('/img/test-img1.jpg');
     background-repeat: no-repeat;
     background-size: cover;
 }
 
 .item:nth-child(3) {
-    background-image: url('/img/test-img1');
+    background-image: url('/img/test-img1.jpg');
     background-repeat: no-repeat;
     background-size: cover;
 }
