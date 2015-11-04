@@ -45,8 +45,8 @@ var updateStatus = function() {
 // Login button
 $('#login_button').click(function() {
     // get the text from the two input forms
-    var userText = $('#username').val();
-    var passText = $('#password').val();
+    var userText = $('#login-username').val();
+    var passText = $('#login-password').val();
     
     console.log('Logging in...');
     
@@ -90,8 +90,8 @@ $('#logout_button').click(function() {
 // Register button
 $('#register_button').click(function() {
     // get the text from the two input forms
-    var userText = $('#username').val();
-    var passText = $('#password').val();
+    var userText = $('#register-username').val();
+    var passText = $('#register-password').val();
     
     console.log('Registering...');
     
@@ -118,4 +118,20 @@ $('#register_button').click(function() {
     
     //TEMP
     //window.location.reload();
+});
+
+// TEMP
+// Try to make it so while register forms don't have certain val, they'll glow red
+var flag = false;
+$('#register-username').on({
+    focus: function() {
+        flag = true;
+        while (flag) {
+            console.log('focused');
+        }
+    },
+    blur: function() {
+        flag = false;
+        console.log('blurred');
+    }
 });

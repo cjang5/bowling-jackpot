@@ -17,3 +17,5 @@
  + make it visible/invisible depending on user status
 + Create rest of landing page
 + create footer
++ Allow 'Enter' press instead of clicking 'log in' or 'sign up' in modals
+ + look into jQuery .keyPress() for this..?
