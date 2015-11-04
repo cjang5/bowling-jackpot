@@ -127,7 +127,7 @@ body,
 .modal-dialog a {
     margin-top: 0px;
     margin-bottom: 5px;
-    width: 100%;
+    width: 100%; /* stretch button to size of text boxes */
 }
 
 .modal-sm {

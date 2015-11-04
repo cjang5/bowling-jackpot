@@ -1,5 +1,7 @@
 #Todo list
 
++ Catch incorrect logins/failed registration
+ + Add the dialog that will pop up - maybe tooltip? or div under button?
 + Finalize Registration modal
 + Link modals to js
 + find BG images for carousel slides
