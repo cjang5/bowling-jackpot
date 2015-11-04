@@ -134,6 +134,11 @@ body,
     width: 330px;
 }
 
+/* REGISTER modal */
+#register-modal #header {
+    font-size: 1.25em;
+}
+
 /**
  * Here we write some rules to align the Remember me and Forgot password divs to the left and right
  *  in the same line. we use table cells to accomplish this
