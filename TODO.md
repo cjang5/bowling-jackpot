@@ -1,7 +1,5 @@
 #Todo list
 
-##TESTING GIT SCRIPT
-
 + ~~in register modal, employ green highlight/checkmark for correct password criteria/email~~
 + ~~Hover highlight for 3D buttons~~
  + Still need to do for final color scheme
