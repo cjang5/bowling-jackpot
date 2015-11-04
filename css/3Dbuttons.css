@@ -1,0 +1,177 @@
+/* Colors */
+.light-blue {
+    background: #4b97ff;
+    box-shadow: 0px 5px 0px 0px #3b81e1;
+}
+
+.light-blue:active {
+    box-shadow: 0px 1px 0px 0px #3b81e1;   
+}
+
+.orange1 {
+    background: #fa8b60;
+    box-shadow: 0px 5px 0px 0px #d0704a;
+    text-shadow: 0px -1.5px #d0704a;
+}
+
+.orange1:active {
+    background: #e9825a;
+    box-shadow: 0px 1px 0px 0px #d0704a;   
+}
+
+.green-gray {
+    background: #90c5a9;
+    box-shadow: 0px 5px 0px 0px #7a9a95;
+    text-shadow: 0px -1.5px #7a9a95;
+}
+
+.green-gray:active {
+    background: #85b59c;
+    box-shadow: 0px 1px 0px 0px #7a9a95;
+}
+
+/* Common button styles */
+.button3D {   
+    padding: 0.5em;
+    text-align: center;
+    font-size: 1.1em;
+    border-radius: 3px;
+    text-decoration: none !important;
+    font-family: 'Montserrat', sans-serif;
+    color: #fff !important;
+    position: relative;
+    display: inline-block;
+    
+    /* Don't make it selectable */
+    -webkit-user-select: none;  
+       -moz-user-select: none;    
+        -ms-user-select: none;
+            user-select: none;
+    
+    /* change pointer when hovering over button */
+    cursor: pointer !important; 
+    margin-top: 4px;
+    min-width: 100px;
+	color: inherit;
+	
+	z-index: 1;
+	-webkit-backface-visibility: hidden;
+    -moz-osx-font-smoothing: grayscale;
+    
+    -webkit-transition: all 0.1s !important;
+       -moz-transition: all 0.1s !important;
+         -o-transition: all 0.1s !important;
+            transition: all 0.1s !important;
+}
+
+.button3D:active {
+    transform: translate(0, 5px);
+    -webkit-transform: translate(0, 5px);
+}
+
+.button3D:focus {
+	outline: none;
+}
+
+.button3D:hover {
+    
+}
+
+.button3D > span {
+	vertical-align: middle;
+}
+
+/**
+ * Vertical scroll effect 
+ * Include 'scroll-vertical' attribute in tag to use
+ */
+.scroll-vertical {
+	padding: 0;
+	overflow: hidden;
+	-webkit-transition: background-color 0.3s;
+	        transition: background-color 0.3s;
+}
+
+.scroll-vertical::before {
+	content: '';
+	position: absolute;
+	left: -50%;
+	width: 200%;
+	height: 200%;
+	background: none;
+	top: -50%;
+	z-index: -1;
+	-webkit-transform: translate3d(0, -100%, 0) rotate3d(0, 0, 1, -10deg);
+	transform: translate3d(0, -100%, 0) rotate3d(0, 0, 1, -10deg);
+}
+
+.scroll-vertical > span {
+	display: block;
+}
+
+
+.scroll-vertical .button__icon {
+    font-size: 1.2em;
+	position: absolute;
+	top: 0;
+	width: 100%;
+	left: 0;
+	color: #fff;
+	-webkit-transform: translate3d(0, -100%, 0);
+	transform: translate3d(0, -100%, 0);
+}
+
+.scroll-vertical > span,
+.scroll-vertical .button__icon {
+	padding: 1em 3em;
+	-webkit-transition: -webkit-transform 0.3s;
+	transition: transform 0.3s;
+	-webkit-transition-timing-function: cubic-bezier(0.75, 0, 0.125, 1);
+	transition-timing-function: cubic-bezier(0.75, 0, 0.125, 1);
+}
+
+.scroll-vertical:hover::before {
+	-webkit-animation: anim-naira-1 0.3s forwards ease-in;
+	animation: anim-naira-1 0.3s forwards ease-in;
+}
+
+@-webkit-keyframes anim-naira-1 {
+	50% {
+		-webkit-transform: translate3d(0, -50%, 0) rotate3d(0, 0, 1, -10deg);
+		transform: translate3d(0, -50%, 0) rotate3d(0, 0, 1, -10deg);
+		-webkit-animation-timing-function: ease-out;
+		animation-timing-function: ease-out;
+	}
+	100% {
+		-webkit-transform: translate3d(0, 0%, 0) rotate3d(0, 0, 1, 0deg);
+		transform: translate3d(0, 0%, 0) rotate3d(0, 0, 1, 0deg);
+	}
+}
+@keyframes anim-naira-1 {
+	50% {
+		-webkit-transform: translate3d(0, -50%, 0) rotate3d(0, 0, 1, -10deg);
+		transform: translate3d(0, -50%, 0) rotate3d(0, 0, 1, -10deg);
+		-webkit-animation-timing-function: ease-out;
+		animation-timing-function: ease-out;
+	}
+	100% {
+		-webkit-transform: translate3d(0, 0%, 0) rotate3d(0, 0, 1, 0deg);
+		transform: translate3d(0, 0%, 0) rotate3d(0, 0, 1, 0deg);
+	}
+}
+
+.scroll-vertical:hover {
+	-webkit-transition: background-color 0s 0.3s;
+	transition: background-color 0s 0.3s;
+}
+
+.scroll-vertical:hover .button__icon {
+	-webkit-transform: translate3d(0, 0, 0);
+	transform: translate3d(0, 0, 0);
+}
+
+.scroll-vertical:hover > span {
+	opacity: 0;
+	-webkit-transform: translate3d(0, 100%, 0);
+	transform: translate3d(0, 100%, 0);
+}
