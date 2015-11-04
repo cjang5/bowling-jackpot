@@ -18,6 +18,11 @@
         <!-- 2D buttons.css -->
         <link rel="stylesheet" href="css/2Dbuttons.css">
         
+        <!-- Open Sans font -->
+        <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300' rel='stylesheet' type='text/css'>
+        
+        <link href='https://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
+        
     </head>
     
     <body>
@@ -76,7 +81,7 @@
                 </div>
                 
                 <!-- Register button -->
-                <a class="button2D clear navbar-right">
+                <a class="button2D clear navbar-right" data-toggle="modal" data-target="#register-modal">
                     <span>Register</span>
                 </a>
                 
@@ -133,16 +138,15 @@
             </div>
         </div>
 
-        <!-- Small modal -->
-        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#login-modal">Small modal</button>
-
+        <!-- Login Modal -->
         <div id="login-modal" class="modal fade" tabindex="-1" role="dialog">
             <div class="modal-dialog modal-sm">
                 <div class="modal-content">
+                    <!--
                     <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                         New Account
-                    </div>
+                    </div>-->
                     <div class="modal-body">
                         <div class="form-group">
                             <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Email address">
@@ -150,7 +154,54 @@
                         <div class="form-group">
                             <input type="password" class="form-control" placeholder="Password">
                         </div>
-                        <div class="button3D light-blue">Sign up</div>
+                        
+                        <div class="rem-container">
+                            <div class="remember-me">
+                                <label>
+                                    <input type="checkbox"> Remember me
+                                </label>
+                            </div>
+                            <div class="forgot-password">
+                                <a>Forgot password?</a>
+                            </div>
+                        </div>
+
+                        <div style="clear: both;"></div>
+                        
+                        <a class="button3D light-blue">Log in</a>
+                        
+                        <hr>
+                        <div class="login-modal-footer">
+                            New?
+                            <a>Sign up today.</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Register modal -->
+        <div id="register-modal" class="modal fade" tabindex="-1" role="dialog">
+            <div class="modal-dialog modal-sm">
+                <div class="modal-content">
+                    <!--
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        New Account
+                    </div>-->
+                    <div class="modal-body">
+                        <p>Log in</p>
+                        <hr>
+                        <div class="form-group">
+                            <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Email address">
+                        </div>
+                        <div class="form-group">
+                            <input type="password" class="form-control" placeholder="Password">
+                        </div>
+                        
+                        <a class="button3D light-blue">Sign up</a>
+                        
+                        <hr>
                         <div class="login-modal-footer">
                             Already a member?
                             <a>Log in.</a>

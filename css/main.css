@@ -47,7 +47,10 @@ body,
     background-size: cover;
 }
 
-/* navbar */
+/* 
+||======||
+||NAVBAR||
+||======||*/
 .navbar {
     padding: 5px;
     position: absolute;
@@ -56,32 +59,111 @@ body,
     border: none; /* get rid of border thing on bottom */
 }
 
+.navbar-brand {
+    cursor: pointer;
+}
+
+/* 
+||======||
+||MODALS|| 
+||======||*/
 /**
  * Here we override the existing animation of Bootstrap's modals
  * We will remove the slide effect and just keep a fade in/out animation
  */
 .modal.fade .modal-dialog {
     -webkit-transform: translate(0, 0%);
-    -ms-transform: translate(0, 0%);
-    transform: translate(0, 0%);
-    -webkit-transition: -webkit-transform 0.3s ease-out;
-    -moz-transition: -moz-transform 0.3s ease-out;
-    -o-transition: -o-transform 0.3s ease-out;
-    transition: transform 0.3s ease-out;
-    top: 50%;
+        -ms-transform: translate(0, 0%);
+            transform: translate(0, 0%);
+    
+    -webkit-transition: -webkit-transform 0.2s ease-out;
+          -moz-transition: -moz-transform 0.2s ease-out;
+              -o-transition: -o-transform 0.2s ease-out;
+                    transition: transform 0.2s ease-out;
 }
 
 /* Vertically align modal dialog in the middle of screen */
 @media screen and (min-width: 768px) { 
-  .modal:before {
-    display: inline-block;
-    vertical-align: middle;
-    content: " ";
-    height: 100%;
-  }
+    .modal:before {
+        display: inline-block;
+        vertical-align: middle;
+        content: " ";
+        height: 100%;
+    }
 }
 .modal-dialog {
-  display: inline-block;
-  text-align: center;
-  vertical-align: middle;
+    border-radius: 3px !important;
+    font-family: 'Montserrat', sans-serif;
+    display: inline-block;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.modal-content {
+    padding: 0.5em;
+    border-radius: 3px;
+}
+
+/* text boxes in modals */
+.modal-content input {
+    border-radius: 3px;
+    margin-bottom: -10px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: normal;
+}
+
+.modal-content p {
+    margin-bottom: -5px;
+}
+
+/* buttons in the modal */
+.modal-dialog a {
+    margin-top: 0px;
+    margin-bottom: 5px;
+    width: 100%;
+}
+
+.modal-sm {
+    width: 27vw;
+}
+
+/**
+ * Here we write some rules to align the Remember me and Forgot password divs to the left and right
+ *  in the same line. we use table cells to accomplish this
+ */
+.rem-container {
+    margin-top: 20px;
+    margin-bottom: 5px;
+    
+    display: table;
+    width: 100%;
+}
+.remember-me {
+    display: table-cell;
+    text-align: left;
+}
+.remember-me label {
+    font-weight: normal;
+}
+.forgot-password {
+    display: table-cell;
+    text-align: right;
+    cursor: pointer;
+}
+.forgot-password a {
+    text-decoration: none;
+}
+
+.login-modal-footer {
+    margin-top: -5px;
+}
+.login-modal-footer a {
+    cursor: pointer;
+    text-decoration: none;
+}
+
+/* forms in Bootstrap 3 */
+.form-control:focus {
+  border-color: #FF0000;
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(255, 0, 0, 0.6);
 }
