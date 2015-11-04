@@ -1,13 +1,37 @@
+/* Carousel */
 html, 
 body, 
 .carousel, 
 .carousel-inner, 
 .carousel-inner .item {
     min-height: 500px;
+    text-align: center;
+}
+
+.carousel-caption {
+    font-family: 'Montserrat', sans-serif;
+    margin-bottom: 50px;
+}
+.carousel-caption h1 {
+    font-size: 5em;
+    margin-bottom: -20px;
+}
+.carousel-caption h3 {
+    font-size: 1.75em;
+    margin-bottom: 1.75em;
+}
+.carousel-caption a {
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+/* overlay */
+.overlay {
+    background: rgba(0, 0, 0, 0.25);
 }
 
 .item:nth-child(1) {
-    background-image: url('/img/test-img1');
+    background-image: url('/img/bowling1.jpg');
     background-repeat: no-repeat;
     background-size: cover;
 }
@@ -29,6 +53,6 @@ body,
     padding: 5px;
     position: absolute;
     background: none;
-    background: rgba(0, 0, 0, 0.25);
+    /*background: rgba(0, 0, 0, 0.25);*/
     border: none; /* get rid of border thing on bottom */
 }

@@ -44,7 +44,7 @@
 
 /* color rules */
 .clear {
-    background: rgba(255, 255, 255, 0.3);
+    background: rgba(255, 255, 255, 0.4);
     /*text-shadow: 0px -1.5px rgba(0, 0, 0, 0.5);*/
 }
 .clear:hover {
