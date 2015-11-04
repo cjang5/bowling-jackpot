@@ -21,8 +21,7 @@ body,
     margin-bottom: 1.75em;
 }
 .carousel-caption a {
-    padding-left: 20px;
-    padding-right: 20px;
+    padding: 10px 25px 10px 25px;
 }
 
 /* overlay */
@@ -55,4 +54,34 @@ body,
     background: none;
     /*background: rgba(0, 0, 0, 0.25);*/
     border: none; /* get rid of border thing on bottom */
+}
+
+/**
+ * Here we override the existing animation of Bootstrap's modals
+ * We will remove the slide effect and just keep a fade in/out animation
+ */
+.modal.fade .modal-dialog {
+    -webkit-transform: translate(0, 0%);
+    -ms-transform: translate(0, 0%);
+    transform: translate(0, 0%);
+    -webkit-transition: -webkit-transform 0.3s ease-out;
+    -moz-transition: -moz-transform 0.3s ease-out;
+    -o-transition: -o-transform 0.3s ease-out;
+    transition: transform 0.3s ease-out;
+    top: 50%;
+}
+
+/* Vertically align modal dialog in the middle of screen */
+@media screen and (min-width: 768px) { 
+  .modal:before {
+    display: inline-block;
+    vertical-align: middle;
+    content: " ";
+    height: 100%;
+  }
+}
+.modal-dialog {
+  display: inline-block;
+  text-align: center;
+  vertical-align: middle;
 }
