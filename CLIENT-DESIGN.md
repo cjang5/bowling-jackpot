@@ -4,7 +4,9 @@
 ##Features
 ###Legend - Group features into different sections of the dashboard
 **(1) - Bowlers**
+
 **(2) - Leagues**
+
 **(3) - Lotteries**
 + **(1)** Create a bowler
 + **(1)** List all bowlers
