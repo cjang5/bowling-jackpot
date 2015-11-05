@@ -135,7 +135,7 @@ body,
 .modal-content input {
     border-radius: 3px;
     margin-bottom: -10px;
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Arvo', 'Montserrat', sans-serif;
     font-weight: normal;
 }
 
@@ -158,6 +158,34 @@ body,
 #register-modal #header {
     
     
+}
+
+/*
+||============||
+||POPOVER MENU||
+||============||*/
+.popover-content {
+    padding-top: -10px !important;
+    padding-left: -30px !important;
+    text-align: center;
+}
+.options-menu {
+    padding-top: 0px;
+    padding-bottom: 0px;
+    border-radius: 0px;
+    width: 20vw;
+}
+.options-menu .divider {
+    margin: 0px;
+}
+.options-menu li {
+    
+    font-family: 'Arvo', sans-serif;
+    font-size: 1em !important;
+}
+.options-menu li a {
+    padding-top: 15px;
+    padding-bottom: 15px;
 }
 
 /**

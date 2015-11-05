@@ -20,6 +20,8 @@
         
         <!-- Open Sans font -->
         <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300' rel='stylesheet' type='text/css'>
+        <!-- Arvo font -->
+        <link href='https://fonts.googleapis.com/css?family=Arvo' rel='stylesheet' type='text/css'>
         
     </head>
     
@@ -92,15 +94,38 @@
                 </a>
                 
                 <!-- Options button -->
+                <!--
                 <a class="button2D clear no-fixed navbar-right" id="options-button" data-placement="bottom" style="display: none;">
                     <i class="fa fa-cog"></i>
-                </a>
+                </a>-->
+                
+                <div class="btn-group navbar-right">
+                    <!-- Options Button -->
+                    <a class="button2D clear no-fixed navbar-right dropdown-toggle" id="options-button" data-toggle="dropdown" style="display: none;">
+                        <i class="fa fa-cog"></i>
+                    </a>
+
+                    <ul class="dropdown-menu options-menu" id="options-dropdown" role="menu">
+                        <li><a href = "#">About</a></li>
+                        <li class="divider"></li>
+                        <li><a href = "#" id="logout-button">Logout</a></li>
+                        <li class="divider"></li>
+                        <li><a href = "#">Something else here</a></li>
+
+                        <li class = "divider"></li>
+                        <li><a href = "#">Separated link</a></li>
+                    </ul>
+                </div>
+                
                 <!-- Popover menu triggered by Options button -->
-                <div id="popover-content" style="display: none;">
+                <!--
+                <div class="popover-content" id="popover-content" style="display: none;">
                     <a class="button3D orange1" id="logout-button">
                         <span>Logout</span>
                     </a>
-                </div>
+                    <a class="button2D square clear">About</a>
+                    <a class="button2D square clear">Logout</a>
+                </div>-->
                 
                 <!-- Help button -->
                 <a class="button2D no-fixed clear navbar-right">
@@ -164,7 +189,7 @@
                     </div>-->
                     <div class="modal-body">
                         <div class="form-group">
-                            <input type="email" class="form-control" id="login-username" placeholder="Email address">
+                            <input type="email" class="form-control" id="login-username" placeholder="Email Address">
                         </div>
                         <div class="form-group">
                             <input type="password" class="form-control" id="login-password" placeholder="Password">
@@ -209,7 +234,7 @@
                         <span id="header">New Account</span>
                         <hr>-->
                         <div class="form-group">
-                            <input type="email" class="form-control" id="register-username" placeholder="Email address">
+                            <input type="email" class="form-control" id="register-username" placeholder="Email Address">
                         </div>
                         <div class="form-group">
                             <input type="password" class="form-control" id="register-password" placeholder="Password">

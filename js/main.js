@@ -130,6 +130,7 @@ $('#submit-register').click(function() {
     //window.location.reload();
 });
 
+/*
 $('#options-button').popover({
     html: true,
     trigger: 'manual',
@@ -157,4 +158,4 @@ $('#options-button').popover({
         }, 50);
     };
     some_function();
-});
+}); */

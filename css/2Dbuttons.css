@@ -42,6 +42,15 @@
     padding-right: 1em;
 }
 
+/* square rule - for the menu popover */
+.square {
+    border-radius: 0px;
+    color: black !important;
+    width: 100%;
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+
 /* color rules */
 .clear {
     background: rgba(255, 255, 255, 0.4);
