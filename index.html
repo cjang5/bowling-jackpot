@@ -21,8 +21,6 @@
         <!-- Open Sans font -->
         <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300' rel='stylesheet' type='text/css'>
         
-        <link href='https://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
-        
     </head>
     
     <body>
@@ -82,14 +80,25 @@
                 <a class="button2D clear" id='userStatus'></a>
                 
                 <!-- Register button -->
-                <a class="button2D clear navbar-right" data-toggle="modal" data-target="#register-modal">
+                <a class="button2D clear navbar-right" id="register-button" data-toggle="modal" data-target="#register-modal">
                     <span>Register</span>
                 </a>
                 
                 <!-- Login button -->
-                <a class="button2D clear navbar-right" data-toggle="modal" data-target="#login-modal">
+                <a class="button2D clear navbar-right" id="login-button" data-toggle="modal" data-target="#login-modal">
                     <span>Log in</span>
                 </a>
+                
+                <!-- Options button -->
+                <a class="button2D clear no-fixed navbar-right" id="options-button" data-placement="bottom" style="display: none;">
+                    <i class="fa fa-cog"></i>
+                </a>
+                <!-- Popover menu triggered by Options button -->
+                <div id="popover-content" style="display: none;">
+                    <a class="button3D orange1" id="logout-button">
+                        <span>Logout</span>
+                    </a>
+                </div>
                 
                 <!-- Help button -->
                 <a class="button2D no-fixed clear navbar-right">
@@ -139,7 +148,8 @@
             </div>
         </div>
 
-        
+        <!-- TEMP -->
+        <a href="client.html">pls</a>
         
         <!-- Login Modal -->
         <div id="login-modal" class="modal fade" tabindex="-1" role="dialog">
@@ -171,7 +181,7 @@
 
                         <div style="clear: both;"></div>
                         
-                        <a class="button3D light-blue" id="login_button">Log in</a>
+                        <a class="button3D light-blue" id="submit-login">Log in</a>
                         
                         <hr>
                         <div class="login-modal-footer">
@@ -203,7 +213,7 @@
                             <input type="password" class="form-control" id="register-password" placeholder="Password">
                         </div>
                         
-                        <a class="button3D orange1">Sign up</a>
+                        <a class="button3D orange1" id="submit-register">Sign up</a>
                         
                         <hr>
                         <div class="login-modal-footer">

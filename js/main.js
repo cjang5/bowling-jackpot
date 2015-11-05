@@ -15,6 +15,13 @@ if (sessionStorage.getItem('logged_in') == null) {
     $('#userStatus').text('Not logged in.');
 } else {
     $('#userStatus').text('Logged in as: ' + sessionStorage.getItem('username'));
+    
+    // if user is logged in, we must hide the login and register buttons in the navbar
+    $('#login-button').hide();
+    $('#register-button').hide();
+    
+    // show the options and dashboard buttons
+    $('#options-button').show();
 }
 
 //TEMP
@@ -43,7 +50,7 @@ var updateStatus = function() {
 } */
 
 // Login button
-$('#login_button').click(function() {
+$('#submit-login').click(function() {
     // get the text from the two input forms
     var userText = $('#login-username').val();
     var passText = $('#login-password').val();
@@ -67,7 +74,10 @@ $('#login_button').click(function() {
             username = userText; // update username
             password = passText; // update password
             //updateStatus();
-            window.location.reload();
+            
+            // open client.html
+            window.open('client.html', '_self', false);
+            //window.location.reload();
         },
         error: function(xhr) { 
             alert('Login failed'); // TODO: Determine whether it was incorrect email or password using 
@@ -79,16 +89,16 @@ $('#login_button').click(function() {
 });
 
 // Logout button
-$('#logout_button').click(function() {
+$(document).on('click', '#logout-button', function() {
     // close the session
     sessionStorage.clear();
-    
+
     // reload the page
     window.location.reload();
-})
+});
 
 // Register button
-$('#register_button').click(function() {
+$('#submit-register').click(function() {
     // get the text from the two input forms
     var userText = $('#register-username').val();
     var passText = $('#register-password').val();
@@ -120,3 +130,31 @@ $('#register_button').click(function() {
     //window.location.reload();
 });
 
+$('#options-button').popover({
+    html: true,
+    trigger: 'manual',
+    container: $(this).attr('id'),
+    placement: 'bottom',
+    animation: true,
+    content: function () {
+        return $('#popover-content').html();
+    }
+}).on("mouseenter", function () {
+    var _this = this;
+    $(this).popover("show");
+    $(this).siblings(".popover").on("mouseleave", function () {
+        $(_this).popover('hide');
+    });
+}).on("mouseleave", function () {
+    var _this = this;
+    var some_function = function() {
+        setTimeout(function () {
+            if (!$(".popover:hover").length) {
+                $(_this).popover("hide")
+            } else {
+                some_function();
+            }
+        }, 50);
+    };
+    some_function();
+});
