@@ -1,5 +1,4 @@
 #Todo list
-+ Change width of options dropdown to fixed amount rather than vw
 + Figure out Dashboard button styling, place in between ? and Options
  + Still need to do for final color scheme
 + Catch incorrect logins/failed registration
@@ -25,3 +24,4 @@
 + ~~Hover highlight for 3D buttons~~
 + ~~Dropdown menu for options button~~
 + ~~Dropdown trigger on hover~~
++ ~~Change width of options dropdown to fixed amount rather than vw~~
