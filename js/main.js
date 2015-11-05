@@ -130,32 +130,11 @@ $('#submit-register').click(function() {
     //window.location.reload();
 });
 
-/*
-$('#options-button').popover({
-    html: true,
-    trigger: 'manual',
-    container: $(this).attr('id'),
-    placement: 'bottom',
-    animation: true,
-    content: function () {
-        return $('#popover-content').html();
-    }
-}).on("mouseenter", function () {
-    var _this = this;
-    $(this).popover("show");
-    $(this).siblings(".popover").on("mouseleave", function () {
-        $(_this).popover('hide');
-    });
-}).on("mouseleave", function () {
-    var _this = this;
-    var some_function = function() {
-        setTimeout(function () {
-            if (!$(".popover:hover").length) {
-                $(_this).popover("hide")
-            } else {
-                some_function();
-            }
-        }, 50);
-    };
-    some_function();
-}); */
+/* Make options button trigger on hover instead of click */
+$(document).ready(function(){
+    $('.dropdown').hover(function() {
+        $(this).find('.dropdown-menu').stop(true, true).delay(100).fadeIn(100);
+    }, function() {
+        $(this).find('.dropdown-menu').stop(true, true).delay(100).fadeOut(100);
+    });  
+});
