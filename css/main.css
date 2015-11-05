@@ -83,9 +83,15 @@ body,
     font-family: 'Montserrat', sans-serif;
     cursor: pointer;
 }
+
+.navbar-brand a {
+    text-decoration: none;
+}
+
 .navbar-brand span {
     color: rgba(255, 255, 255, 0.4);
 }
+
 .navbar-brand span:hover {
     color: white;
 }
