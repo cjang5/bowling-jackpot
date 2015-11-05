@@ -1,4 +1,5 @@
 #Todo list
++ Change width of options dropdown to fixed amount rather than vw
 + Figure out Dashboard button styling, place in between ? and Options
  + Still need to do for final color scheme
 + Catch incorrect logins/failed registration
