@@ -3,6 +3,7 @@
 + ~~in register modal, employ green highlight/checkmark for correct password criteria/email~~
 + ~~Hover highlight for 3D buttons~~
 + ~~Dropdown menu for options button~~
++ ~~Dropdown trigger on hover~~
  + Still need to do for final color scheme
 + Catch incorrect logins/failed registration
  + Add the dialog that will pop up - maybe tooltip? or div under button?
