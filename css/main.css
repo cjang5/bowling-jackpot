@@ -161,14 +161,9 @@ body,
 }
 
 /*
-||============||
-||POPOVER MENU||
-||============||*/
-.popover-content {
-    padding-top: -10px !important;
-    padding-left: -30px !important;
-    text-align: center;
-}
+||=============||
+||DROPDOWN MENU||
+||=============||*/
 .options-menu {
     padding-top: 0px;
     padding-bottom: 0px;
@@ -179,13 +174,19 @@ body,
     margin: 0px;
 }
 .options-menu li {
-    
     font-family: 'Arvo', sans-serif;
     font-size: 1em !important;
 }
 .options-menu li a {
     padding-top: 15px;
     padding-bottom: 15px;
+}
+.options-menu li a:hover {
+    background: white;
+    color: #f88052;
+}
+.options-menu li a:focus {
+    background: white;
 }
 
 /**
