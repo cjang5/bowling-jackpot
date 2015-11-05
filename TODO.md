@@ -1,9 +1,5 @@
 #Todo list
-
-+ ~~in register modal, employ green highlight/checkmark for correct password criteria/email~~
-+ ~~Hover highlight for 3D buttons~~
-+ ~~Dropdown menu for options button~~
-+ ~~Dropdown trigger on hover~~
++ Figure out Dashboard button styling, place in between ? and Options
  + Still need to do for final color scheme
 + Catch incorrect logins/failed registration
  + Add the dialog that will pop up - maybe tooltip? or div under button?
@@ -22,3 +18,9 @@
 + create footer
 + Allow 'Enter' press instead of clicking 'log in' or 'sign up' in modals
  + look into jQuery .keyPress() for this..?
+ 
+##Completed
++ ~~in register modal, employ green highlight/checkmark for correct password criteria/email~~
++ ~~Hover highlight for 3D buttons~~
++ ~~Dropdown menu for options button~~
++ ~~Dropdown trigger on hover~~
