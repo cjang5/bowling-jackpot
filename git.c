@@ -29,6 +29,7 @@ int main(int argc, char** argv) {
 	int status;
 	pid_t child = fork();
 
+	// git add --all
 	if (child == -1) {
 		return 1;
 	}
@@ -40,6 +41,7 @@ int main(int argc, char** argv) {
 		puts("You shouldn't see this");
 	}
 
+	// git commit -m <COMMIT MESSAGE>
 	child = fork();
 	if (child == -1) {
 		return 1;
@@ -52,6 +54,7 @@ int main(int argc, char** argv) {
 		puts("You shouldn't see this");
 	}
 
+	// git push
 	child = fork();
 	if (child == -1) {
 		return 1;
@@ -63,6 +66,66 @@ int main(int argc, char** argv) {
 	}
 	else {
 		execlp("bash", "bash", "-c", "git push", (char *) NULL);
+		puts("You shouldn't see this");
+	}
+
+	// git checkout gh-pages
+	child = fork();
+	if (child == -1) {
+		return 1;
+	}
+	else if (child > 0) {
+		pid_t parent = waitpid(child, &status, 0);
+
+		return 0;
+	}
+	else {
+		execlp("bash", "bash", "-c", "git checkout gh-pages", (char *) NULL);
+		puts("You shouldn't see this");
+	}
+
+	// git merge master
+	child = fork();
+	if (child == -1) {
+		return 1;
+	}
+	else if (child > 0) {
+		pid_t parent = waitpid(child, &status, 0);
+
+		return 0;
+	}
+	else {
+		execlp("bash", "bash", "-c", "git merge master", (char *) NULL);
+		puts("You shouldn't see this");
+	}
+
+	// git push origin gh-pages
+	child = fork();
+	if (child == -1) {
+		return 1;
+	}
+	else if (child > 0) {
+		pid_t parent = waitpid(child, &status, 0);
+
+		return 0;
+	}
+	else {
+		execlp("bash", "bash", "-c", "git push origin gh-pages", (char *) NULL);
+		puts("You shouldn't see this");
+	}
+
+	// git checkout master
+	child = fork();
+	if (child == -1) {
+		return 1;
+	}
+	else if (child > 0) {
+		pid_t parent = waitpid(child, &status, 0);
+
+		return 0;
+	}
+	else {
+		execlp("bash", "bash", "-c", "git checkout master", (char *) NULL);
 		puts("You shouldn't see this");
 	}
 
