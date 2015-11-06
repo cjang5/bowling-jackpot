@@ -1,5 +1,6 @@
 #Todo list
 + Figure out Dashboard button styling, place in between ? and Options
+ + can change later, but placeholder is in
 + Catch incorrect logins/failed registration
  + Add the dialog that will pop up - maybe tooltip? or div under button?
 + Finalize Registration modal
