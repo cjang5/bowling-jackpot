@@ -14,11 +14,10 @@ $('.sidebar a.open').click(function(e) {
     $('.right').toggleClass('open-nav2');
     $('.sidebar .s-text').toggleClass('appear');
     
-    //TEMP
-    $('h1.PLS').toggleClass('appear');
-    $('.right .WTF').toggleClass('appear');
+    // make everything look pretty when the sidebar is toggled
+    $('.sidebar .sText').toggleClass('toggle');
+    $('.sidebar .s-icon').toggleClass('toggle2');
     
-    //$('.sidebar a.open').toggleClass('appear');
-    
-    $('.sidebar .s-text').toggleClass('appear');
+    // flip the pointer hand to point left
+    $('.sidebar .collapser').toggleClass('rotate')
 });
