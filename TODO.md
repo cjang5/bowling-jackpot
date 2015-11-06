@@ -10,9 +10,6 @@
  + Then put logo in navbar-brand
 + start prototyping UI for lottery/league creation
 + Create tooltip(?) or modal for help dialog
-+ Create logout button
- + Link to JS
- + make it visible/invisible depending on user status
 + Create rest of landing page
 + create footer
 + Allow 'Enter' press instead of clicking 'log in' or 'sign up' in modals
@@ -24,3 +21,6 @@
 + ~~Dropdown menu for options button~~
 + ~~Dropdown trigger on hover~~
 + ~~Change width of options dropdown to fixed amount rather than vw~~
++ ~~Create logout button~~
+ + ~~Link to JS~~
+ + ~~make it visible/invisible depending on user status~~
