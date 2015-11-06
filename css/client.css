@@ -1,0 +1,81 @@
+* {
+  box-sizing: border-box; 
+}
+
+.sidebar {
+    background: #333333;
+    position: fixed;
+    padding: 0px;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 50px;
+    transition-property: width, background;
+    transition-duration: 0.5s;
+    transition-timing-function: ease;
+}
+
+.open-nav {
+    width: 250px;
+}
+
+.sidebar ul {
+    width: 100%;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.sidebar ul li {
+    margin-bottom: 0px;
+}
+
+.sidebar a {
+    text-align: center;
+    font-family: 'Montserrat', sans-serif;
+    display: block;
+    padding: 10px;
+    width: 100%;
+    color: white;
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+}
+
+.sidebar a .s-icon {
+    transition-property: opacity;
+    transition-duration: 0.5s;
+    transition-timing-function: ease;
+}
+
+/* rule to re-appear (opacity) */
+.appear {
+    background: red;
+    opacity: 0;
+}
+
+.s-text {
+    transition-property: background, opacity;
+    transition-duration: 0.5s;
+    transition-timing-function: ease;
+    opacity: 1;
+}
+
+.sidebar a:hover {
+    background: rgba(255, 255, 255, 0.25);
+    color: #ff6d96;
+}
+
+/* TODO: RENAME THIS ISH */
+.right {
+    position:relative;
+    margin-left:75px; // push the right column past the left column, with some room as well.
+    
+    transition-property: margin-left;
+    transition-duration: 0.5s;
+    transition-timing-function: ease;
+}
+
+/* TODO RENAME THIS ISH */
+.open-nav2 {
+    margin-left: 275px;
+}

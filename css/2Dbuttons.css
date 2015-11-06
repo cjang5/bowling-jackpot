@@ -42,20 +42,30 @@
     padding-right: 1em;
 }
 
-/* square rule - for the menu popover */
-.square {
+/* sharp looking buttons - flat */
+.sharp {
     border-radius: 0px;
-    color: black !important;
-    width: 100%;
-    margin-top: 0px;
-    margin-bottom: 0px;
 }
 
-/* color rules */
+/*
+||======||
+||COLORS||
+||======||*/
 .clear {
+    font-family: 'Arvo', sans-serif;
     background: rgba(255, 255, 255, 0.4);
     /*text-shadow: 0px -1.5px rgba(0, 0, 0, 0.5);*/
 }
 .clear:hover {
     background: rgba(0, 0, 0, 0.4);
+}
+
+.pink-red {
+    font-family: 'Arvo', sans-serif;
+    background: #ff6d96;
+    /*background: #00ef98;*/
+    color: white;
+}
+.pink-red:hover {
+    background: #fe80a3;
 }

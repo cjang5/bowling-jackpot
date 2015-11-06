@@ -22,6 +22,7 @@ if (sessionStorage.getItem('logged_in') == null) {
     
     // show the options and dashboard buttons
     $('#options-button').show();
+    $('#dashboard-button').show();
 }
 
 //TEMP
