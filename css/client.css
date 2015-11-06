@@ -41,7 +41,7 @@
     border-bottom: 1px solid transparent;
 }
 .sidebar a:hover {
-    background: rgba(255, 255, 255, 0.25);
+    background: rgba(255, 255, 255, 0.20);
     color: #ff6d96;
     color: #00ef8d;
 }
@@ -81,7 +81,7 @@
 /* TODO: RENAME THIS ISH */
 .right {
     position:relative;
-    margin-left:75px; // push the right column past the left column, with some room as well.
+    margin-left: 75px;
     
     transition-property: margin-left;
     transition-duration: 0.5s;
