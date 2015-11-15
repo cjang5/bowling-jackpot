@@ -1,4 +1,9 @@
 .pseudo-nav {
     width: 100%;
-    background: red;
+    background: white;
+    border-bottom: 5px solid black;
+}
+
+.page-title {
+    color: black;
 }
