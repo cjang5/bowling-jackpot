@@ -81,7 +81,7 @@
 /* TODO: RENAME THIS ISH */
 .right {
     position:relative;
-    margin-left: 75px;
+    margin-left: 50px;
     
     transition-property: margin-left;
     transition-duration: 0.5s;
@@ -90,5 +90,5 @@
 
 /* TODO RENAME THIS ISH */
 .open-nav2 {
-    margin-left: 275px;
+    margin-left: 250px;
 }
