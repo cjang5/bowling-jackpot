@@ -1,3 +1,7 @@
+/*
+||=====||
+||FORMS||
+||=====||*/
 /* Invalid rule for email field */
 #register-username:invalid {
     background: rgba(255, 136, 95, 0.2);
@@ -5,7 +9,6 @@
     box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(255, 136, 95, 0.45);
 }
 
-/* forms in Bootstrap 3 */
 .form-control {
     text-decoration: none;
 }
