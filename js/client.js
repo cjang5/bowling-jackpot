@@ -54,6 +54,10 @@ $(".main-view div").each(function(){
     }
 });
 
+/*
+||============||
+||SIDEBAR CODE||
+||============||*/
 // Based on which sidebar button is clicked, show appropriate view
 $('.sidebar .view-button').on( "click", function(e) {
     e.preventDefault();
