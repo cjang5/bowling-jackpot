@@ -77,11 +77,11 @@
 
 .spotify-green {
     font-family: 'Arvo', sans-serif;
-    background: #00ef8d;
+    background: #00e486;
 }
 .spotify-green:hover {
-    background: #0af896;
+    background: #00ef8d;
 }
 .spotify-green:active {
-    background: #00e386;
+    background: #00d87f;
 }
