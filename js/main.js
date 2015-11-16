@@ -63,12 +63,13 @@ $('#submit-login').click(function() {
         email: userText,
         password: passText,
         success: function(user) {
-            alert('Successfully logged in: ' + userText);
+            //alert('Successfully logged in: ' + userText);
             console.log(JSON.stringify(user, null, 4));
             
             //TEMP
             sessionStorage.setItem('logged_in', 'true');
             sessionStorage.setItem('username', userText);
+            sessionStorage.setItem('password', passText);
             
             // flip the 'logged_in' flag and update status
             logged_in = true;

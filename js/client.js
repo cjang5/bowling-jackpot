@@ -1,3 +1,9 @@
+// Fix pseudo-nav to top of screen
+$(document).ready(function() {
+    var newHeight = parseInt($('.main-view').css('padding-top').replace("px", "")) + $('.pseudo-nav').outerHeight();
+    $('.main-view').css('padding-top', newHeight);
+});
+
 /**
  * Main view handling code
  * On load, the current view will be the News Feed
@@ -7,6 +13,21 @@
  * 3 = Jackpots
  */
 var currPage = 0;
+
+// Re-verify login information on load of client
+var client = new BowlingApiClient('http://bowling-api.nextcapital.com/api');
+//console.log("Attempting to log in as: " + sessionStorage.getItem('username') + " with password: " + sessionStorage.getItem('password'));
+client.loginUser({
+    email: sessionStorage.getItem('username'),
+    password: sessionStorage.getItem('password'),
+    success: function(user) {
+        console.log(JSON.stringify(user, null, 4));
+    },
+    error: function(xhr)  {
+        console.log(JSON.parse(xhr.responseText));
+    }
+});
+
 /*
 $('.Bowlers-button').click(function() {
     currPage = 1;
@@ -18,7 +39,8 @@ $('.Bowlers-button').click(function() {
 // Show the news div first
 $(".main-view div").each(function(){
     $(this).hide();
-    if($(this).attr('id') == "news") {
+    if($(this).attr('id') == "News Feed") {
+        $(".page-title").text('News Feed');
         $(this).show();
     }
 });
@@ -30,7 +52,20 @@ $('.sidebar .view-button').on( "click", function(e) {
     $(".main-view div").each(function(){
         $(this).hide();
         if($(this).attr('id') == id) {
+            $(".page-title").text($(this).attr('id'));
             $(this).show();
+        }
+    });
+});
+
+$('#Bowlers-button').click(function() {
+    // Send GET request for getting all bowlers
+    client.getBowlers({
+        success: function(bowlers) {
+            console.log(JSON.stringify(bowlers, null, 4));
+        },
+        error: function(xhr) {
+            console.log(JSON.parse(xhr.responseText));
         }
     });
 });
@@ -44,38 +79,38 @@ $('.sidebar a.open').click(function(e) {
     $('.sidebar .s-text').toggleClass('appear');
     
     // Home button
-    if ($('#Home').text() == '') 
-        $('#Home').text('Home');
+    if ($('#home-span').text() == '') 
+        $('#home-span').text('Home');
     else 
         setTimeout(function() { $('#Home').text(''); }, 500);
     
     // Feed button
-    if ($('#Feed').text() == '')
-        $('#Feed').text('Feed');
+    if ($('#feed-span').text() == '')
+        $('#feed-span').text('Feed');
     else
         setTimeout(function() { $('#Feed').text(''); }, 500);
     
     // Bowlers button
-    if ($('#Bowlers').text() == '')
-        $('#Bowlers').text('Bowlers');
+    if ($('#bowlers-span').text() == '')
+        $('#bowlers-span').text('Bowlers');
     else
         setTimeout(function() { $('#Bowlers').text(''); }, 500);
     
     // Leagues button
-    if ($('#Leagues').text() == '')
-        $('#Leagues').text('Leagues');
+    if ($('#leagues-span').text() == '')
+        $('#leagues-span').text('Leagues');
     else
         setTimeout(function() { $('#Leagues').text(''); }, 500);
     
     // Jackpots button
-    if ($('#Jackpots').text() == '')
-        $('#Jackpots').text('Jackpots');
+    if ($('#jackpots-span').text() == '')
+        $('#jackpots-span').text('Jackpots');
     else
         setTimeout(function() { $('#Jackpots').text(''); }, 500);
     
     // Collapse button
-    if ($('#Collapse').text() == '')
-        $('#Collapse').text('Collapse');
+    if ($('#collapse-span').text() == '')
+        $('#collapse-span').text('Collapse');
     else
         setTimeout(function() { $('#Collapse').text(''); }, 500);
     

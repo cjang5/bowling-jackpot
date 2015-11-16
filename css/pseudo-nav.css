@@ -1,9 +1,24 @@
 .pseudo-nav {
     width: 100%;
     background: white;
-    border-bottom: 5px solid black;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.15);
+    /*
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-left: 10px;
+    padding-right: 10px;*/
+    padding: 20px;
+    position: fixed;
 }
 
 .page-title {
     color: black;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.5em;
+}
+
+.sticky {
+    position: fixed;
+    top: 0;
+    z-index: 50;
 }
