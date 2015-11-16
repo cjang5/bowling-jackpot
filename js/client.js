@@ -1,3 +1,7 @@
+/*
+||===========||
+||NAVBAR CODE||
+||===========||*/
 // Fix pseudo-nav to top of screen
 $(document).ready(function() {
     var newHeight = parseInt($('.main-view').css('padding-top').replace("px", "")) + $('.pseudo-nav').outerHeight();

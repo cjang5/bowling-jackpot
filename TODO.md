@@ -1,4 +1,9 @@
 #Todo list
++ Handle which buttons to show in client.pseudo-nav based on which view you're currently in
++ Test scrolling with fixed pseudo-nav by making ul list in bowlers-view
+ + Make create-bowler-button add new li to ul list
+ + Once figured out, add styling to list
+ + Then link client GET/POST requests
 + Figure out Dashboard button styling, place in between ? and Options
  + can change later, but placeholder is in
 + Catch incorrect logins/failed registration
