@@ -47,6 +47,11 @@
     border-radius: 0px;
 }
 
+.long {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
 /*
 ||======||
 ||COLORS||
