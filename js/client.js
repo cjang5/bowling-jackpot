@@ -8,6 +8,11 @@ $(document).ready(function() {
     $('.main-view').css('padding-top', newHeight);
 });
 
+//TEMP
+$('#create-bowler-button').click(function() {
+     
+});
+
 /**
  * Main view handling code
  * On load, the current view will be the News Feed
