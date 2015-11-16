@@ -21,3 +21,15 @@
 .pseudo-nav .button2D {
     margin-top: 0px !important;
 }
+
+/*
+||===========||
+||BOWLER VIEW||
+||===========||*/
+.input-group {
+    display: inline-block;
+}
+/* The "Find Bowler" form*/
+#find-bowler-form {
+    width: 30%;
+}
