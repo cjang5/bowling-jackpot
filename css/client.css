@@ -127,6 +127,35 @@ html, body {
     width: 65%;
     height: 100%;
     background: white;
-    padding: 20px;
+    /*padding: 20px;*/
     border: 1px solid rgba(0, 0, 0, 0.15);
+}
+.bowlers-view ul {
+    padding: 0px;
+    list-style-type: none;
+}
+.bowlers-view li {
+    background: green;
+    padding: 0px;
+}
+.bowlers-view li #id {
+    padding: 15px;
+    width: 20%;
+    background: red;
+    display: inline-block;
+    margin-right: -3px;
+}
+.bowlers-view li #name {
+    background: blue;
+    display: inline-block;
+    padding: 15px;
+    width: 60%;
+    margin-right: -5px;
+}
+.bowlers-view li #userid {
+    background: yellow;
+    display: inline-block;
+    padding: 15px;
+    width: 20%;
+    margin-left: 0px;
 }
