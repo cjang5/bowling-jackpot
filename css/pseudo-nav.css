@@ -43,4 +43,5 @@
 #submit-find-bowler {
     border-radius: 0px 3px 3px 0px;
     margin-left: -4px;
+    min-width: 0px;
 }
