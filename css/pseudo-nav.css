@@ -10,6 +10,7 @@
     padding: 20px;
     position: fixed;
     vertical-align: middle;
+    display: inline-block;
 }
 
 .page-title {
@@ -19,17 +20,27 @@
 }
 
 .pseudo-nav .button2D {
-    margin-top: 0px !important;
+    margin: 0px;
+    display: inline-block;
 }
 
 /*
 ||===========||
 ||BOWLER VIEW||
 ||===========||*/
-.input-group {
-    display: inline-block;
-}
+
 /* The "Find Bowler" form*/
 #find-bowler-form {
-    width: 30%;
+    font-family: 'Arvo', sans-serif;
+    font-size: 1.1em;
+    display: inline-block;
+    width: 15%;
+    vertical-align: bottom;
+    margin-left: 20px;
+    
+    border-radius: 3px 0px 0px 3px;
+}
+#submit-find-bowler {
+    border-radius: 0px 3px 3px 0px;
+    margin-left: -4px;
 }

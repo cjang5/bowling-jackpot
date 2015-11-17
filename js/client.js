@@ -2,10 +2,14 @@
 ||===========||
 ||NAVBAR CODE||
 ||===========||*/
-// Fix pseudo-nav to top of screen
 $(document).ready(function() {
+    // Fix pseudo-nav to top of screen
     var newHeight = parseInt($('.main-view').css('padding-top').replace("px", "")) + $('.pseudo-nav').outerHeight();
     $('.main-view').css('padding-top', newHeight);
+    
+    // Make Find-Bowler form same height as buttons
+    var buttonHeight = $('#create-bowler-button').outerHeight();
+    $('#find-bowler-form').css('height', buttonHeight);
 });
 
 //TEMP
