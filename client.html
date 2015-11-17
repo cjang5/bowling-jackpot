@@ -87,15 +87,26 @@
         <div class="right">
             <!-- navbar -->
             <div class="pseudo-nav">
+                <!-- the title of the current view -->
                 <span class="page-title"></span>
-                <a class="button2D long spotify-green" id="create-bowler-button">
-                    <span>Create Bowler</span>
-                </a>
+                
+                <!-- Bowlers View components -->
+                <div class="bowler-components" data-related="My Bowlers" style="display: inline-block;">
+                     <!-- "Create Bowler" button -->
+                    <a class="button2D long spotify-green" id="create-bowler-button">
+                        <span>Create Bowler</span>
+                    </a>
+                    <!-- Search Bowler input form -->
+                    <input type="number" class="form-control" id="find-bowler-form" placeholder="Bowler ID">
+                    <!-- Search Bowler button -->
+                    <a class="button2D long spotify-green" id="submit-find-bowler">
+                        <span>Search</span>
+                    </a>           
+                </div>
 
-                <input type="number" class="form-control" id="find-bowler-form" placeholder="Bowler ID">
-                <a class="button2D long spotify-green" id="submit-find-bowler">
-                    <span>Search</span>
-                </a>
+                
+                
+                
             </div>
             
             <!-- Main content in dashboard view -->
