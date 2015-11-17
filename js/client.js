@@ -10,6 +10,12 @@ $(document).ready(function() {
     // Make Find-Bowler form same height as buttons
     var buttonHeight = $('#create-bowler-button').outerHeight();
     $('#find-bowler-form').css('height', buttonHeight);
+    
+    // spacing for buttons on pseudo-nav
+    /*
+    var pseudoWidth = $('.pseudo-nav').outerWidth() / 10;
+    pseudoWidth = pseudoWidth + 'px';
+    $('#create-bowler-button').css('margin-left', pseudoWidth);*/
 });
 
 //TEMP
