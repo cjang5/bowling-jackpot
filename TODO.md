@@ -1,5 +1,6 @@
 #Todo list
-+ Handle which buttons to show in client.pseudo-nav based on which view you're currently in
++ ~~Handle which buttons to show in client.pseudo-nav based on which view you're currently in~~
+ + Do this for every view
 + Test scrolling with fixed pseudo-nav by making ul list in bowlers-view
  + Make create-bowler-button add new li to ul list
  + Once figured out, add styling to list

@@ -56,12 +56,16 @@ $('.Bowlers-button').click(function() {
 });*/
 
 // Show the news div first
-$(".main-view div").each(function(){
+$(".main-view div").each(function() {
     $(this).hide();
-    if($(this).attr('id') == "News Feed") {
+    if ($(this).attr('id') == "News Feed") {
         $(".page-title").text('News Feed');
         $(this).show();
     }
+});
+
+$(".pseudo-nav div").each(function() {
+    $(this).hide();
 });
 
 /*
@@ -72,11 +76,19 @@ $(".main-view div").each(function(){
 $('.sidebar .view-button').on( "click", function(e) {
     e.preventDefault();
     var id = $(this).attr('data-related'); 
-    $(".main-view div").each(function(){
+    $(".main-view div").each(function() {
         $(this).hide();
-        if($(this).attr('id') == id) {
+        if ($(this).attr('id') == id) {
             $(".page-title").text($(this).attr('id'));
             $(this).show();
+        }
+    });
+    $(".pseudo-nav div").each(function() {
+        $(this).hide();
+        if ($(this).attr('data-related') == id) {
+            $(this).show();
+            
+            $('input').css('height', $('.button2D').outerHeight());
         }
     });
 });
