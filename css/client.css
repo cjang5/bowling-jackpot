@@ -134,28 +134,42 @@ html, body {
     padding: 0px;
     list-style-type: none;
 }
+/* Header for the cards list */
+.bowlers-view .header span {
+    padding-top: 10px !important;
+    padding-bottom: 10px !important;
+}
+.bowlers-view .header span + span {
+    border-left: solid 2px red !important;
+}
+
+/* the cards */
 .bowlers-view li {
-    background: green;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.2em;
     padding: 0px;
 }
+/* Three parts to a card item */
 .bowlers-view li #id {
-    padding: 15px;
+    padding: 20px;
     width: 20%;
-    background: red;
     display: inline-block;
-    margin-right: -3px;
+    margin-right: -4px;
+    border-right: solid 2px rgba(0, 0, 0, 0.4);
 }
 .bowlers-view li #name {
-    background: blue;
     display: inline-block;
-    padding: 15px;
-    width: 60%;
+    padding: 20px;
+    width: 54%;
     margin-right: -5px;
 }
 .bowlers-view li #userid {
-    background: yellow;
     display: inline-block;
-    padding: 15px;
-    width: 20%;
+    padding: 20px;
+    width: 25%;
     margin-left: 0px;
+}
+/* actual hoverable card items NOT HEADER */
+.bowlers-view .bowler-item:hover {
+    background: rgba(0, 0, 0, 0.1);
 }
