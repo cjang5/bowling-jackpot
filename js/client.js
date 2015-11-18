@@ -1,3 +1,17 @@
+// Re-verify login information on load of client
+var client = new BowlingApiClient('http://bowling-api.nextcapital.com/api');
+//console.log("Attempting to log in as: " + sessionStorage.getItem('username') + " with password: " + sessionStorage.getItem('password'));
+client.loginUser({
+    email: sessionStorage.getItem('username'),
+    password: sessionStorage.getItem('password'),
+    success: function(user) {
+        console.log(JSON.stringify(user, null, 4));
+    },
+    error: function(xhr)  {
+        console.log(JSON.parse(xhr.responseText));
+    }
+});
+
 /*
 ||===========||
 ||NAVBAR CODE||
@@ -48,6 +62,12 @@ var appendBowler = function(id, name, userid) {
 $('#create-bowler-button').click(function() {
     $('.bowlers-secondary #curr-sel').html('Create new bowler');
     $('.bowlers-secondary .curr-bowler').hide();
+    $('.placeholder').hide();
+    $('#new-bowler-name').show();
+    $('.confirm-creation').show();
+    
+    
+    $('.bowlers-secondary .bottom').css('background', '#333333');
     
     /*
     client.createBowler ({
@@ -91,28 +111,6 @@ $('#submit-find-bowler').click(function() {
     });
 });
 
-// Re-verify login information on load of client
-var client = new BowlingApiClient('http://bowling-api.nextcapital.com/api');
-//console.log("Attempting to log in as: " + sessionStorage.getItem('username') + " with password: " + sessionStorage.getItem('password'));
-client.loginUser({
-    email: sessionStorage.getItem('username'),
-    password: sessionStorage.getItem('password'),
-    success: function(user) {
-        console.log(JSON.stringify(user, null, 4));
-    },
-    error: function(xhr)  {
-        console.log(JSON.parse(xhr.responseText));
-    }
-});
-
-/*
-$('.Bowlers-button').click(function() {
-    currPage = 1;
-    // hide the current active view and display this one
-    $('.active').removeClass('active');
-    $('.bowlers-view').addClass('active');
-});*/
-
 // Show the news div first
 $(".main-view div").each(function() {
     $(this).hide();
@@ -125,6 +123,28 @@ $(".main-view div").each(function() {
 // hide all divs in pseudo-nav initially
 $(".pseudo-nav div").each(function() {
     $(this).hide();
+});
+
+/*
+||================||
+||BOWLER VIEW CODE||
+||================||*/
+// If user wants to cancel new bowler creation...
+$('.bowlers-secondary .bottom .confirm-creation #cancel').click(function() {
+    // Hide appropriate secondary divs
+    $('.add-to-league').hide();
+    $('.add-to-lottery').hide();
+    $('.confirm-creation').hide();
+    $('#new-bowler-name').hide();
+    $('.bowlers-secondary .bottom').css('background', 'white');
+    $('.bowlers-secondary #curr-sel').html('Currently Selected');
+    $('.bowlers-secondary .top .curr-bowler').show();
+    $('.placeholder').show();
+});
+
+// Handle secondary view elements when a bowler is selected from main view
+$('.bowlers-view ul li .bowler-item').click(function() {
+    alert("TEST"); 
 });
 
 /*
@@ -160,6 +180,12 @@ $('#Bowlers-button').click(function() {
     // Hide appropriate secondary divs
     $('.add-to-league').hide();
     $('.add-to-lottery').hide();
+    $('.confirm-creation').hide();
+    $('#new-bowler-name').hide();
+    $('.bowlers-secondary .bottom').css('background', 'white');
+    $('.bowlers-secondary #curr-sel').html('Currently Selected');
+    $('.bowlers-secondary .top .curr-bowler').show();
+    
     
     // if the height hasn't been set yet for .placeholder
     if (!set) {
@@ -168,6 +194,7 @@ $('#Bowlers-button').click(function() {
         $('.bottom .placeholder').css('padding-top', diff/2);
         $('.bottom .placeholder').css('height', comb);
         
+        // flip the flag
         set = true;
     }
     

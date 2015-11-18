@@ -275,3 +275,9 @@ html, body {
     margin-left: -4px;
     min-width: 30%;
 }
+
+.bowlers-secondary .bottom .confirm-creation a {
+    width: 50%;
+    margin: 0px;
+    margin-top: 10px;
+}
