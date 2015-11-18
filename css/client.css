@@ -210,6 +210,7 @@ html, body {
     background: #333333;
     color: white;
     text-align: center;
+    vertical-align: middle;
     padding-top: 30px;
     padding-bottom: 30px;
     font-family: 'Arvo', sans-serif;
