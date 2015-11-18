@@ -221,6 +221,16 @@ html, body {
     height: 50px;
     line-height: 50px;
 }
+.top #new-bowler-name {
+    border-radius: 3px;
+    background: #494949;
+    border: none;
+    color: rgba(255, 255, 255, 0.75);
+    width: 50%;
+    height: 20px;
+    line-height: 20px;
+    margin: 5px auto;
+}
 
 .bottom {
     text-align: left;

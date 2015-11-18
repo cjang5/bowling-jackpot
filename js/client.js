@@ -45,7 +45,11 @@ var appendBowler = function(id, name, userid) {
         $('<li>').attr('class', 'bowler-item').append(html));
 };
 
-$('#create-bowler-button').click(function() {      
+$('#create-bowler-button').click(function() {
+    $('.bowlers-secondary #curr-sel').html('Create new bowler');
+    $('.bowlers-secondary .curr-bowler').hide();
+    
+    /*
     client.createBowler ({
         name: 'Joy Lee',
         success: function(bowler) {
@@ -58,7 +62,7 @@ $('#create-bowler-button').click(function() {
         error: function(xhr)  {
             console.log(JSON.parse(xhr.responseText));
         }
-    });
+    });*/
 });
 
 /*
