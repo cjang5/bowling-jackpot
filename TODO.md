@@ -13,6 +13,7 @@
  + Automatically login after successful registration
 + For sidebar, highlight current view
 + Link modals to js
++ Decrease sidebar size when expanded
 + find BG images for carousel slides
 + decide on a color scheme
 + Make logo

@@ -1,3 +1,47 @@
+// TEMP: MAGIC BUTTON - for testing features with ease
+$('#temp-button').click(function() {
+    /*
+    $('.add-to-league').toggle();
+    $('.add-to-lottery').toggle();*/
+    /*
+    var diff = $('.bottom').outerHeight() - $('.bottom .placeholder').outerHeight();
+    $('.bottom .placeholder').css('padding-top', diff/2);*/
+    
+    /*
+    // get all leagues
+    client.getLeagues({
+        success: function(leagues) {
+            console.log(JSON.stringify(leagues, null, 4));
+        },
+        error: function(xhr)  {
+            console.log(JSON.parse(xhr.responseText));
+        }
+    });
+    
+    // attempt to add nonexistent bowler to existing league
+    client.joinLeague({
+        bowlerId: 1444,
+        leagueId: 979,
+        success: function(bowlers) {
+            console.log(JSON.stringify(bowlers, null, 4));
+        },
+        error: function(xhr)  {
+            console.log(JSON.parse(xhr.responseText));
+        }
+    });*/
+    
+    /*
+    client.getBowlers({
+        leagueId: 979,
+        success: function(bowlers) {
+            console.log(JSON.stringify(bowlers, null, 4));
+        },
+        error: function(xhr)  {
+            console.log(JSON.parse(xhr.responseText));
+        }
+    });*/
+});
+
 // Re-verify login information on load of client
 var client = new BowlingApiClient('http://bowling-api.nextcapital.com/api');
 //console.log("Attempting to log in as: " + sessionStorage.getItem('username') + " with password: " + sessionStorage.getItem('password'));
@@ -30,17 +74,6 @@ $(document).ready(function() {
     var pseudoWidth = $('.pseudo-nav').outerWidth() / 10;
     pseudoWidth = pseudoWidth + 'px';
     $('#create-bowler-button').css('margin-left', pseudoWidth);*/
-});
-
-// TEMP: MAGIC BUTTON
-$('#temp-button').click(function() {
-    /*
-    $('.add-to-league').toggle();
-    $('.add-to-lottery').toggle();*/
-    /*
-    var diff = $('.bottom').outerHeight() - $('.bottom .placeholder').outerHeight();
-    $('.bottom .placeholder').css('padding-top', diff/2);*/
-    alert("hi glor :3");
 });
 
 /*
