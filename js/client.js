@@ -7,7 +7,7 @@ $('#temp-button').click(function() {
     var diff = $('.bottom').outerHeight() - $('.bottom .placeholder').outerHeight();
     $('.bottom .placeholder').css('padding-top', diff/2);*/
     
-    /*
+    
     // get all leagues
     client.getLeagues({
         success: function(leagues) {
@@ -16,8 +16,9 @@ $('#temp-button').click(function() {
         error: function(xhr)  {
             console.log(JSON.parse(xhr.responseText));
         }
-    });
+    }); 
     
+    /*
     // attempt to add nonexistent bowler to existing league
     client.joinLeague({
         bowlerId: 1444,
@@ -207,6 +208,7 @@ var refreshSecondary = function() {
     } 
 };
 
+/*
 // Handle secondary view elements when a bowler is selected from main view
 $('.bowlers-view ul').on('click', 'li.bowler-item', function() {
     var name = $(this).find('span#name').text();
@@ -228,6 +230,12 @@ $('.bowlers-view ul').on('click', 'li.bowler-item', function() {
 $('.bowlers-view ul').on('focusout', 'li.bowler-item', function() {
     currBowler = null;
     setTimeout(refreshSecondary, 1000); // current delay: 1 second
+});*/
+
+
+$('.bowlers-view ul').on('click', 'li.bowler-item', function() {
+    $('.bowlers-view ul li.bowler-item').removeClass('active');
+    $(this).addClass('active');
 });
 
 /*

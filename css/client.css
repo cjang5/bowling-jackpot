@@ -168,6 +168,9 @@ html, body {
     background: #00e486;
     outline: none;
 }
+.bowlers-view li.active {
+    background: red;
+}
 /* Three parts to a card item */
 .bowlers-view li #id {
     padding: 20px;
