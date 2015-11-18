@@ -1,7 +1,8 @@
 html, body {
-    margin: 0;
-    padding: 0;
+    margin: 0px;
+    padding: 0px;
     height: 100%;
+    width: 100%;
 }
 
 * {
@@ -106,6 +107,7 @@ html, body {
     height: 100%;
     background: #e8e8e8;
     padding: 20px;
+    display: flex;
 }
 
 /* active view class */
@@ -128,6 +130,13 @@ html, body {
     height: 100%;
     background: white;
     /*padding: 20px;*/
+    border: 1px solid rgba(0, 0, 0, 0.15);
+    margin-right: 19px;
+}
+.bowlers-secondary {
+    width: 34%;
+    height: 60%;
+    background: white;
     border: 1px solid rgba(0, 0, 0, 0.15);
 }
 .bowlers-view ul {

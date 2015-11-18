@@ -4,7 +4,7 @@
 ||===========||*/
 $(document).ready(function() {
     // Fix pseudo-nav to top of screen
-    var newHeight = parseInt($('.main-view').css('padding-top').replace("px", "")) + $('.pseudo-nav').outerHeight();
+    var newHeight = parseInt($('.main-view').css('padding-top').replace("px", "")) + $('.pseudo-nav').outerHeight() + 5;
     $('.main-view').css('padding-top', newHeight);
     
     // Make Find-Bowler form same height as buttons
@@ -20,7 +20,7 @@ $(document).ready(function() {
 
 //TEMP
 $('#create-bowler-button').click(function() {
-    var html =  '<span id="id">709</span>' + 
+    var html =  '<span id="id">69</span>' + 
                 '<span id="name">Andrew Buhl</span>' + 
                 '<span id="userid">420</span>';
     $('.bowlers-view ul').append(
