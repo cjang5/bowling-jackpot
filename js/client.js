@@ -40,7 +40,7 @@ $('#temp-button').click(function() {
     /*
     var diff = $('.bottom').outerHeight() - $('.bottom .placeholder').outerHeight();
     $('.bottom .placeholder').css('padding-top', diff/2);*/
-    console.log(currBowler);
+    alert("hi glor :3");
 });
 
 /*
@@ -70,21 +70,51 @@ $('#create-bowler-button').click(function() {
     
     
     $('.bowlers-secondary .bottom').css('background', '#333333');
-    
-    /*
+});
+
+// If user wants to create a new bowler...
+$('.bowlers-secondary .bottom .confirm-creation #confirm').click(function() {
+    var name = $('#new-bowler-name').val();
     client.createBowler ({
-        name: 'Joy Lee',
+        name: name,
         success: function(bowler) {
-            // log the success
+            // Log success
             console.log(JSON.stringify(bowler, null, 4));
             
-            // append the new bowler
+            // Append new bowler card to main bowler view
             appendBowler(bowler.id.toString(), bowler.name, bowler.user_id.toString());
+            
+            // Toggle appropriate elements
+            $('.confirm-creation').hide();
+            $('#new-bowler-name').hide();
+            $('.bowlers-secondary .bottom').css('background', 'white');
+            $('.bowlers-secondary #curr-sel').html('Currently Selected');
+            $('.bowlers-secondary .top .curr-bowler').show();
+            $('.placeholder').show();
+            
+            // reset new bowler name text form
+            $('#new-bowler-name').val('');
         },
         error: function(xhr)  {
             console.log(JSON.parse(xhr.responseText));
-        }
-    });*/
+        }        
+    });
+});
+
+// If user wants to cancel new bowler creation...
+$('.bowlers-secondary .bottom .confirm-creation #cancel').click(function() {
+    // Hide appropriate secondary divs
+    $('.add-to-league').hide();
+    $('.add-to-lottery').hide();
+    $('.confirm-creation').hide();
+    $('#new-bowler-name').hide();
+    $('.bowlers-secondary .bottom').css('background', 'white');
+    $('.bowlers-secondary #curr-sel').html('Currently Selected');
+    $('.bowlers-secondary .top .curr-bowler').show();
+    $('.placeholder').show();
+    
+    // reset the new bowler name form
+    $('#new-bowler-name').val('');
 });
 
 /*
@@ -143,19 +173,6 @@ var refreshSecondary = function() {
         $('.add-to-lottery').hide();
     } 
 };
-
-// If user wants to cancel new bowler creation...
-$('.bowlers-secondary .bottom .confirm-creation #cancel').click(function() {
-    // Hide appropriate secondary divs
-    $('.add-to-league').hide();
-    $('.add-to-lottery').hide();
-    $('.confirm-creation').hide();
-    $('#new-bowler-name').hide();
-    $('.bowlers-secondary .bottom').css('background', 'white');
-    $('.bowlers-secondary #curr-sel').html('Currently Selected');
-    $('.bowlers-secondary .top .curr-bowler').show();
-    $('.placeholder').show();
-});
 
 // Handle secondary view elements when a bowler is selected from main view
 $('.bowlers-view ul').on('click', 'li.bowler-item', function() {

@@ -1,10 +1,10 @@
 #Todo list
++ Link up functionality for Add-to-league and Add-to-lottery for bowlers
++ Start drafting League view based on this view
++ get options in pseudo-nav up floated to the right
++ Transitions?
 + ~~Handle which buttons to show in client.pseudo-nav based on which view you're currently in~~
  + Do this for every view
-+ Test scrolling with fixed pseudo-nav by making ul list in bowlers-view
- + Make create-bowler-button add new li to ul list
- + Once figured out, add styling to list
- + Then link client GET/POST requests
 + Figure out Dashboard button styling, place in between ? and Options
  + can change later, but placeholder is in
 + Catch incorrect logins/failed registration
@@ -33,3 +33,7 @@
 + ~~Create logout button~~
  + ~~Link to JS~~
  + ~~make it visible/invisible depending on user status~~
++ ~~Test scrolling with fixed pseudo-nav by making ul list in bowlers-view~~
+ + ~~Make create-bowler-button add new li to ul list~~
+ + ~~Once figured out, add styling to list~~
+ + ~~Then link client GET/POST requests~~
