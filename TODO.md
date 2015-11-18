@@ -11,6 +11,7 @@
  + Add the dialog that will pop up - maybe tooltip? or div under button?
 + Finalize Registration modal
  + Automatically login after successful registration
++ For sidebar, highlight current view
 + Link modals to js
 + find BG images for carousel slides
 + decide on a color scheme

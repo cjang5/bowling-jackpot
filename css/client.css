@@ -208,4 +208,11 @@ html, body {
     width: 100%;
     height: 40%;
     background: #333333;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    font-family: 'Arvo', sans-serif;
+}
+.top .curr-bowler {
+    color: #00d87f;
 }
