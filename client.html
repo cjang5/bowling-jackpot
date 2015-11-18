@@ -101,7 +101,7 @@
                     <!-- Search Bowler button -->
                     <a class="button2D long spotify-green" id="submit-find-bowler">
                         <span>Search</span>
-                    </a>           
+                    </a> 
                 </div>
 
                 <div class="leagues-components" data-related="My Leagues" style="display: inline-block;">
@@ -111,7 +111,10 @@
                     </a>
                 </div>
                 
-                
+                <!-- TEMP BUTTON -->
+                <a class="button2D long pink-red" id="temp-button">
+                    <span>Magic button</span>
+                </a>
             </div>
             
             <!-- Main content in dashboard view -->
@@ -134,11 +137,18 @@
                 <div class="bowlers-secondary" data-related='My Bowlers'>
                     <div class="top" data-related='My Bowlers'>
                         <span>Currently Selected</span><br>
-                        <span class="curr-bowler">Stephen Vrkljan II</span>
+                        <span class="curr-bowler">Nobody!</span>
                     </div>
                     <div class="bottom" data-related='My Bowlers'>
+                        <!-- What will be there when no bowler is selected -->
+                        <div class="placeholder" data-related='My Bowlers'>
+                            <p>Select a bowler to the left</p>
+                            <p style="color: #00d87f;">OR</p>
+                            <p>Create a new bowler!</p>
+                        </div>
+                        
+                        <!-- Form to add bowler to a league -->
                         <div class="add-to-league" data-related='My Bowlers'>
-                            <!-- Form to add bowler to a league -->
                             <span class="form-title">Add to League</span><br>
                             <input type="number" class="form-control" id="bowler-league-form" placeholder="League ID">
                             <a class="button2D long spotify-green" id="submit-bowler-league">
@@ -146,15 +156,14 @@
                             </a><br>
                         </div>
                         
+                        <!-- Form to buy a ticket for the selected bowler -->
                         <div class="add-to-lottery" data-related='My Bowlers'>
-                            <!-- Form to buy a ticket for the selected bowler -->
                             <span class="form-title">Buy Lottery Ticket</span><br>
                             <input type="number" class="form-control" id="bowler-jackpot-form" placeholder="Lottery ID">
                             <a class="button2D long spotify-green" id="submit-bowler-jackpot">
                                 <span>Buy</span>
                             </a>
                         </div>
-                        
                     </div>
                 </div>
                 

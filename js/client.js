@@ -18,6 +18,15 @@ $(document).ready(function() {
     $('#create-bowler-button').css('margin-left', pseudoWidth);*/
 });
 
+// TEMP: MAGIC BUTTON
+$('#temp-button').click(function() {
+    /*
+    $('.add-to-league').toggle();
+    $('.add-to-lottery').toggle();*/
+    var diff = $('.bottom').outerHeight() - $('.bottom .placeholder').outerHeight();
+    $('.bottom .placeholder').css('padding-top', diff/2);
+});
+
 /*
 ||===============||
 ||CREATE A BOWLER||
@@ -109,6 +118,7 @@ $(".main-view div").each(function() {
     }
 });
 
+// hide all divs in pseudo-nav initially
 $(".pseudo-nav div").each(function() {
     $(this).hide();
 });
@@ -140,6 +150,15 @@ $('.sidebar .view-button').on( "click", function(e) {
 
 /* When the Bowlers button is clicked in the Sidebar */
 $('#Bowlers-button').click(function() {
+    // Hide appropriate secondary divs
+    $('.add-to-league').hide();
+    $('.add-to-lottery').hide();
+    
+    var diff = $('.bottom').outerHeight() - $('.bottom .placeholder').outerHeight();
+    var comb = $('.bottom').outerHeight() + $('.bottom .placeholder').outerHeight();
+    $('.bottom .placeholder').css('padding-top', diff/2);
+    $('.bottom .placeholder').css('height', comb);
+    
     // Send GET request for getting all bowlers
     client.getBowlers({
         success: function(bowlers) {
