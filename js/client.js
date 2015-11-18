@@ -20,7 +20,13 @@ $(document).ready(function() {
 
 //TEMP
 $('#create-bowler-button').click(function() {
-     
+    var html =  '<span id="id">709</span>' + 
+                '<span id="name">Andrew Buhl</span>' + 
+                '<span id="userid">420</span>';
+    $('.bowlers-view ul').append(
+        $('<li>').attr('class', 'bowler-item').append(html));
+          
+    
 });
 
 /**
