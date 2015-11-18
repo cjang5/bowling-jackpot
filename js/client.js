@@ -37,8 +37,10 @@ $('#temp-button').click(function() {
     /*
     $('.add-to-league').toggle();
     $('.add-to-lottery').toggle();*/
+    /*
     var diff = $('.bottom').outerHeight() - $('.bottom .placeholder').outerHeight();
-    $('.bottom .placeholder').css('padding-top', diff/2);
+    $('.bottom .placeholder').css('padding-top', diff/2);*/
+    console.log(currBowler);
 });
 
 /*
@@ -56,7 +58,7 @@ var appendBowler = function(id, name, userid) {
                 '<span id="userid">'.concat(userid).concat('</span');
     
     $('.bowlers-view ul').append(
-        $('<li>').attr('class', 'bowler-item').append(html));
+        $('<li>').attr('class', 'bowler-item').attr('tabindex', 1).append(html));
 };
 
 $('#create-bowler-button').click(function() {
@@ -125,10 +127,20 @@ $(".pseudo-nav div").each(function() {
     $(this).hide();
 });
 
+/* IMPORTANT: The currently selected bowler's id */
+var currBowler;
+
 /*
 ||================||
 ||BOWLER VIEW CODE||
 ||================||*/
+// Refresh the secondary bowler view
+var refreshSecondary = function() {
+    if (currBowler == null) {
+        $('.bowlers-secondary .top .curr-bowler').html('Nobody!');
+    } 
+};
+
 // If user wants to cancel new bowler creation...
 $('.bowlers-secondary .bottom .confirm-creation #cancel').click(function() {
     // Hide appropriate secondary divs
@@ -143,8 +155,20 @@ $('.bowlers-secondary .bottom .confirm-creation #cancel').click(function() {
 });
 
 // Handle secondary view elements when a bowler is selected from main view
-$('.bowlers-view ul .bowler-item').click(function() {
-    alert("TEST"); 
+$('.bowlers-view ul').on('click', 'li.bowler-item', function() {
+    var name = $(this).find('span#name').text();
+    var id = parseInt($(this).find('span#id').text());
+    
+    // change the currently selected bowler name
+    $('.bowlers-secondary .top .curr-bowler').html(name);
+    
+    // update currently selected bowler id
+    currBowler = id;
+});
+
+$('.bowlers-view ul').on('focusout', 'li.bowler-item', function() {
+    currBowler = null;
+    setTimeout(refreshSecondary, 1000);
 });
 
 /*
