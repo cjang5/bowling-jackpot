@@ -210,12 +210,15 @@ html, body {
     background: #333333;
     color: white;
     text-align: center;
-    vertical-align: middle;
     padding-top: 30px;
     padding-bottom: 30px;
     font-family: 'Arvo', sans-serif;
 }
 .top .curr-bowler {
     font-size: 2.25em;
+    width: 100%;
     color: #00d87f;
+    text-align: center;
+    height: 50px;
+    line-height: 50px;
 }
