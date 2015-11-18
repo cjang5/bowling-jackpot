@@ -222,3 +222,23 @@ html, body {
     height: 50px;
     line-height: 50px;
 }
+
+.bottom {
+    padding: 20px;
+}
+#bowler-league-form {
+    font-family: 'Arvo', sans-serif;
+    font-size: 1.1em;
+    display: inline-block;
+    width: 65%;
+    height: auto;
+    
+    vertical-align: bottom;
+    
+    border-radius: 3px 0px 0px 3px;    
+}
+#submit-bowler-league {
+    border-radius: 0px 3px 3px 0px;
+    margin-left: -4px;
+    min-width: 0px;
+}
