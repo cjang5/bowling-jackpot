@@ -152,16 +152,24 @@ $('.sidebar .view-button').on( "click", function(e) {
     });
 });
 
+// boolean flag for whether .placeholder's height has been set yet
+var set = false;
+
 /* When the Bowlers button is clicked in the Sidebar */
 $('#Bowlers-button').click(function() {
     // Hide appropriate secondary divs
     $('.add-to-league').hide();
     $('.add-to-lottery').hide();
     
-    var diff = $('.bottom').outerHeight() - $('.bottom .placeholder').outerHeight();
-    var comb = $('.bottom').outerHeight() + $('.bottom .placeholder').outerHeight();
-    $('.bottom .placeholder').css('padding-top', diff/2);
-    $('.bottom .placeholder').css('height', comb);
+    // if the height hasn't been set yet for .placeholder
+    if (!set) {
+        var diff = $('.bottom').outerHeight() - $('.bottom .placeholder').outerHeight();
+        var comb = $('.bottom').outerHeight() + $('.bottom .placeholder').outerHeight();
+        $('.bottom .placeholder').css('padding-top', diff/2);
+        $('.bottom .placeholder').css('height', comb);
+        
+        set = true;
+    }
     
     // Send GET request for getting all bowlers
     client.getBowlers({
