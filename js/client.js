@@ -138,6 +138,9 @@ var currBowler;
 var refreshSecondary = function() {
     if (currBowler == null) {
         $('.bowlers-secondary .top .curr-bowler').html('Nobody!');
+        $('.bowlers-secondary .bottom .placeholder').show();
+        $('.add-to-league').hide();
+        $('.add-to-lottery').hide();
     } 
 };
 
@@ -162,13 +165,19 @@ $('.bowlers-view ul').on('click', 'li.bowler-item', function() {
     // change the currently selected bowler name
     $('.bowlers-secondary .top .curr-bowler').html(name);
     
+    // show the options in the secondary view
+    $('.bowlers-secondary .bottom .placeholder').hide();
+    $('.add-to-league').show();
+    $('.add-to-lottery').show();
+    
     // update currently selected bowler id
     currBowler = id;
 });
 
+// Handle when bowler li's are focused out
 $('.bowlers-view ul').on('focusout', 'li.bowler-item', function() {
     currBowler = null;
-    setTimeout(refreshSecondary, 1000);
+    setTimeout(refreshSecondary, 1000); // current delay: 1 second
 });
 
 /*
