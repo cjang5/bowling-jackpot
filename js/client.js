@@ -143,7 +143,7 @@ $('.bowlers-secondary .bottom .confirm-creation #cancel').click(function() {
 });
 
 // Handle secondary view elements when a bowler is selected from main view
-$('.bowlers-view ul li .bowler-item').click(function() {
+$('.bowlers-view ul .bowler-item').click(function() {
     alert("TEST"); 
 });
 
