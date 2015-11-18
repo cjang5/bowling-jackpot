@@ -18,26 +18,60 @@ $(document).ready(function() {
     $('#create-bowler-button').css('margin-left', pseudoWidth);*/
 });
 
-//TEMP
-$('#create-bowler-button').click(function() {
-    var html =  '<span id="id">69</span>' + 
-                '<span id="name">Andrew Buhl</span>' + 
-                '<span id="userid">420</span>';
-    $('.bowlers-view ul').append(
-        $('<li>').attr('class', 'bowler-item').append(html));
-          
-    
+/*
+||===============||
+||CREATE A BOWLER||
+||===============||*/
+$('#create-bowler-button').click(function() {      
+    client.createBowler ({
+        name: 'Joy Lee',
+        success: function(bowler) {
+            // log the success
+            console.log(JSON.stringify(bowler, null, 4));
+            
+            var html =  '<span id="id">'.concat(bowler.id.toString().concat('</span>')) +
+                        '<span id="name">'.concat(bowler.name).concat('</span>') + 
+                        '<span id="userid">'.concat(bowler.user_id.toString()).concat('</span>');
+            
+            $('.bowlers-view ul').append(
+                $('<li>').attr('class', 'bowler-item').append(html));
+        },
+        error: function(xhr)  {
+            console.log(JSON.parse(xhr.responseText));
+        }
+    });
 });
 
-/**
- * Main view handling code
- * On load, the current view will be the News Feed
- * 0 = News Feed
- * 1 = Bowlers
- * 2 = Leagues
- * 3 = Jackpots
- */
-var currPage = 0;
+/*
+||===================||
+||SEARCH FOR A BOWLER||
+||===================||*/
+$('#submit-find-bowler').click(function() {
+    // clear all <li>s from the list
+    $('.bowlers-view ul li:not(:first)').remove();
+    
+    // get the id from the text form
+    var id = parseInt($('#find-bowler-form').val());
+    
+    client.getBowler({
+        bowlerId: id,
+        success: function(bowler) {
+            // log success
+            console.log(JSON.stringify(bowler, null, 4));
+            
+            // append li for the bowler we found
+            var html =  '<span id="id">'.concat(bowler.id.toString().concat('</span>')) +
+                        '<span id="name">'.concat(bowler.name).concat('</span>') + 
+                        '<span id="userid">'.concat(bowler.user_id.toString()).concat('</span>');
+            
+            $('.bowlers-view ul').append(
+                $('<li>').attr('class', 'bowler-item').append(html));
+        },
+        error: function(xhr) {
+            console.log(JSON.parse(xhr.responseText));
+        }
+    });
+});
 
 // Re-verify login information on load of client
 var client = new BowlingApiClient('http://bowling-api.nextcapital.com/api');
@@ -64,7 +98,7 @@ $('.Bowlers-button').click(function() {
 // Show the news div first
 $(".main-view div").each(function() {
     $(this).hide();
-    if ($(this).attr('id') == "News Feed") {
+    if ($(this).attr('data-related') == "News Feed") {
         $(".page-title").text('News Feed');
         $(this).show();
     }
@@ -84,8 +118,8 @@ $('.sidebar .view-button').on( "click", function(e) {
     var id = $(this).attr('data-related'); 
     $(".main-view div").each(function() {
         $(this).hide();
-        if ($(this).attr('id') == id) {
-            $(".page-title").text($(this).attr('id'));
+        if ($(this).attr('data-related') == id) {
+            $(".page-title").text($(this).attr('data-related'));
             $(this).show();
         }
     });
@@ -104,6 +138,7 @@ $('#Bowlers-button').click(function() {
     client.getBowlers({
         success: function(bowlers) {
             console.log(JSON.stringify(bowlers, null, 4));
+            //alert(typeof(bowlers));
         },
         error: function(xhr) {
             console.log(JSON.parse(xhr.responseText));

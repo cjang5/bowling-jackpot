@@ -124,7 +124,10 @@ html, body {
     border: 1px solid rgba(0, 0, 0, 0.15);
 }
 
-/* Bowlers View */
+/*
+||============||
+||BOWLERS VIEW||
+||============||*/
 .bowlers-view {
     width: 65%;
     height: 100%;
@@ -132,12 +135,6 @@ html, body {
     /*padding: 20px;*/
     border: 1px solid rgba(0, 0, 0, 0.15);
     margin-right: 19px;
-}
-.bowlers-secondary {
-    width: 34%;
-    height: 60%;
-    background: white;
-    border: 1px solid rgba(0, 0, 0, 0.15);
 }
 .bowlers-view ul {
     padding: 0px;
@@ -187,9 +184,28 @@ html, body {
     padding: 20px;
     width: 25%;
     /*border-left: solid 2px rgba(0, 0, 0, 0.15);*/
+    margin-right: 0px;
 }
 /* actual hoverable card items NOT HEADER */
 .bowlers-view .bowler-item:hover {
     background: rgba(0, 0, 0, 0.1);
     cursor: pointer;
+}
+
+/*
+||=================||
+||BOWLERS SECONDARY||
+||=================||*/
+.bowlers-secondary {
+    width: 34%;
+    height: 60%;
+    background: white;
+    border: 1px solid rgba(0, 0, 0, 0.15);
+    text-align: center;
+}
+
+.top {
+    width: 100%;
+    height: 33%;
+    background: #333333;
 }
