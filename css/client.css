@@ -227,8 +227,7 @@ html, body {
     border: none;
     color: rgba(255, 255, 255, 0.75);
     width: 50%;
-    height: 20px;
-    line-height: 20px;
+    vertical-align: middle;
     margin: 5px auto;
 }
 
