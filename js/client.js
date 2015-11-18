@@ -22,6 +22,20 @@ $(document).ready(function() {
 ||===============||
 ||CREATE A BOWLER||
 ||===============||*/
+/** 
+ * helper function to append a bowler to our main Bowlers view
+ * created because we repeat this same process 3 times
+ * Also, we assume that id, userid are Numbers and name is a String
+ */
+var appendBowler = function(id, name, userid) {
+    var html =  '<span id="id">'.concat(id).concat('</span>') + 
+                '<span id="name">'.concat(name).concat('</span>') + 
+                '<span id="userid">'.concat(userid).concat('</span');
+    
+    $('.bowlers-view ul').append(
+        $('<li>').attr('class', 'bowler-item').append(html));
+};
+
 $('#create-bowler-button').click(function() {      
     client.createBowler ({
         name: 'Joy Lee',
@@ -29,12 +43,8 @@ $('#create-bowler-button').click(function() {
             // log the success
             console.log(JSON.stringify(bowler, null, 4));
             
-            var html =  '<span id="id">'.concat(bowler.id.toString().concat('</span>')) +
-                        '<span id="name">'.concat(bowler.name).concat('</span>') + 
-                        '<span id="userid">'.concat(bowler.user_id.toString()).concat('</span>');
-            
-            $('.bowlers-view ul').append(
-                $('<li>').attr('class', 'bowler-item').append(html));
+            // append the new bowler
+            appendBowler(bowler.id.toString(), bowler.name, bowler.user_id.toString());
         },
         error: function(xhr)  {
             console.log(JSON.parse(xhr.responseText));
@@ -60,12 +70,7 @@ $('#submit-find-bowler').click(function() {
             console.log(JSON.stringify(bowler, null, 4));
             
             // append li for the bowler we found
-            var html =  '<span id="id">'.concat(bowler.id.toString().concat('</span>')) +
-                        '<span id="name">'.concat(bowler.name).concat('</span>') + 
-                        '<span id="userid">'.concat(bowler.user_id.toString()).concat('</span>');
-            
-            $('.bowlers-view ul').append(
-                $('<li>').attr('class', 'bowler-item').append(html));
+            appendBowler(bowler.id.toString(), bowler.name, bowler.user_id.toString());
         },
         error: function(xhr) {
             console.log(JSON.parse(xhr.responseText));
@@ -133,12 +138,19 @@ $('.sidebar .view-button').on( "click", function(e) {
     });
 });
 
+/* When the Bowlers button is clicked in the Sidebar */
 $('#Bowlers-button').click(function() {
     // Send GET request for getting all bowlers
     client.getBowlers({
         success: function(bowlers) {
             console.log(JSON.stringify(bowlers, null, 4));
-            //alert(typeof(bowlers));
+            
+            // show all bowlers
+            for (var i = 0; i < bowlers.length; i++) {
+                var b = bowlers[i];
+                
+                appendBowler(b.id.toString(), b.name, b.user_id.toString());
+            }
         },
         error: function(xhr) {
             console.log(JSON.parse(xhr.responseText));
