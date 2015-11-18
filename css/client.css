@@ -138,16 +138,19 @@ html, body {
 .bowlers-view .header span {
     padding-top: 10px !important;
     padding-bottom: 10px !important;
+    color: rgb(0, 216, 127);
 }
 .bowlers-view .header span + span {
-    border-left: solid 2px red !important;
+    border-left: solid 2px rgba(255, 255, 255, 0.25) !important;
+    /*border-left: solid 2px rgba(0, 216, 127, 0.5) !important;*/
 }
 
 /* the cards */
 .bowlers-view li {
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Arvo', sans-serif;
     font-size: 1.2em;
     padding: 0px;
+    border-bottom: solid 1px rgba(0, 0, 0, 0.05);
 }
 /* Three parts to a card item */
 .bowlers-view li #id {
@@ -155,21 +158,22 @@ html, body {
     width: 20%;
     display: inline-block;
     margin-right: -4px;
-    border-right: solid 2px rgba(0, 0, 0, 0.4);
 }
 .bowlers-view li #name {
     display: inline-block;
     padding: 20px;
     width: 54%;
     margin-right: -5px;
+    border-left: solid 2px rgba(0, 0, 0, 0.15);
 }
 .bowlers-view li #userid {
     display: inline-block;
     padding: 20px;
     width: 25%;
-    margin-left: 0px;
+    border-left: solid 2px rgba(0, 0, 0, 0.15);
 }
 /* actual hoverable card items NOT HEADER */
 .bowlers-view .bowler-item:hover {
     background: rgba(0, 0, 0, 0.1);
+    cursor: pointer;
 }
