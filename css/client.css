@@ -169,7 +169,10 @@ html, body {
     outline: none;
 }
 .bowlers-view li.active {
-    background: red;
+    background: #00d87f;
+}
+.bowlers-view li.active:hover {
+    background: #00ef8d;
 }
 /* Three parts to a card item */
 .bowlers-view li #id {

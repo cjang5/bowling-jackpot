@@ -1,4 +1,6 @@
 #Todo list
++ Create helper functions showCreate, showCurrent, showDefault for handling show()/hide()s... this is getting messy
++ Don't allow no name for bowler creation (im guessing this applies to leagues as well)
 + Link up functionality for Add-to-league and Add-to-lottery for bowlers
 + Start drafting League view based on this view
 + get options in pseudo-nav up floated to the right

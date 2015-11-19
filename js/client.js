@@ -9,6 +9,7 @@ $('#temp-button').click(function() {
     
     
     // get all leagues
+    /*
     client.getLeagues({
         success: function(leagues) {
             console.log(JSON.stringify(leagues, null, 4));
@@ -16,7 +17,7 @@ $('#temp-button').click(function() {
         error: function(xhr)  {
             console.log(JSON.parse(xhr.responseText));
         }
-    }); 
+    }); */
     
     /*
     // attempt to add nonexistent bowler to existing league
@@ -41,6 +42,8 @@ $('#temp-button').click(function() {
             console.log(JSON.parse(xhr.responseText));
         }
     });*/
+    
+    showDefault();
 });
 
 // Re-verify login information on load of client
@@ -95,15 +98,10 @@ var appendBowler = function(id, name, userid) {
         $('<li>').attr('class', 'bowler-item').attr('tabindex', 1).append(html));
 };
 
+// If 'Create bowler' button is clicked, switch to appropriate UI
 $('#create-bowler-button').click(function() {
-    $('.bowlers-secondary #curr-sel').html('Create new bowler');
-    $('.bowlers-secondary .curr-bowler').hide();
-    $('.placeholder').hide();
-    $('#new-bowler-name').show();
-    $('.confirm-creation').show();
-    
-    
-    $('.bowlers-secondary .bottom').css('background', '#333333');
+    // Use helper function to change secondary view properly
+    showCreate();
 });
 
 // If user wants to create a new bowler...
@@ -115,21 +113,18 @@ $('.bowlers-secondary .bottom .confirm-creation #confirm').click(function() {
             // Log success
             console.log(JSON.stringify(bowler, null, 4));
             
+            // TODO: Responsive feedback indicating success
+            
             // Append new bowler card to main bowler view
             appendBowler(bowler.id.toString(), bowler.name, bowler.user_id.toString());
             
-            // Toggle appropriate elements
-            $('.confirm-creation').hide();
-            $('#new-bowler-name').hide();
-            $('.bowlers-secondary .bottom').css('background', 'white');
-            $('.bowlers-secondary #curr-sel').html('Currently Selected');
-            $('.bowlers-secondary .top .curr-bowler').show();
-            $('.placeholder').show();
+            // Use helper function to revert to default secondary view
+            showDefault();
             
             // reset new bowler name text form
             $('#new-bowler-name').val('');
         },
-        error: function(xhr)  {
+        error: function(xhr) {
             console.log(JSON.parse(xhr.responseText));
         }        
     });
@@ -137,15 +132,8 @@ $('.bowlers-secondary .bottom .confirm-creation #confirm').click(function() {
 
 // If user wants to cancel new bowler creation...
 $('.bowlers-secondary .bottom .confirm-creation #cancel').click(function() {
-    // Hide appropriate secondary divs
-    $('.add-to-league').hide();
-    $('.add-to-lottery').hide();
-    $('.confirm-creation').hide();
-    $('#new-bowler-name').hide();
-    $('.bowlers-secondary .bottom').css('background', 'white');
-    $('.bowlers-secondary #curr-sel').html('Currently Selected');
-    $('.bowlers-secondary .top .curr-bowler').show();
-    $('.placeholder').show();
+    // Use helper function to revert to default secondary view
+    showDefault();
     
     // reset the new bowler name form
     $('#new-bowler-name').val('');
@@ -199,13 +187,58 @@ var currBowler;
 ||BOWLER VIEW CODE||
 ||================||*/
 // Refresh the secondary bowler view
+/*
 var refreshSecondary = function() {
     if (currBowler == null) {
         $('.bowlers-secondary .top .curr-bowler').html('Nobody!');
         $('.bowlers-secondary .bottom .placeholder').show();
         $('.add-to-league').hide();
         $('.add-to-lottery').hide();
+        $('.bowlers-secondary .bottom').css('background', 'white');
     } 
+};*/ // DON'T NEED I THINK BECAUSE OF HELPER FUNCTIONS BELOW
+
+/**
+ * These 3 helper functions will save (SO MUCH) space and time
+ * by using the necessary show()/hide() calls to update our secondary view properly
+ */
+// For when no bowler is selected
+var showDefault = function() {
+    // top stuff
+    $('.bowlers-secondary .top input').hide();
+    $('.bowlers-secondary .top .curr-bowler').html('Nobody!').show();
+    
+    // bottom stuff
+    $('.bowlers-secondary .bottom').css('background', 'white');
+    $('.bowlers-secondary .bottom div').hide();
+    $('.bowlers-secondary .bottom .placeholder').show();
+};
+
+// For when the user wants to create a new bowler
+var showCreate = function() {
+    // top stuff
+    $('.bowlers-secondary .top #curr-sel').html('Create new bowler').show();
+    $('.bowlers-secondary .top .curr-bowler').hide();
+    $('.bowlers-secondary .top input').show();
+    
+    // bottom stuff
+    $('.bowlers-secondary .bottom').css('background', '#333333');
+    $('.bowlers-secondary .bottom div').hide();
+    $('.bowlers-secondary .bottom .confirm-creation').show();
+};
+
+// For when a bowler is currenly selected
+var showCurrent = function() {
+    // top stuff
+    $('.bowlers-secondary .top #curr-sel').html('Currently selected').show();
+    $('.bowlers-secondary .top .curr-bowler').show();
+    $('.bowlers-secondary .top input').hide();
+    
+    // bottom stuff
+    $('.bowlers-secondary .bottom').css('background', 'white');
+    $('.bowlers-secondary .bottom div').hide();
+    $('.bowlers-secondary .bottom .add-to-league').show();
+    $('.bowlers-secondary .bottom .add-to-lottery').show();
 };
 
 /*
@@ -232,10 +265,63 @@ $('.bowlers-view ul').on('focusout', 'li.bowler-item', function() {
     setTimeout(refreshSecondary, 1000); // current delay: 1 second
 });*/
 
-
+// When bowler items are clicked in the main bowler view...
 $('.bowlers-view ul').on('click', 'li.bowler-item', function() {
+    // refresh active class and add it to $(this)
     $('.bowlers-view ul li.bowler-item').removeClass('active');
     $(this).addClass('active');
+    
+    // get the id and name of the selected bowler
+    var id = parseInt($(this).find('span#id').text());
+    var name = $(this).find('span#name').text();
+    
+    // change the currently selected bowler name
+    $('.bowlers-secondary .top .curr-bowler').html(name).show();
+    
+    // call helper function to update secondary view
+    showCurrent();
+    
+    // update curr bowler
+    currBowler = id;
+});
+
+/**
+ * This function will handle updating the secondary view accordingly
+ * We just return if there's no currBowler to preserve performance
+ */
+$('body').on('click', function(e) {
+    // No current bowler, no point, just return
+    if (currBowler == null) {
+        return;
+    }
+    
+    // Otherwise, get the id and parent's class
+    var el = e.target.getAttribute('id');
+    var parent = e.target.parentElement.className;
+    
+    // If 'Create Bowler' is clicked..
+    if (el == 'create-bowler-button') {
+        // Remove active <li>
+        $('.bowlers-view ul li.bowler-item').removeClass('active');
+        showCreate();
+    } // Otherwise if anything else is clicked other than another <li>
+    else if (parent.indexOf('bowler-item') < 0 &&
+             parent.indexOf('confirm-creation') < 0 &&
+             parent.indexOf('bowlers-secondary') < 0 &&
+             parent.indexOf('bottom') < 0 &&
+             parent.indexOf('top') < 0 &&
+             parent.indexOf('add-to-league') < 0 &&
+             parent.indexOf('add-to-lottery') < 0) 
+    {
+        // Remove active from <li>s
+        $('.bowlers-view ul li.bowler-item').removeClass('active');
+        
+        // Update currBowler to null
+        currBowler = null;
+        
+        // call helper function to switch secondary view
+        showDefault();
+    }
 });
 
 /*
@@ -268,15 +354,11 @@ var set = false;
 
 /* When the Bowlers button is clicked in the Sidebar */
 $('#Bowlers-button').click(function() {
-    // Hide appropriate secondary divs
-    $('.add-to-league').hide();
-    $('.add-to-lottery').hide();
-    $('.confirm-creation').hide();
-    $('#new-bowler-name').hide();
-    $('.bowlers-secondary .bottom').css('background', 'white');
-    $('.bowlers-secondary #curr-sel').html('Currently Selected');
-    $('.bowlers-secondary .top .curr-bowler').show();
+    // Use helper function to update secondary view properly
+    showDefault();
     
+    // clear all <li>s from the list
+    $('.bowlers-view ul li:not(:first)').remove();
     
     // if the height hasn't been set yet for .placeholder
     if (!set) {
