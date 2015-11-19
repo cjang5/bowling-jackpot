@@ -42,4 +42,6 @@
  + ~~Make create-bowler-button add new li to ul list~~
  + ~~Once figured out, add styling to list~~
  + ~~Then link client GET/POST requests~~
++ ~~Re-implement li active system, current one is not robust..~~ WOO I DID IT
++ ~~Re-implement view handling~~
 + ~~Create helper functions showCreate, showCurrent, showDefault for handling show()/hide()s... this is getting messy~~
