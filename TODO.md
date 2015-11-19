@@ -1,5 +1,4 @@
 #Todo list
-+ Create helper functions showCreate, showCurrent, showDefault for handling show()/hide()s... this is getting messy
 + Don't allow no name for bowler creation (im guessing this applies to leagues as well)
 + Link up functionality for Add-to-league and Add-to-lottery for bowlers
 + Start drafting League view based on this view
@@ -40,3 +39,4 @@
  + ~~Make create-bowler-button add new li to ul list~~
  + ~~Once figured out, add styling to list~~
  + ~~Then link client GET/POST requests~~
++ ~~Create helper functions showCreate, showCurrent, showDefault for handling show()/hide()s... this is getting messy~~
