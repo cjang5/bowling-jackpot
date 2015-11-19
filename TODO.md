@@ -2,6 +2,7 @@
 + Don't allow no name for bowler creation (im guessing this applies to leagues as well)
 + Link up functionality for Add-to-league and Add-to-lottery for bowlers
 + Start drafting League view based on this view
++ Maybe automatically select new bowler post-creation? Good UX :)
 + get options in pseudo-nav up floated to the right
 + Transitions?
 + ~~Handle which buttons to show in client.pseudo-nav based on which view you're currently in~~
