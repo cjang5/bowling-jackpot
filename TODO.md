@@ -5,6 +5,8 @@
 + Maybe automatically select new bowler post-creation? Good UX :)
 + get options in pseudo-nav up floated to the right
 + Transitions?
++ Don't let user search for nothing in Search bowler
+ + Also don't allow negative values
 + ~~Handle which buttons to show in client.pseudo-nav based on which view you're currently in~~
  + Do this for every view
 + Figure out Dashboard button styling, place in between ? and Options
