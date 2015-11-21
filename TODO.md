@@ -1,4 +1,8 @@
 #Todo list
++ Move ~~bowler~~/league creation to modals
+ + Style the modal now
++ Add functionality for add-to-league and add-to-lottery]
++ Get rid of previous create-bowler dialog in secondary view
 + ~~Look into removing the arrow things in Number input forms~~
  + If possible, look into putting in a (X) to go back to main bowlers view after a search
  + Or maybe just a button that says "Go Back" or something

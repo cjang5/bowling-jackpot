@@ -19,6 +19,9 @@
         <!-- 2DButtons css -->
         <link rel="stylesheet" href="css/2Dbuttons.css">
         
+        <!-- 3Dbuttons css -->
+        <link rel="stylesheet" href="css/3Dbuttons.css">
+        
         <!-- Fonts -->
         <!-- Arvo font -->
         <!-- Arvo font -->
@@ -93,7 +96,7 @@
                 <!-- Bowlers View components -->
                 <div class="bowler-components" data-related="My Bowlers" style="display: inline-block;">
                      <!-- "Create Bowler" button -->
-                    <a class="button2D long spotify-green" id="create-bowler-button">
+                    <a class="button2D long spotify-green" data-related='My Bowlers' id="create-bowler-button" data-toggle="modal" data-target="#create-bowler-modal">
                         <span id="create-bowler-button">Create Bowler</span>
                     </a>
                     <!-- Search Bowler input form -->
@@ -102,10 +105,11 @@
                     <a class="button2D long spotify-green" id="submit-find-bowler">
                         <span>Search</span>
                     </a> 
+                    
                 </div>
 
                 <div class="leagues-components" data-related="My Leagues" style="display: inline-block;">
-                    <!-- "Create League" button -->
+                    <!-- "Create League" button-->
                     <a class="button2D long spotify-green" id="create-league-button">
                         <span>Create League</span>
                     </a>
@@ -115,6 +119,35 @@
                 <a class="button2D long pink-red" id="temp-button">
                     <span>Magic button</span>
                 </a>
+            
+            </div>
+            
+            <!-- Create Bowler modal -->
+            <div id="create-bowler-modal" class="modal fade" tabindex="-1" role="dialog">
+                <div class="modal-dialog modal-sm">
+                    <div class="modal-content">
+                        <div class="modal-body">
+                            <!-- Form for new bowler name -->
+                            <div class="form-group">
+                                <input type="text" class="form-control" id="create-bowler-id" placeholder="Bowler name">
+                            </div>
+
+                            <!-- Buttons -->
+                            <!-- Chris, you're really high as of writing, but I think we should use
+                            3D buttons instead of 2D for the modal dialog we're about to write
+                            because we need to standardize the modals. The login and register modals both
+                            utilized 3D buttons, so it'd satisfy good UX principles if you reused the same type
+                            of button for this modal as well. I'm sure you'll understand. -->
+                            <a class="button3D light-blue" id="create-bowler-confirm"> <!-- change color later -->
+                                <span>Create</span>
+                            </a>
+
+                            <a class="button3D light-blue" id="create-bowler-cancel">
+                                <span>Cancel</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
             </div>
             
             <!-- Main content in dashboard view -->

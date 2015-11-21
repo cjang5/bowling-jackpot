@@ -1,9 +1,6 @@
 // Create instance of the Bowling-Api-Client
 var client = new BowlingApiClient('http://bowling-api.nextcapital.com/api');
 
-// current user's username (email) and password
-var username = '';
-var password = '';
 // is the user logged in? Defaulted to 'false'
 var logged_in = false;
 
@@ -25,10 +22,6 @@ if (sessionStorage.getItem('logged_in') == null) {
     $('#dashboard-button').show();
 }
 
-//TEMP
-//console.log('loading main.js...');
-console.log(sessionStorage.getItem('logged_in'));
-
 // TEMP
 $('#session').click(function() {
     console.log(sessionStorage.getItem('logged_in'));
@@ -40,15 +33,34 @@ $('#session').click(function() {
     }
 });
 
-// update the status of user
-/*
-var updateStatus = function() {
-    if (logged_in) {
-        $('#userStatus').text('Logged in as: ' + username);
-    } else {
-        $('#userStatus').text('Not logged in.');
-    }
-} */
+// helper function to use client.login call
+var login = function(username, password) {
+    client.loginUser({
+        email: username,
+        password: password,
+        success: function(user) {
+            // log success
+            console.log(JSON.stringify(user, null, 4));
+            
+            // Use sessionStorage to keep data we need
+            sessionStorage.setItem('logged_in', 'true');
+            sessionStorage.setItem('username', username);
+            sessionStorage.setItem('password', password);
+            
+            // flip logged_in flag
+            logged_in = true;
+            
+            // redirect to client dashboard
+            window.open('client.html', '_self', false);
+        },
+        error: function(xhr) {
+            // TEMP
+            alert('Login failed');
+            
+            console.log(JSON.parse(xhr.responseText));
+        }
+    });
+};
 
 // Login button
 $('#submit-login').click(function() {
@@ -59,35 +71,7 @@ $('#submit-login').click(function() {
     console.log('Logging in...');
     
     // attempt login via Bowling Api
-    client.loginUser({
-        email: userText,
-        password: passText,
-        success: function(user) {
-            //alert('Successfully logged in: ' + userText);
-            console.log(JSON.stringify(user, null, 4));
-            
-            //TEMP
-            sessionStorage.setItem('logged_in', 'true');
-            sessionStorage.setItem('username', userText);
-            sessionStorage.setItem('password', passText);
-            
-            // flip the 'logged_in' flag and update status
-            logged_in = true;
-            username = userText; // update username
-            password = passText; // update password
-            //updateStatus();
-            
-            // open client.html
-            window.open('client.html', '_self', false);
-            //window.location.reload();
-        },
-        error: function(xhr) { 
-            alert('Login failed'); // TODO: Determine whether it was incorrect email or password using 
-            console.log(JSON.parse(xhr.responseText));
-        }
-    });
-    
-    //window.location.reload();
+    login(userText, passText);
 });
 
 // Logout button
@@ -117,10 +101,9 @@ $('#submit-register').click(function() {
             
             // flip 'logged_in' flag and update status
             logged_in = true;
-            username = userText; // update username
-            password = passText; // update password
-            //updateStatus();
-            window.location.reload();
+            
+            // call helper function to login
+            login(userText, passText);
         },
         error: function(xhr) {
             alert('Account with provided email already exists!');

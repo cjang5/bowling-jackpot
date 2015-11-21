@@ -193,6 +193,7 @@ body,
 .options-menu li a:hover {
     background: white;
     color: #f88052;
+    color: #00d87f;
 }
 .options-menu li a:focus {
     background: white;

@@ -73,6 +73,8 @@ $(document).ready(function() {
     var buttonHeight = $('#create-bowler-button').outerHeight();
     $('#find-bowler-form').css('height', buttonHeight);
     
+    //$('#create-bowler-modal').modal('show');
+    
     // spacing for buttons on pseudo-nav
     /*
     var pseudoWidth = $('.pseudo-nav').outerWidth() / 10;
