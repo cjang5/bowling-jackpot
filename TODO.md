@@ -2,6 +2,7 @@
 + Clear the text of the new-bowler-name form when modal is dismissed
 + Move ~~bowler~~/league creation to modals
  + Style the modal now
++ Use nprogress.js for the thin loading line at the top???
 + Add functionality for add-to-league and add-to-lottery]
 + Get rid of previous create-bowler dialog in secondary view
 + ~~Look into removing the arrow things in Number input forms~~
