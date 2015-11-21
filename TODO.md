@@ -1,4 +1,5 @@
 #Todo list
++ Clear the text of the new-bowler-name form when modal is dismissed
 + Move ~~bowler~~/league creation to modals
  + Style the modal now
 + Add functionality for add-to-league and add-to-lottery]
