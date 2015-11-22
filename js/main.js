@@ -115,6 +115,14 @@ $('#submit-register').click(function() {
     //window.location.reload();
 });
 
+/*
+||======||
+||MDOALS||
+||======||*/
+$('.modal').on('hidden.bs.modal', function() {
+    $(this).find('input').val(''); 
+});
+
 /* Make options button trigger on hover instead of click */
 $(document).ready(function(){
     $('.dropdown').hover(function() {
