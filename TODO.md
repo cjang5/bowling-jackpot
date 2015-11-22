@@ -1,7 +1,5 @@
 #Todo list
-+ Use nprogress.js for the thin loading line at the top???
-+ Add functionality for add-to-league and add-to-lottery]
-+ Get rid of previous create-bowler dialog in secondary view
++ Add functionality for add-to-league and add-to-lottery
 + ~~Look into removing the arrow things in Number input forms~~
  + If possible, look into putting in a (X) to go back to main bowlers view after a search
  + Or maybe just a button that says "Go Back" or something
@@ -34,6 +32,7 @@
 + create footer
 + Allow 'Enter' press instead of clicking 'log in' or 'sign up' in modals
  + look into jQuery .keyPress() for this..?
++ Use nprogress.js for the thin loading line at the top???
  
 ##Completed
 + ~~in register modal, employ green highlight/checkmark for correct password criteria/email~~
@@ -54,3 +53,4 @@
 + ~~Clear the text of the new-bowler-name form when modal is dismissed~~
 + ~~Move bowler creation to modals~~
  + ~~Style the modal now~~
++ ~~Get rid of previous create-bowler dialog in secondary view~~
