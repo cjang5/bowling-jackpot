@@ -106,6 +106,12 @@ $('#create-bowler-button').click(function() {
     showCreate();
 });
 
+// MODAL
+$('#create-bowler-modal').on('hidden.bs.modal', function() {
+    // Reset the input form FOR DAT GOOD UX
+    $('input#create-bowler-id').val('');
+});
+
 // If user wants to create a new bowler...
 $('.bowlers-secondary .bottom .confirm-creation #confirm').click(function() {
     var name = $('#new-bowler-name').val();
