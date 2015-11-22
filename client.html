@@ -122,34 +122,6 @@
             
             </div>
             
-            <!-- Create Bowler modal -->
-            <div id="create-bowler-modal" class="modal fade" tabindex="-1" role="dialog">
-                <div class="modal-dialog modal-sm">
-                    <div class="modal-content">
-                        <div class="modal-body">
-                            <!-- Form for new bowler name -->
-                            <div class="form-group">
-                                <input type="text" class="form-control" id="create-bowler-id" placeholder="Bowler name">
-                            </div>
-
-                            <!-- Buttons -->
-                            <!-- Chris, you're really high as of writing, but I think we should use
-                            3D buttons instead of 2D for the modal dialog we're about to write
-                            because we need to standardize the modals. The login and register modals both
-                            utilized 3D buttons, so it'd satisfy good UX principles if you reused the same type
-                            of button for this modal as well. I'm sure you'll understand. -->
-                            <a class="button3D light-blue" id="create-bowler-confirm"> <!-- change color later -->
-                                <span>Create</span>
-                            </a>
-
-                            <a class="button3D light-blue" id="create-bowler-cancel">
-                                <span>Cancel</span>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
             <!-- Main content in dashboard view -->
             <div class="main-view">
                 <!-- News Feed view -->
@@ -227,6 +199,31 @@
                 <i class="fa fa-hand-peace-o" style="color: #00ef8d;"></i>
                 <span style="color: #00ef8d; text-decoration: underline;">Dash</span><span style="text-decoration: underline;">board</span> 
             </h1>-->
+        </div>
+        
+        <!-- Create Bowler modal -->
+        <div id="create-bowler-modal" class="modal fade" tabindex="-1" role="dialog">
+            <div class="modal-dialog modal-sm">
+                <div class="modal-content">
+                    <div class="modal-body">
+                        <!-- Form for new bowler name -->
+                        <div class="form-group">
+                            <input type="text" class="form-control" id="create-bowler-id" placeholder="Bowler name">
+                        </div>
+
+                        <!-- Buttons -->
+                        <!-- Chris, you're really high as of writing, but I think we should use
+                        3D buttons instead of 2D for the modal dialog we're about to write
+                        because we need to standardize the modals. The login and register modals both
+                        utilized 3D buttons, so it'd satisfy good UX principles if you reused the same type
+                        of button for this modal as well. I'm sure you'll understand. -->
+                        <a class="button3D spotify-green3D" id="create-bowler-confirm"> <!-- change color later -->
+                            <span>Create</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
         </div>
         
         <!-- Libraries/Scripts -->

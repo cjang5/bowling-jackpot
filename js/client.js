@@ -100,12 +100,6 @@ var appendBowler = function(id, name, userid) {
         $('<li>').attr('class', 'bowler-item').attr('tabindex', 1).append(html));
 };
 
-// If 'Create bowler' button is clicked, switch to appropriate UI
-$('#create-bowler-button').click(function() {
-    // Use helper function to change secondary view properly
-    showCreate();
-});
-
 // MODAL
 $('#create-bowler-modal').on('hidden.bs.modal', function() {
     // Reset the input form FOR DAT GOOD UX
@@ -113,8 +107,8 @@ $('#create-bowler-modal').on('hidden.bs.modal', function() {
 });
 
 // If user wants to create a new bowler...
-$('.bowlers-secondary .bottom .confirm-creation #confirm').click(function() {
-    var name = $('#new-bowler-name').val();
+$('#create-bowler-modal #create-bowler-confirm').click(function() {
+    var name = $('#create-bowler-modal #create-bowler-id').val();
     client.createBowler ({
         name: name,
         success: function(bowler) {
@@ -129,22 +123,13 @@ $('.bowlers-secondary .bottom .confirm-creation #confirm').click(function() {
             // Use helper function to revert to default secondary view
             showDefault();
             
-            // reset new bowler name text form
-            $('#new-bowler-name').val('');
+            // Dismiss the modal upon success
+            $('#create-bowler-modal').modal('hide');
         },
         error: function(xhr) {
             console.log(JSON.parse(xhr.responseText));
         }        
     });
-});
-
-// If user wants to cancel new bowler creation...
-$('.bowlers-secondary .bottom .confirm-creation #cancel').click(function() {
-    // Use helper function to revert to default secondary view
-    showDefault();
-    
-    // reset the new bowler name form
-    $('#new-bowler-name').val('');
 });
 
 /*
@@ -207,7 +192,7 @@ var refreshSecondary = function() {
 };*/ // DON'T NEED I THINK BECAUSE OF HELPER FUNCTIONS BELOW
 
 /**
- * These 3 helper functions will save (SO MUCH) space and time
+ * These 2 helper functions will save (SO MUCH) space and time
  * by using the necessary show()/hide() calls to update our secondary view properly
  */
 // For when no bowler is selected
@@ -220,19 +205,6 @@ var showDefault = function() {
     $('.bowlers-secondary .bottom').css('background', 'white');
     $('.bowlers-secondary .bottom div').hide();
     $('.bowlers-secondary .bottom .placeholder').show();
-};
-
-// For when the user wants to create a new bowler
-var showCreate = function() {
-    // top stuff
-    $('.bowlers-secondary .top #curr-sel').html('Create new bowler').show();
-    $('.bowlers-secondary .top .curr-bowler').hide();
-    $('.bowlers-secondary .top input').show();
-    
-    // bottom stuff
-    $('.bowlers-secondary .bottom').css('background', '#333333');
-    $('.bowlers-secondary .bottom div').hide();
-    $('.bowlers-secondary .bottom .confirm-creation').show();
 };
 
 // For when a bowler is currenly selected
@@ -311,7 +283,7 @@ $('body').on('click', function(e) {
     if (el == 'create-bowler-button') {
         // Remove active <li>
         $('.bowlers-view ul li.bowler-item').removeClass('active');
-        showCreate();
+        showDefault();
     } // Otherwise if anything else is clicked other than another <li>
     else if (parent.indexOf('bowler-item') < 0 &&
              parent.indexOf('confirm-creation') < 0 &&

@@ -128,7 +128,6 @@ body,
     }
 }
 .modal-dialog {
-    border-radius: 3px !important;
     font-family: 'Montserrat', sans-serif;
     display: inline-block;
     text-align: center;
@@ -144,12 +143,7 @@ body,
 .modal-content input {
     border-radius: 3px;
     margin-bottom: -10px;
-    font-family: 'Arvo', 'Montserrat', sans-serif;
-    font-weight: normal;
-}
-
-.modal-content p {
-    margin-bottom: -5px;
+    font-family: 'Arvo', sans-serif;
 }
 
 /* buttons in the modal */

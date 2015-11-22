@@ -1,7 +1,4 @@
 #Todo list
-+ Clear the text of the new-bowler-name form when modal is dismissed
-+ Move ~~bowler~~/league creation to modals
- + Style the modal now
 + Use nprogress.js for the thin loading line at the top???
 + Add functionality for add-to-league and add-to-lottery]
 + Get rid of previous create-bowler dialog in secondary view
@@ -54,3 +51,6 @@
 + ~~Re-implement li active system, current one is not robust..~~ WOO I DID IT
 + ~~Re-implement view handling~~
 + ~~Create helper functions showCreate, showCurrent, showDefault for handling show()/hide()s... this is getting messy~~
++ ~~Clear the text of the new-bowler-name form when modal is dismissed~~
++ ~~Move bowler creation to modals~~
+ + ~~Style the modal now~~

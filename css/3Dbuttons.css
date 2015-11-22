@@ -39,6 +39,21 @@
     box-shadow: 0px 1px 0px 0px #7a9a95;
 }
 
+.spotify-green3D {
+    background: #00e486;
+    box-shadow: 0px 5px 0px 0px #00c876;
+    text-shadow: 0px -1.5px #00c876;
+}
+.spotify-green3D:hover {
+    background: #00ef8d;
+    box-shadow: 0px 5px 0px 0px #00d87f;
+    text-shadow: 0px -1.5px #00d87f;
+}
+.spotify-green3D:active {
+    background: #00d87f;
+    box-shadow: 0px 1px 0px 0px #00c876;
+}
+
 /* Common button styles */
 .button3D {   
     padding: 0.5em;
