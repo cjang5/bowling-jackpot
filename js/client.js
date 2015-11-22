@@ -43,7 +43,11 @@ $('#temp-button').click(function() {
         }
     });*/
     
-    showDefault();
+    //showDefault();
+    
+    //$('.bowlers-view').scrollTop($('.bowlers-view')[0].scrollHeight);
+    
+    alert("Hi");
 });
 
 // Make bowler/league-search input clearable with 'X' button
@@ -142,27 +146,41 @@ $('#create-bowler-modal').on('hidden.bs.modal', function() {
 // If user wants to create a new bowler...
 $('#create-bowler-modal #create-bowler-confirm').click(function() {
     var name = $('#create-bowler-modal #create-bowler-id').val();
-    client.createBowler ({
-        name: name,
-        success: function(bowler) {
-            // Log success
-            console.log(JSON.stringify(bowler, null, 4));
-            
-            // TODO: Responsive feedback indicating success
-            
-            // Append new bowler card to main bowler view
-            appendBowler(bowler.id.toString(), bowler.name, bowler.user_id.toString());
-            
-            // Use helper function to revert to default secondary view
-            showDefault();
-            
-            // Dismiss the modal upon success
-            $('#create-bowler-modal').modal('hide');
-        },
-        error: function(xhr) {
-            console.log(JSON.parse(xhr.responseText));
-        }        
-    });
+    
+    // make sure there is actually a name in the form
+    if (name != '') {
+        client.createBowler ({
+            name: name,
+            success: function(bowler) {
+                // Log success
+                console.log(JSON.stringify(bowler, null, 4));
+
+                // TODO: Responsive feedback indicating success
+
+                // Append new bowler card to main bowler view
+                appendBowler(bowler.id.toString(), bowler.name, bowler.user_id.toString());
+
+                // Use helper function to revert to default secondary view
+                showDefault();
+
+                // Dismiss the modal upon success
+                $('#create-bowler-modal').modal('hide');
+
+                // scroll to bottom of bowlers-view div to go to recently added bowler
+                $('.bowlers-view').scrollTop($('.bowlers-view')[0].scrollHeight);
+                // make most recent bowler active
+                $('.bowlers-view ul li.bowler-item').removeClass('active');
+                $('.bowlers-view ul li').last().find('span#name').click();
+            },
+            error: function(xhr) {
+                console.log(JSON.parse(xhr.responseText));
+            }        
+        });
+    }
+    else {
+        // TODO: Some kind of response that we need a name
+    }
+    
 });
 
 /*
