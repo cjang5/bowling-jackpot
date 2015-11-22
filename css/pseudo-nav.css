@@ -115,3 +115,24 @@ input::-webkit-inner-spin-button {
 .modal-sm {
     width: 330px;
 }
+
+.clearable {
+    background: #fff url(data:image/gif;base64,R0lGODlhBwAHAIAAAP///5KSkiH5BAAAAAAALAAAAAAHAAcAAAIMTICmsGrIXnLxuDMLADs=) no-repeat right -10px center;
+    background: url(../img/clear-x.jpg) no-repeat right -30px center;
+    background-size: 10%;
+    
+    padding: 3px 25px 3px 10px; /* Use the same right padding (18) in jQ! */
+    border-radius: 3px;
+    transition: background 0.2s, box-shadow 0.3s, border 0.3s;
+}
+.clearable.x { 
+    background-position: right 10px center; 
+}
+.clearable.onX { 
+    cursor: pointer; 
+}
+.clearable::-ms-clear {
+    display: none; 
+    width:0; 
+    height:0;
+}

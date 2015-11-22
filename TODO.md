@@ -1,8 +1,5 @@
 #Todo list
 + Add functionality for add-to-league and add-to-lottery
-+ ~~Look into removing the arrow things in Number input forms~~
- + If possible, look into putting in a (X) to go back to main bowlers view after a search
- + Or maybe just a button that says "Go Back" or something
 + Don't allow no name for bowler creation (im guessing this applies to leagues as well)
 + Link up functionality for Add-to-league and Add-to-lottery for bowlers
 + Start drafting League view based on this view
@@ -13,17 +10,13 @@
  + Also don't allow negative values
 + ~~Handle which buttons to show in client.pseudo-nav based on which view you're currently in~~
  + Do this for every view
-+ Figure out Dashboard button styling, place in between ? and Options
- + can change later, but placeholder is in
 + Catch incorrect logins/failed registration
  + Add the dialog that will pop up - maybe tooltip? or div under button?
 + Finalize Registration modal
- + Automatically login after successful registration
+ + ~~Automatically login after successful registration~~
 + For sidebar, highlight current view
-+ Link modals to js
 + Decrease sidebar size when expanded
 + find BG images for carousel slides
-+ decide on a color scheme
 + Make logo
  + Then put logo in navbar-brand
 + start prototyping UI for lottery/league creation
@@ -54,3 +47,10 @@
 + ~~Move bowler creation to modals~~
  + ~~Style the modal now~~
 + ~~Get rid of previous create-bowler dialog in secondary view~~
++ ~~Figure out Dashboard button styling, place in between ? and Options~~
+ + ~~can change later, but placeholder is in~~
++ ~~Link modals to js~~
++ ~~decide on a color scheme~~
++ ~~Look into removing the arrow things in Number input forms~~
+ + ~~If possible, look into putting in a (X) to go back to main bowlers view after a search~~
+ + ~~Or maybe just a button that says "Go Back" or something~~

@@ -46,6 +46,39 @@ $('#temp-button').click(function() {
     showDefault();
 });
 
+// Make bowler/league-search input clearable with 'X' button
+jQuery(function($) {
+    function tog(v) {
+        return v ? 'addClass':'removeClass';
+    } 
+    
+    $(document).on('input', '.clearable', function() {
+        $(this)[tog(this.value)]('x');
+    }).on('mousemove', '.x', function(e) {
+        $(this)[tog(this.offsetWidth-25 < e.clientX-this.getBoundingClientRect().left)]('onX');   
+    }).on('touchstart click', '.onX', function(ev) {
+        ev.preventDefault();
+        $(this).removeClass('x onX').val('').change();
+        
+        // Send GET request for getting all bowlers
+        client.getBowlers({
+            success: function(bowlers) {
+                console.log(JSON.stringify(bowlers, null, 4));
+
+                // show all bowlers
+                for (var i = 0; i < bowlers.length; i++) {
+                    var b = bowlers[i];
+
+                    appendBowler(b.id.toString(), b.name, b.user_id.toString());
+                }
+            },
+            error: function(xhr) {
+                console.log(JSON.parse(xhr.responseText));
+            }
+        });
+    }); 
+});
+
 // Re-verify login information on load of client
 var client = new BowlingApiClient('http://bowling-api.nextcapital.com/api');
 //console.log("Attempting to log in as: " + sessionStorage.getItem('username') + " with password: " + sessionStorage.getItem('password'));
