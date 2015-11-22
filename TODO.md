@@ -1,6 +1,5 @@
 #Todo list
 + Add functionality for add-to-league and add-to-lottery
-+ Don't allow no name for bowler creation (im guessing this applies to leagues as well)
 + Link up functionality for Add-to-league and Add-to-lottery for bowlers
 + Start drafting League view based on this view
 + Maybe automatically select new bowler post-creation? Good UX :)
@@ -55,3 +54,4 @@
  + ~~If possible, look into putting in a (X) to go back to main bowlers view after a search~~
  + ~~Or maybe just a button that says "Go Back" or something~~
 + ~~Made sure find-bowler-form had input before returning results~~
++ ~~Don't allow no name for bowler creation (im guessing this applies to leagues as well~~
