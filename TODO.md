@@ -54,3 +54,4 @@
 + ~~Look into removing the arrow things in Number input forms~~
  + ~~If possible, look into putting in a (X) to go back to main bowlers view after a search~~
  + ~~Or maybe just a button that says "Go Back" or something~~
++ ~~Made sure find-bowler-form had input before returning results~~
