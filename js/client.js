@@ -170,25 +170,28 @@ $('#create-bowler-modal #create-bowler-confirm').click(function() {
 ||SEARCH FOR A BOWLER||
 ||===================||*/
 $('#submit-find-bowler').click(function() {
-    // clear all <li>s from the list
-    $('.bowlers-view ul li:not(:first)').remove();
-    
-    // get the id from the text form
-    var id = parseInt($('#find-bowler-form').val());
-    
-    client.getBowler({
-        bowlerId: id,
-        success: function(bowler) {
-            // log success
-            console.log(JSON.stringify(bowler, null, 4));
-            
-            // append li for the bowler we found
-            appendBowler(bowler.id.toString(), bowler.name, bowler.user_id.toString());
-        },
-        error: function(xhr) {
-            console.log(JSON.parse(xhr.responseText));
-        }
-    });
+    // make sure input form isn't empty
+    if ($('#find-bowler-form').val() != '') {
+        // clear all <li>s from the list
+        $('.bowlers-view ul li:not(:first)').remove();
+
+        // get the id from the text form
+        var id = parseInt($('#find-bowler-form').val());
+
+        client.getBowler({
+            bowlerId: id,
+            success: function(bowler) {
+                // log success
+                console.log(JSON.stringify(bowler, null, 4));
+
+                // append li for the bowler we found
+                appendBowler(bowler.id.toString(), bowler.name, bowler.user_id.toString());
+            },
+            error: function(xhr) {
+                console.log(JSON.parse(xhr.responseText));
+            }
+        });  
+    }
 });
 
 // Show the news div first
