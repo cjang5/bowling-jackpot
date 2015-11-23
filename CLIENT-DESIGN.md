@@ -8,9 +8,9 @@
 **(2) - Leagues**
 
 **(3) - Lotteries**
-+ **(1)** Create a bowler
-+ **(1)** List all bowlers
-+ **(1)** Get a specific bowler
++ **(1)** Create a bowler ✓
++ **(1)** List all bowlers ✓
++ **(1)** Get a specific bowler ✓
 + **(1)/(2)** Add a bowler to a league
 + **(2)** List all bowlers in a league
 + **(2)** Create a league
