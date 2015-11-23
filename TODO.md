@@ -1,6 +1,6 @@
 #Todo list
-+ Add functionality for add-to-league and add-to-lottery
 + Link up functionality for Add-to-league and Add-to-lottery for bowlers
++ Make sure forms clear for add-to-league and add-to-lottery when focus is lost
 + Start drafting League view based on this view
 + Maybe automatically select new bowler post-creation? Good UX :)
 + get options in pseudo-nav up floated to the right

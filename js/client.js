@@ -46,8 +46,6 @@ $('#temp-button').click(function() {
     //showDefault();
     
     //$('.bowlers-view').scrollTop($('.bowlers-view')[0].scrollHeight);
-    
-    alert("Hi");
 });
 
 // Make bowler/league-search input clearable with 'X' button
@@ -63,6 +61,11 @@ jQuery(function($) {
     }).on('touchstart click', '.onX', function(ev) {
         ev.preventDefault();
         $(this).removeClass('x onX').val('').change();
+        
+        // clear all <li>s from the list
+        $('.bowlers-view ul li:not(:first)').remove();
+        // then prepend the padding li
+        prependHeader();
         
         // Send GET request for getting all bowlers
         client.getBowlers({
@@ -117,12 +120,29 @@ $(document).ready(function() {
     var pseudoWidth = $('.pseudo-nav').outerWidth() / 10;
     pseudoWidth = pseudoWidth + 'px';
     $('#create-bowler-button').css('margin-left', pseudoWidth);*/
+    
 });
 
 /*
 ||===============||
 ||CREATE A BOWLER||
 ||===============||*/
+/** 
+ * This is a helper function to prepend a padding li item
+ * so that our list will look better. This will allow for the first
+ * li, 'header', to stay fixed at the top of the ul div
+ */
+var prependHeader = function() {
+    var html =  '<span id="id">ID</span>' + 
+                '<span id="name">Name</span' + 
+                '<span id="userid">User ID</span>';
+    
+    $('.bowlers-view ul li:nth-child(1)').after(
+        $('<li>').attr('class', 'padding-li').attr('tabindex', 1).append(html));
+    
+    $('.bowlers-view li.padding-li').css('height', $('.bowlers-view ul li.header').height());
+    $('.bowlers-view li.padding-li span').css('border', 'none');
+};
 /** 
  * helper function to append a bowler to our main Bowlers view
  * created because we repeat this same process 3 times
@@ -202,6 +222,9 @@ $('#submit-find-bowler').click(function() {
                 // log success
                 console.log(JSON.stringify(bowler, null, 4));
 
+                // Prepend the header padding li
+                prependHeader();
+                
                 // append li for the bowler we found
                 appendBowler(bowler.id.toString(), bowler.name, bowler.user_id.toString());
             },
@@ -234,17 +257,6 @@ var currBowler;
 ||BOWLER VIEW CODE||
 ||================||*/
 // Refresh the secondary bowler view
-/*
-var refreshSecondary = function() {
-    if (currBowler == null) {
-        $('.bowlers-secondary .top .curr-bowler').html('Nobody!');
-        $('.bowlers-secondary .bottom .placeholder').show();
-        $('.add-to-league').hide();
-        $('.add-to-lottery').hide();
-        $('.bowlers-secondary .bottom').css('background', 'white');
-    } 
-};*/ // DON'T NEED I THINK BECAUSE OF HELPER FUNCTIONS BELOW
-
 /**
  * These 2 helper functions will save (SO MUCH) space and time
  * by using the necessary show()/hide() calls to update our secondary view properly
@@ -274,30 +286,6 @@ var showCurrent = function() {
     $('.bowlers-secondary .bottom .add-to-league').show();
     $('.bowlers-secondary .bottom .add-to-lottery').show();
 };
-
-/*
-// Handle secondary view elements when a bowler is selected from main view
-$('.bowlers-view ul').on('click', 'li.bowler-item', function() {
-    var name = $(this).find('span#name').text();
-    var id = parseInt($(this).find('span#id').text());
-    
-    // change the currently selected bowler name
-    $('.bowlers-secondary .top .curr-bowler').html(name);
-    
-    // show the options in the secondary view
-    $('.bowlers-secondary .bottom .placeholder').hide();
-    $('.add-to-league').show();
-    $('.add-to-lottery').show();
-    
-    // update currently selected bowler id
-    currBowler = id;
-});
-
-// Handle when bowler li's are focused out
-$('.bowlers-view ul').on('focusout', 'li.bowler-item', function() {
-    currBowler = null;
-    setTimeout(refreshSecondary, 1000); // current delay: 1 second
-});*/
 
 // When bowler items are clicked in the main bowler view...
 $('.bowlers-view ul').on('click', 'li.bowler-item', function() {
@@ -403,7 +391,12 @@ $('#Bowlers-button').click(function() {
         
         // flip the flag
         set = true;
+        
+        $('.bowlers-view ul li.header').css('width', $('.bowlers-view').width());
     }
+    
+    // Prepend the header padding li
+    prependHeader();
     
     // Send GET request for getting all bowlers
     client.getBowlers({

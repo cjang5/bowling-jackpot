@@ -139,22 +139,26 @@ html, body {
 .bowlers-view ul {
     padding: 0px;
     list-style-type: none;
+    position: relative;
 }
 /* Header for the cards list */
+.bowlers-view ul li.header {
+    position: fixed;
+}
 .bowlers-view .header span {
     padding-top: 10px !important;
     padding-bottom: 10px !important;
     color: rgb(0, 216, 127);
 }
 .bowlers-view .header span + span {
-    border-left: solid 2px rgba(255, 255, 255, 0.25) !important;
+    border-left: solid 2px #656565 !important;
     /*border-left: solid 2px rgba(0, 216, 127, 0.5) !important;*/
 }
 .bowlers-view .header #id {
     margin-right: -4px !important;
 }
 .bowlers-view .header #name {
-    margin-right: -5px !important;
+    margin-right: -6px !important;
 }
 
 /* the cards */
@@ -186,8 +190,8 @@ html, body {
     padding: 20px;
     width: 54%;
     margin-right: 0px;
-    border-left: solid 2px rgba(0, 0, 0, 0.15);
-    border-right: solid 2px rgba(0, 0, 0, 0.15);
+    border-left: solid 2px rgba(0, 0, 0, 0.08);
+    border-right: solid 2px rgba(0, 0, 0, 0.08);
 }
 .bowlers-view li #userid {
     display: inline-block;
