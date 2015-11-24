@@ -222,10 +222,11 @@ html, body {
 }
 
 /*
-||=================||
-||BOWLERS SECONDARY||
-||=================||*/
-.bowlers-secondary {
+||==============||
+||SECONDARY DIVS||
+||==============||*/
+.bowlers-secondary,
+.leagues-secondary {
     width: 34%;
     height: 60%;
     background: white;
@@ -243,14 +244,16 @@ html, body {
     padding-bottom: 30px;
     font-family: 'Arvo', sans-serif;
 }
-.top .curr-bowler {
+.top .curr-bowler,
+.top .curr-league {
     font-size: 2.25em;
     width: 100%;
     color: #00d87f;
     height: 50px;
     line-height: 50px;
 }
-.top #new-bowler-name {
+.top #new-bowler-name,
+.top #new-league-name {
     border-radius: 3px;
     background: #494949;
     border: none;

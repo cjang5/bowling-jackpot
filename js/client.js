@@ -156,7 +156,7 @@ var prependHeader = function(view) {
         $('.bowlers-view li.padding-li span').css('border', 'none');
     }
     else if (view == "leagues") {
-        $('.leagues-view ul li:nth-chidl(1)').after(
+        $('.leagues-view ul li:nth-child(1)').after(
             $('<li>').attr('class', 'padding-li').attr('tabindex', 1).append(html));
         
         $('.leagues-view li.padding-li').css('height', $('.leagues-view ul li.header').height());
@@ -446,6 +446,54 @@ $('#Bowlers-button').click(function() {
             }
         },
         error: function(xhr) {
+            console.log(JSON.parse(xhr.responseText));
+        }
+    });
+});
+
+// TODO CHANGE THIS VAR AND THE OTHER 'SET' VAR
+var league_set = false;
+
+/* When the Leagues button is clicked in the sidebar */
+$('#Leagues-button').click(function() {
+    // Use helper function to update secondary view properly
+    //showDefault();
+    
+    // clear all <li>s from the list
+    $('.leagues-view ul li:not(:first)').remove();
+    
+    // if the height hasn't been set yet for .placeholder
+    if (!league_set) {
+        /* TODO: UNCOMMENT
+        var diff = $('.bottom').outerHeight() - $('.bottom .placeholder').outerHeight();
+        var comb = $('.bottom').outerHeight() + $('.bottom .placeholder').outerHeight();
+        $('.bottom .placeholder').css('padding-top', diff/2);
+        $('.bottom .placeholder').css('height', comb);*/
+        
+        // flip the flag
+        set = true;
+        
+        $('.leagues-view ul li.header').css('width', $('.leagues-view').width());
+    }
+    
+    // Prepend the header padding li
+    prependHeader("leagues");
+    
+    // Send GET request for getting all leagues
+    client.getLeagues({
+        success: function(leagues) {
+            // log all leagues
+            console.log(JSON.stringify(leagues, null, 4));
+            
+            // show all leagues
+            for (var i = 0; i < leagues.length; i++) {
+                var l = leagues[i];
+                
+                // append the league to the main view
+                appendLeague(l.id.toString(), l.name, l.user_id.toString());
+            }
+        },
+        error: function(xhr)  {
             console.log(JSON.parse(xhr.responseText));
         }
     });
