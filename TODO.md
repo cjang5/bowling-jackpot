@@ -1,4 +1,5 @@
 #Todo list
++ Fix bowler-view padding-li not formatting sometimes
 + Continue leagues-view adoption
 + Get rid of add-to-lottery feature in bowler's view
 + Link up functionality for Add-to-league and Add-to-lottery for bowlers
