@@ -1,15 +1,6 @@
 // TEMP: MAGIC BUTTON - for testing features with ease
 $('#temp-button').click(function() {
-    /*
-    $('.add-to-league').toggle();
-    $('.add-to-lottery').toggle();*/
-    /*
-    var diff = $('.bottom').outerHeight() - $('.bottom .placeholder').outerHeight();
-    $('.bottom .placeholder').css('padding-top', diff/2);*/
     
-    
-    // get all leagues
-    /*
     client.getLeagues({
         success: function(leagues) {
             console.log(JSON.stringify(leagues, null, 4));
@@ -17,13 +8,44 @@ $('#temp-button').click(function() {
         error: function(xhr)  {
             console.log(JSON.parse(xhr.responseText));
         }
-    }); */
+    });
     
     /*
-    // attempt to add nonexistent bowler to existing league
+    client.createLeague({
+        name: 'The Joys',
+        success: function(league) {
+            console.log(league);
+        },
+        error: function(xhr)  {
+            console.log(JSON.parse(xhr.responseText));
+        }
+    });*/
+    
+    client.getLotteries({
+        leagueId: 993,
+        success: function(lotteries) {
+            console.log(JSON.stringify(lotteries, null, 4));
+        },
+        error: function(xhr)  {
+            console.log(JSON.parse(xhr.responseText));
+        }
+    });
+    
+    /*
     client.joinLeague({
-        bowlerId: 1444,
-        leagueId: 979,
+        bowlerId: 1476,
+        leagueId: 990,
+        success: function(bowlers) {
+            console.log(JSON.stringify(bowlers, null, 4));
+        },
+        error: function(xhr)  {
+            console.log(JSON.parse(xhr.responseText));
+        }
+    });
+    
+    
+    client.getBowlers({
+        leagueId: 990,
         success: function(bowlers) {
             console.log(JSON.stringify(bowlers, null, 4));
         },
@@ -33,19 +55,17 @@ $('#temp-button').click(function() {
     });*/
     
     /*
-    client.getBowlers({
-        leagueId: 979,
-        success: function(bowlers) {
-            console.log(JSON.stringify(bowlers, null, 4));
+    client.purchaseTicket({
+        bowlerId: 1475,
+        leagueId: 990,
+        lotteryId: 1785,
+        success: function(ticket) {
+            console.log(JSON.stringify(ticket, null, 4));
         },
         error: function(xhr)  {
             console.log(JSON.parse(xhr.responseText));
         }
     });*/
-    
-    //showDefault();
-    
-    //$('.bowlers-view').scrollTop($('.bowlers-view')[0].scrollHeight);
 });
 
 // Make bowler/league-search input clearable with 'X' button
@@ -88,7 +108,7 @@ jQuery(function($) {
 
 // Re-verify login information on load of client
 var client = new BowlingApiClient('http://bowling-api.nextcapital.com/api');
-//console.log("Attempting to log in as: " + sessionStorage.getItem('username') + " with password: " + sessionStorage.getItem('password'));
+
 client.loginUser({
     email: sessionStorage.getItem('username'),
     password: sessionStorage.getItem('password'),
@@ -112,15 +132,6 @@ $(document).ready(function() {
     // Make Find-Bowler form same height as buttons
     var buttonHeight = $('#create-bowler-button').outerHeight();
     $('#find-bowler-form').css('height', buttonHeight);
-    
-    //$('#create-bowler-modal').modal('show');
-    
-    // spacing for buttons on pseudo-nav
-    /*
-    var pseudoWidth = $('.pseudo-nav').outerWidth() / 10;
-    pseudoWidth = pseudoWidth + 'px';
-    $('#create-bowler-button').css('margin-left', pseudoWidth);*/
-    
 });
 
 /*

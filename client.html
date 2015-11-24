@@ -81,12 +81,6 @@
         </div>
         
         <!-- Div that is to the right of the sidebar -->
-        <!--
-        <div class="pseudo-nav">
-            <span class="page-title">
-                    
-            </span>
-        </div>-->
         <div class="right">
             <!-- navbar -->
             <div class="pseudo-nav">
@@ -184,8 +178,40 @@
                 </div>
                 
                 <!-- Leagues view -->
-                <div class="leagues-view" data-related="My Leagues">
-                
+                <div class="leagues-view" data-related="My Leagues" style="overflow: auto;">
+                    <ul>
+                        <li class="header" style="background: #333333;">
+                            <span id="id" style="background: #333333;">ID</span>
+                            <span id="name" style="background: #333333;">Name</span>
+                            <span id="userid" style="background: #333333;">User ID</span>
+                        </li>
+                    </ul>
+                </div>
+                <!-- Leagues secondary view -->
+                <div class="leagues-secondary" data-related='My Leagues'>
+                    <div class="top" data-related='My Leagues'>
+                        <span id="curr-sel" style="vertical-align: middle;">Currently Selected</span><br>
+                        <span class="curr-league">Nobody!</span>
+                        <input type="text" class="form-control" id="new-league-name" placeholder="League's name">
+                    </div>
+                    <div class="bottom" data-related='My Leagues'>
+                        <!-- What will be there when no bowler is selected -->
+                        <div class="placeholder" data-related='My Leagues'>
+                            <p>Select a league to the left</p>
+                            <p style="color: #00d87f;">OR</p>
+                            <p>Create a new league!</p>
+                        </div>
+                        
+                        <!-- Form to add bowler to a league -->
+                        <div class="add-to-league" data-related='My Leagues'>
+                            <span class="form-title">Add to League</span><br>
+                            <input type="number" class="form-control" id="bowler-league-form" placeholder="Bowler ID">
+                            <a class="button2D long spotify-green" id="submit-bowler-league">
+                                <span>Add</span>
+                            </a><br>
+                        </div>
+                        
+                    </div>
                 </div>
                 
                 <!-- Jackpots view -->
