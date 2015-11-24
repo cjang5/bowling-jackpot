@@ -143,16 +143,25 @@ $(document).ready(function() {
  * so that our list will look better. This will allow for the first
  * li, 'header', to stay fixed at the top of the ul div
  */
-var prependHeader = function() {
+var prependHeader = function(view) {
     var html =  '<span id="id">ID</span>' + 
                 '<span id="name">Name</span' + 
                 '<span id="userid">User ID</span>';
     
-    $('.bowlers-view ul li:nth-child(1)').after(
-        $('<li>').attr('class', 'padding-li').attr('tabindex', 1).append(html));
+    if (view == "bowlers") {
+        $('.bowlers-view ul li:nth-child(1)').after(
+            $('<li>').attr('class', 'padding-li').attr('tabindex', 1).append(html));
     
-    $('.bowlers-view li.padding-li').css('height', $('.bowlers-view ul li.header').height());
-    $('.bowlers-view li.padding-li span').css('border', 'none');
+        $('.bowlers-view li.padding-li').css('height', $('.bowlers-view ul li.header').height());
+        $('.bowlers-view li.padding-li span').css('border', 'none');
+    }
+    else if (view == "leagues") {
+        $('.leagues-view ul li:nth-chidl(1)').after(
+            $('<li>').attr('class', 'padding-li').attr('tabindex', 1).append(html));
+        
+        $('.leagues-view li.padding-li').css('height', $('.leagues-view ul li.header').height());
+        $('.leagues-view li.padding-li span').css('border', 'none');
+    }
 };
 /** 
  * helper function to append a bowler to our main Bowlers view
@@ -234,7 +243,7 @@ $('#submit-find-bowler').click(function() {
                 console.log(JSON.stringify(bowler, null, 4));
 
                 // Prepend the header padding li
-                prependHeader();
+                prependHeader("bowlers");
                 
                 // append li for the bowler we found
                 appendBowler(bowler.id.toString(), bowler.name, bowler.user_id.toString());
@@ -407,7 +416,7 @@ $('#Bowlers-button').click(function() {
     }
     
     // Prepend the header padding li
-    prependHeader();
+    prependHeader("bowlers");
     
     // Send GET request for getting all bowlers
     client.getBowlers({
