@@ -288,9 +288,9 @@ $(".pseudo-nav div").each(function() {
 var currBowler;
 
 /*
-||================||
-||BOWLER VIEW CODE||
-||================||*/
+||=======================||
+||BOWLER/LEAGUE VIEW CODE||
+||=======================||*/
 // Refresh the secondary bowler view
 /**
  * These 2 helper functions will save (SO MUCH) space and time
