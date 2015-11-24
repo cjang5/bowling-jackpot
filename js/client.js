@@ -177,7 +177,22 @@ var appendBowler = function(id, name, userid) {
         $('<li>').attr('class', 'bowler-item').attr('tabindex', 1).append(html));
 };
 
-// MODAL
+/**
+ * helper function to append a league to our main Leagues view
+ */
+var appendLeague = function(id, name, userid) {
+    var html =  '<span id="id">'.concat(id).concat('</span>') + 
+                '<span id="name">'.concat(name).concat('</span>') + 
+                '<span id="userid">'.concat(userid).concat('</span');
+    
+    $('.leagues-view ul').append(
+        $('<li>').attr('class', 'league-item').attr('tabindex', 1).append(html));
+}
+
+/*
+||======||
+||MODALS||
+||======||*/
 $('#create-bowler-modal').on('hidden.bs.modal', function() {
     // Reset the input form FOR DAT GOOD UX
     $('input#create-bowler-id').val('');
