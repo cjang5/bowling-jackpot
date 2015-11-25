@@ -135,9 +135,9 @@ $(document).ready(function() {
 });
 
 /*
-||===============||
-||CREATE A BOWLER||
-||===============||*/
+||======================||
+||CREATE A BOWLER/LEAGUE||
+||======================||*/
 /** 
  * This is a helper function to prepend a padding li item
  * so that our list will look better. This will allow for the first
@@ -297,15 +297,26 @@ var currBowler;
  * by using the necessary show()/hide() calls to update our secondary view properly
  */
 // For when no bowler is selected
-var showDefault = function() {
-    // top stuff
-    $('.bowlers-secondary .top input').hide();
-    $('.bowlers-secondary .top .curr-bowler').html('Nobody!').show();
-    
-    // bottom stuff
-    $('.bowlers-secondary .bottom').css('background', 'white');
-    $('.bowlers-secondary .bottom div').hide();
-    $('.bowlers-secondary .bottom .placeholder').show();
+var showDefault = function(view) {
+    // for bowlers-view
+    if (view == "bowlers") {
+        // top stuff
+        $('.bowlers-secondary .top .curr-bowler').html('Nobody!').show();
+
+        // bottom stuff
+        $('.bowlers-secondary .bottom').css('background', 'white');
+        $('.bowlers-secondary .bottom div').hide();
+        $('.bowlers-secondary .bottom .placeholder').show();
+    }
+    else if (view == "leagues") {
+        // top stuff
+        $('.leagues-secondary .top .curr-league').html('Nobody!').show();
+        
+        // bottom stuff 
+        $('.leagues-secondary .bottom').css('background', 'white');
+        $('.leagues-secondary .bottom div').hide();
+        $('.leagues-secondary .bottom .placeholder').show();
+    }
 };
 
 // For when a bowler is currenly selected
@@ -313,7 +324,6 @@ var showCurrent = function() {
     // top stuff
     $('.bowlers-secondary .top #curr-sel').html('Currently selected').show();
     $('.bowlers-secondary .top .curr-bowler').show();
-    $('.bowlers-secondary .top input').hide();
     
     // bottom stuff
     $('.bowlers-secondary .bottom').css('background', 'white');
@@ -360,7 +370,7 @@ $('body').on('click', function(e) {
     if (el == 'create-bowler-button') {
         // Remove active <li>
         $('.bowlers-view ul li.bowler-item').removeClass('active');
-        showDefault();
+        showDefault("bowlers");
     } // Otherwise if anything else is clicked other than another <li>
     else if (parent.indexOf('bowler-item') < 0 &&
              parent.indexOf('confirm-creation') < 0 &&
@@ -377,7 +387,7 @@ $('body').on('click', function(e) {
         currBowler = null;
         
         // call helper function to switch secondary view
-        showDefault();
+        showDefault("bowlers");
     }
 });
 
@@ -412,7 +422,7 @@ var set = false;
 /* When the Bowlers button is clicked in the Sidebar */
 $('#Bowlers-button').click(function() {
     // Use helper function to update secondary view properly
-    showDefault();
+    showDefault("bowlers");
     
     // clear all <li>s from the list
     $('.bowlers-view ul li:not(:first)').remove();
@@ -457,18 +467,17 @@ var league_set = false;
 /* When the Leagues button is clicked in the sidebar */
 $('#Leagues-button').click(function() {
     // Use helper function to update secondary view properly
-    //showDefault();
+    showDefault("leagues");
     
     // clear all <li>s from the list
     $('.leagues-view ul li:not(:first)').remove();
     
     // if the height hasn't been set yet for .placeholder
     if (!league_set) {
-        /* TODO: UNCOMMENT
         var diff = $('.bottom').outerHeight() - $('.bottom .placeholder').outerHeight();
         var comb = $('.bottom').outerHeight() + $('.bottom .placeholder').outerHeight();
         $('.bottom .placeholder').css('padding-top', diff/2);
-        $('.bottom .placeholder').css('height', comb);*/
+        $('.bottom .placeholder').css('height', comb);
         
         // flip the flag
         league_set = true;
