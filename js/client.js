@@ -1,71 +1,7 @@
 // TEMP: MAGIC BUTTON - for testing features with ease
 $('#temp-button').click(function() {
-    
-    client.getLeagues({
-        success: function(leagues) {
-            console.log(JSON.stringify(leagues, null, 4));
-        },
-        error: function(xhr)  {
-            console.log(JSON.parse(xhr.responseText));
-        }
-    });
-    
-    /*
-    client.createLeague({
-        name: 'The Joys',
-        success: function(league) {
-            console.log(league);
-        },
-        error: function(xhr)  {
-            console.log(JSON.parse(xhr.responseText));
-        }
-    });*/
-    
-    client.getLotteries({
-        leagueId: 993,
-        success: function(lotteries) {
-            console.log(JSON.stringify(lotteries, null, 4));
-        },
-        error: function(xhr)  {
-            console.log(JSON.parse(xhr.responseText));
-        }
-    });
-    
-    /*
-    client.joinLeague({
-        bowlerId: 1476,
-        leagueId: 990,
-        success: function(bowlers) {
-            console.log(JSON.stringify(bowlers, null, 4));
-        },
-        error: function(xhr)  {
-            console.log(JSON.parse(xhr.responseText));
-        }
-    });
-    
-    
-    client.getBowlers({
-        leagueId: 990,
-        success: function(bowlers) {
-            console.log(JSON.stringify(bowlers, null, 4));
-        },
-        error: function(xhr)  {
-            console.log(JSON.parse(xhr.responseText));
-        }
-    });*/
-    
-    /*
-    client.purchaseTicket({
-        bowlerId: 1475,
-        leagueId: 990,
-        lotteryId: 1785,
-        success: function(ticket) {
-            console.log(JSON.stringify(ticket, null, 4));
-        },
-        error: function(xhr)  {
-            console.log(JSON.parse(xhr.responseText));
-        }
-    });*/
+    var buttonHeight = $('#submit-bowler-league').outerHeight();
+    $('.leagues-secondary .bottom .add-to-league2 #bowler-league-form2').css('height', buttonHeight);
 });
 
 // Make bowler/league-search input clearable with 'X' button
@@ -384,6 +320,9 @@ $('.leagues-view ul').on('click', 'li.league-item', function() {
     // call helper function to update secondary view
     showCurrent("leagues");
     
+    var buttonHeight = $('.leagues-secondary .bottom .add-to-league a').outerHeight();
+    $('.leagues-secondary .bottom .add-to-league #bowler-league-form2').css('height', buttonHeight);
+    
     // update currLeague
     currLeague = id;
 });
@@ -416,6 +355,7 @@ $('body').on('click', function(e) {
     else if (parent.indexOf('bowler-item') < 0 &&
              parent.indexOf('league-item') < 0 &&
              parent.indexOf('bowlers-secondary') < 0 &&
+             parent.indexOf('leagues-secondary') < 0 &&
              parent.indexOf('bottom') < 0 &&
              parent.indexOf('top') < 0 &&
              parent.indexOf('add-to-league') < 0 &&

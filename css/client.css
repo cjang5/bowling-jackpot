@@ -295,6 +295,7 @@ html, body {
     display: inline-block;
     width: 70%;
     
+    /*height: auto !important;*/
     
     vertical-align: bottom;
     
