@@ -216,7 +216,7 @@ $('#create-bowler-modal #create-bowler-confirm').click(function() {
                 appendBowler(bowler.id.toString(), bowler.name, bowler.user_id.toString());
 
                 // Use helper function to revert to default secondary view
-                showDefault();
+                showDefault("bowlers");
 
                 // Dismiss the modal upon success
                 $('#create-bowler-modal').modal('hide');
@@ -287,6 +287,9 @@ $(".pseudo-nav div").each(function() {
 /* IMPORTANT: The currently selected bowler's id */
 var currBowler;
 
+/* IMPORTANT: The currently selected league's id */
+var currLeague;
+
 /*
 ||=======================||
 ||BOWLER/LEAGUE VIEW CODE||
@@ -320,16 +323,29 @@ var showDefault = function(view) {
 };
 
 // For when a bowler is currenly selected
-var showCurrent = function() {
-    // top stuff
-    $('.bowlers-secondary .top #curr-sel').html('Currently selected').show();
-    $('.bowlers-secondary .top .curr-bowler').show();
+var showCurrent = function(view) {
+    if (view == "bowlers") {
+        // top stuff
+        $('.bowlers-secondary .top #curr-sel').html('Currently selected').show();
+        $('.bowlers-secondary .top .curr-bowler').show();
+        
+        // bottom stuff
+        $('.bowlers-secondary .bottom').css('background', 'white');
+        $('.bowlers-secondary .bottom div').hide();
+        $('.bowlers-secondary .bottom .add-to-league').show();
+        $('.bowlers-secondary .bottom .add-to-lottery').show(); 
+    }
+    else if (view == "leagues") {
+        // top stuff
+        $('.leagues-secondary .top #curr-sel').html('Currently selected').show();
+        $('.leagues-secondary .top .curr-league').show();
+        
+        // bottom stuff
+        $('.leagues-secondary .bottom').css('background', 'white');
+        $('.leagues-secondary .bottom div').hide();
+        $('.leagues-secondary .bottom .add-to-league').show();
+    }
     
-    // bottom stuff
-    $('.bowlers-secondary .bottom').css('background', 'white');
-    $('.bowlers-secondary .bottom div').hide();
-    $('.bowlers-secondary .bottom .add-to-league').show();
-    $('.bowlers-secondary .bottom .add-to-lottery').show();
 };
 
 // When bowler items are clicked in the main bowler view...
@@ -346,10 +362,30 @@ $('.bowlers-view ul').on('click', 'li.bowler-item', function() {
     $('.bowlers-secondary .top .curr-bowler').html(name).show();
     
     // call helper function to update secondary view
-    showCurrent();
+    showCurrent("bowlers");
     
     // update curr bowler
     currBowler = id;
+});
+
+// When league items are clicked in the main bowler view...
+$('.leagues-view ul').on('click', 'li.league-item', function() {
+    // refresh active class and add it to $(this)
+    $('.leagues-view ul li.league-item').removeClass('active');
+    $(this).addClass('active');
+    
+    // get the id and name of the selected league
+    var id = parseInt($(this).find('span#id').text());
+    var name = $(this).find('span#name').text();
+    
+    // change the currently selected league name
+    $('.leagues-secondary .top .curr-league').html(name).show();
+    
+    // call helper function to update secondary view
+    showCurrent("leagues");
+    
+    // update currLeague
+    currLeague = id;
 });
 
 /**
@@ -358,7 +394,7 @@ $('.bowlers-view ul').on('click', 'li.bowler-item', function() {
  */
 $('body').on('click', function(e) {
     // No current bowler, no point, just return
-    if (currBowler == null) {
+    if (currBowler == null && currLeague == null) {
         return;
     }
     
@@ -371,23 +407,33 @@ $('body').on('click', function(e) {
         // Remove active <li>
         $('.bowlers-view ul li.bowler-item').removeClass('active');
         showDefault("bowlers");
+    } 
+    else if (el == 'create-league-button') {
+        // Remove active <li>
+        $('.leagues-view ul li.league-item').removeClass('active');
+        showDefault("leagues");
     } // Otherwise if anything else is clicked other than another <li>
     else if (parent.indexOf('bowler-item') < 0 &&
-             parent.indexOf('confirm-creation') < 0 &&
+             parent.indexOf('league-item') < 0 &&
              parent.indexOf('bowlers-secondary') < 0 &&
              parent.indexOf('bottom') < 0 &&
              parent.indexOf('top') < 0 &&
              parent.indexOf('add-to-league') < 0 &&
              parent.indexOf('add-to-lottery') < 0) 
     {
-        // Remove active from <li>s
+        // Remove active from <li>s for both bowlers/leagues
         $('.bowlers-view ul li.bowler-item').removeClass('active');
+        $('.leagues-view ul li.league-item').removeClass('active');
         
         // Update currBowler to null
         currBowler = null;
+        // Update currLeague to null
+        currLeague = null;
         
         // call helper function to switch secondary view
         showDefault("bowlers");
+        // call helper functino to switch secondary view
+        showDefault("leagues");
     }
 });
 
@@ -474,10 +520,10 @@ $('#Leagues-button').click(function() {
     
     // if the height hasn't been set yet for .placeholder
     if (!league_set) {
-        var diff = $('.bottom').outerHeight() - $('.bottom .placeholder').outerHeight();
-        var comb = $('.bottom').outerHeight() + $('.bottom .placeholder').outerHeight();
-        $('.bottom .placeholder').css('padding-top', diff/2);
-        $('.bottom .placeholder').css('height', comb);
+        var diff = $('.leagues-secondary .bottom').outerHeight() - $('.leagues-secondary .bottom .placeholder').outerHeight();
+        var comb = $('.leagues-secondary .bottom').outerHeight() + $('.leagues-secondary .bottom .placeholder').outerHeight();
+        $('.leagues-secondary .bottom .placeholder').css('padding-top', diff/2);
+        $('.leagues-secondary .bottom .placeholder').css('height', comb);
         
         // flip the flag
         league_set = true;

@@ -289,11 +289,12 @@ html, body {
     text-align: left;
 }
 #bowler-league-form,
-#bowler-jackpot-form {
+#bowler-jackpot-form,
+#bowler-league-form2 {
     font-size: 1.1em;
     display: inline-block;
     width: 70%;
-    height: auto;
+    
     
     vertical-align: bottom;
     
@@ -306,12 +307,6 @@ html, body {
     border-radius: 0px 3px 3px 0px;
     margin-left: -4px;
     min-width: 30%;
-}
-
-.bowlers-secondary .bottom .confirm-creation a {
-    width: 50%;
-    margin: 0px;
-    margin-top: 10px;
 }
 
 .form-control {
