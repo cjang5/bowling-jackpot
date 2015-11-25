@@ -471,7 +471,7 @@ $('#Leagues-button').click(function() {
         $('.bottom .placeholder').css('height', comb);*/
         
         // flip the flag
-        set = true;
+        league_set = true;
         
         $('.leagues-view ul li.header').css('width', $('.leagues-view').width());
     }

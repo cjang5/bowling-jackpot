@@ -1,5 +1,4 @@
 #Todo list
-+ Fix bowler-view padding-li not formatting sometimes
 + Continue leagues-view adoption
 + Get rid of add-to-lottery feature in bowler's view
 + Link up functionality for Add-to-league and Add-to-lottery for bowlers
@@ -58,3 +57,4 @@
  + ~~Or maybe just a button that says "Go Back" or something~~
 + ~~Made sure find-bowler-form had input before returning results~~
 + ~~Don't allow no name for bowler creation (im guessing this applies to leagues as well~~
++ ~~Fix bowler-view padding-li not formatting sometimes~~
