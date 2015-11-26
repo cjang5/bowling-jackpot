@@ -43,7 +43,28 @@ jQuery(function($) {
             });
         }
         else if ($(this).attr('id') == 'find-league-form') {
+            // Clear all <li>s from the list
+            $('.leagues-view ul li:not(:first)').remove();
+            // then prepend the padding li
+            prependHeader("leagues");
             
+            // Send GET request to get all leagues
+            client.getLeagues({
+                success: function(leagues) {
+                    // Log success
+                    console.log(JSON.stringify(leagues, null, 4));
+                    
+                    // Show all leagues
+                    for (var i = 0; i < leagues.length; i++) {
+                        var l = leagues[i];
+                        
+                        appendLeague(l.id.toString(), l.name, l.user_id.toString());
+                    }
+                },
+                error: function(xhr) {
+                    console.log(JSON.parse(xhr.responseText));
+                }
+            })
         }
     }); 
 });
