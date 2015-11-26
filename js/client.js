@@ -320,6 +320,7 @@ var currBowler;
 
 /* IMPORTANT: The currently selected league's id */
 var currLeague;
+var currLeagueName;
 
 /*
 ||=======================||
@@ -364,11 +365,10 @@ var showCurrent = function(view) {
         // bottom stuff
         $('.bowlers-secondary .bottom').css('background', 'white');
         $('.bowlers-secondary .bottom div').hide();
-        $('.leagues-secondary .bottom div').hide();
         $('.bowlers-secondary .bottom .add-to-league').show(); 
         
-        //var newHeight = $('.bowlers-secondary .bottom').height() - $('.bowlers-secondary .bottom .add-to-league input').outerHeight();
-        //$('.bowlers-secondary .bottom .add-to-league').css('padding-top', newHeight / 3);
+        var newHeight = $('.bowlers-secondary .bottom').height() - $('.bowlers-secondary .bottom .add-to-league input').outerHeight();
+        $('.bowlers-secondary .bottom .add-to-league').css('padding-top', newHeight / 3);
     }
     else if (view == "leagues") {
         // top stuff
@@ -378,7 +378,6 @@ var showCurrent = function(view) {
         // bottom stuff
         $('.leagues-secondary .bottom').css('background', 'white');
         $('.leagues-secondary .bottom div').hide();
-        $('.bowlers-secondary .bottom div').hide();
         $('.leagues-secondary .bottom .add-to-league').show();
         $('.leagues-secondary .bottom .league-detailed').show();
     }
@@ -426,6 +425,7 @@ $('.leagues-view ul').on('click', 'li.league-item', function() {
     
     // update currLeague
     currLeague = id;
+    currLeagueName = name;
 });
 
 /* ADD Bowler to a League */
@@ -500,6 +500,7 @@ $('body').on('click', function(e) {
         currBowler = null;
         // Update currLeague to null
         currLeague = null;
+        currLeagueName = "";
         
         // call helper function to switch secondary view
         showDefault("bowlers");
@@ -621,6 +622,20 @@ $('#Leagues-button').click(function() {
         },
         error: function(xhr)  {
             console.log(JSON.parse(xhr.responseText));
+        }
+    });
+});
+
+/*
+||====================||
+||LEAGUE DETAILED VIEW||
+||====================||*/
+$('.leagues-secondary .bottom .league-detailed a').click(function() {
+    // First hide all league view divs
+    $('.main-view div').each(function() {
+        $(this).hide();
+        if ($(this).attr('data-related') == "Detailed") {
+            $(this).show();
         }
     });
 });

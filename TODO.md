@@ -1,9 +1,6 @@
 #Todo list
-+ Continue leagues-view adoption
-+ Link up functionality for Add-to-league and Add-to-lottery for bowlers
-+ Make sure forms clear for add-to-league and add-to-lottery when focus is lost
-+ Start drafting League view based on this view
-+ Maybe automatically select new bowler post-creation? Good UX :)
++ Create detailed view for leagues
++ Make sure forms clear for add-to-league when focus is lost
 + get options in pseudo-nav up floated to the right
 + Transitions?
 + Don't let user search for nothing in Search bowler
@@ -58,3 +55,6 @@
 + ~~Don't allow no name for bowler creation (im guessing this applies to leagues as well~~
 + ~~Fix bowler-view padding-li not formatting sometimes~~
 + ~~Get rid of add-to-lottery feature in bowler's view~~
++ ~~Link up functionality for Add-to-league for bowlers~~
++ ~~Maybe automatically select new bowler post-creation? Good UX :)~~
++ ~~Start drafting League view based on this view~~
