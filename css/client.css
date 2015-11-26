@@ -272,6 +272,7 @@ html, body {
 .bottom .placeholder {
     text-align: center;
     font-size: 1.5em;
+    height: inherit;
 }
 .bottom .add-to-league {
     width: 100%;

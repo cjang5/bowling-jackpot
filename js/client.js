@@ -364,10 +364,11 @@ var showCurrent = function(view) {
         // bottom stuff
         $('.bowlers-secondary .bottom').css('background', 'white');
         $('.bowlers-secondary .bottom div').hide();
+        $('.leagues-secondary .bottom div').hide();
         $('.bowlers-secondary .bottom .add-to-league').show(); 
         
-        var newHeight = $('.bowlers-secondary .bottom').height() - $('.bowlers-secondary .bottom .add-to-league input').outerHeight();
-        $('.bowlers-secondary .bottom .add-to-league').css('padding-top', newHeight / 3);
+        //var newHeight = $('.bowlers-secondary .bottom').height() - $('.bowlers-secondary .bottom .add-to-league input').outerHeight();
+        //$('.bowlers-secondary .bottom .add-to-league').css('padding-top', newHeight / 3);
     }
     else if (view == "leagues") {
         // top stuff
@@ -377,6 +378,7 @@ var showCurrent = function(view) {
         // bottom stuff
         $('.leagues-secondary .bottom').css('background', 'white');
         $('.leagues-secondary .bottom div').hide();
+        $('.bowlers-secondary .bottom div').hide();
         $('.leagues-secondary .bottom .add-to-league').show();
         $('.leagues-secondary .bottom .league-detailed').show();
     }
@@ -458,6 +460,7 @@ $('.bowlers-secondary .bottom .add-to-league a').click(function() {
  */
 $('body').on('click', function(e) {
     // No current bowler, no point, just return
+    
     if (currBowler == null && currLeague == null) {
         return;
     }
@@ -465,6 +468,9 @@ $('body').on('click', function(e) {
     // Otherwise, get the id and parent's class
     var el = e.target.getAttribute('id');
     var parent = e.target.parentElement.className;
+    
+    //TEMP
+    //alert($(this).attr('id'));
     
     // If 'Create Bowler' is clicked..
     if (el == 'create-bowler-button') {
@@ -541,9 +547,9 @@ $('#Bowlers-button').click(function() {
     // if the height hasn't been set yet for .placeholder
     if (!set) {
         var diff = $('.bottom').outerHeight() - $('.bottom .placeholder').outerHeight();
-        var comb = $('.bottom').outerHeight() + $('.bottom .placeholder').outerHeight();
+        //var comb = $('.bottom').outerHeight() + $('.bottom .placeholder').outerHeight();
         $('.bottom .placeholder').css('padding-top', diff/2);
-        $('.bottom .placeholder').css('height', comb);
+        //$('.bottom .placeholder').css('height', comb);
         
         // flip the flag
         set = true;
@@ -586,9 +592,9 @@ $('#Leagues-button').click(function() {
     // if the height hasn't been set yet for .placeholder
     if (!league_set) {
         var diff = $('.leagues-secondary .bottom').outerHeight() - $('.leagues-secondary .bottom .placeholder').outerHeight();
-        var comb = $('.leagues-secondary .bottom').outerHeight() + $('.leagues-secondary .bottom .placeholder').outerHeight();
+        //var comb = $('.leagues-secondary .bottom').outerHeight() + $('.leagues-secondary .bottom .placeholder').outerHeight();
         $('.leagues-secondary .bottom .placeholder').css('padding-top', diff/2);
-        $('.leagues-secondary .bottom .placeholder').css('height', comb);
+        //$('.leagues-secondary .bottom .placeholder').css('height', comb);
         
         // flip the flag
         league_set = true;
