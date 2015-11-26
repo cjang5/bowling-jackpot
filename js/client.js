@@ -268,8 +268,10 @@ var showCurrent = function(view) {
         // bottom stuff
         $('.bowlers-secondary .bottom').css('background', 'white');
         $('.bowlers-secondary .bottom div').hide();
-        $('.bowlers-secondary .bottom .add-to-league').show();
-        $('.bowlers-secondary .bottom .add-to-lottery').show(); 
+        $('.bowlers-secondary .bottom .add-to-league').show(); 
+        
+        var newHeight = $('.bowlers-secondary .bottom').height() - $('.bowlers-secondary .bottom .add-to-league input').outerHeight();
+        $('.bowlers-secondary .bottom .add-to-league').css('padding-top', newHeight / 3);
     }
     else if (view == "leagues") {
         // top stuff
@@ -280,6 +282,7 @@ var showCurrent = function(view) {
         $('.leagues-secondary .bottom').css('background', 'white');
         $('.leagues-secondary .bottom div').hide();
         $('.leagues-secondary .bottom .add-to-league').show();
+        $('.leagues-secondary .bottom .league-detailed').show();
     }
     
 };
