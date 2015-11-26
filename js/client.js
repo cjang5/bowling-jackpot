@@ -181,6 +181,7 @@ $('#create-bowler-modal #create-bowler-confirm').click(function() {
     
 });
 
+// If user wants to create a new league
 $('#create-league-modal #create-league-confirm').click(function() {
     var name = $('#create-league-modal #create-league-id').val();
     
@@ -219,9 +220,9 @@ $('#create-league-modal #create-league-confirm').click(function() {
 });
 
 /*
-||===================||
-||SEARCH FOR A BOWLER||
-||===================||*/
+||==========================||
+||SEARCH FOR A BOWLER/LEAGUE||
+||==========================||*/
 $('#submit-find-bowler').click(function() {
     // make sure input form isn't empty
     if ($('#find-bowler-form').val() != '') {
@@ -247,6 +248,35 @@ $('#submit-find-bowler').click(function() {
                 console.log(JSON.parse(xhr.responseText));
             }
         });  
+    }
+});
+
+$('#submit-find-league').click(function() {
+    // make sure input form isn't empty
+    if ($('#find-league-form').val() != '') {
+        // clear all <li>s from the list
+        $('.leagues-view ul li:not(:first)').remove();
+        
+        // get the id from the text form
+        var id = parseInt($('#find-league-form').val());
+        
+        // get the league you're searching for
+        client.getLeague({
+            leagueId: id,
+            success: function(league) {
+                // Log success
+                console.log(JSON.stringify(league, null, 4));
+                
+                // Prepend the header padding li
+                prependHeader("leagues");
+                
+                // append the li for the league we found
+                appendLeague(league.id.toString(), league.name, league.user_id.toString());
+            },
+            error: function(xhr)  {
+                console.log(JSON.parse(xhr.responseText));
+            }
+        });
     }
 });
 
