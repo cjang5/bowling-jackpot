@@ -70,10 +70,6 @@ $(document).ready(function() {
     // Fix pseudo-nav to top of screen
     var newHeight = parseInt($('.main-view').css('padding-top').replace("px", "")) + $('.pseudo-nav').outerHeight() + 5;
     $('.main-view').css('padding-top', newHeight);
-    
-    // Make Find-Bowler form same height as buttons
-    var buttonHeight = $('#create-bowler-button').outerHeight();
-    $('#find-bowler-form').css('height', buttonHeight);
 });
 
 /*
@@ -140,6 +136,11 @@ $('#create-bowler-modal').on('hidden.bs.modal', function() {
     $('input#create-bowler-id').val('');
 });
 
+$('#create-league-modal').on('hidden.bs.modal', function() {
+    // Reset the input form FOR EVEN BETTER UX
+    $('input#create-league-id').val('');
+})
+
 // If user wants to create a new bowler...
 $('#create-bowler-modal #create-bowler-confirm').click(function() {
     var name = $('#create-bowler-modal #create-bowler-id').val();
@@ -172,6 +173,43 @@ $('#create-bowler-modal #create-bowler-confirm').click(function() {
             error: function(xhr) {
                 console.log(JSON.parse(xhr.responseText));
             }        
+        });
+    }
+    else {
+        // TODO: Some kind of response that we need a name
+    }
+    
+});
+
+$('#create-league-modal #create-league-confirm').click(function() {
+    var name = $('#create-league-modal #create-league-id').val();
+    
+    // make sure there is actually a name in the form
+    if (name != '') {
+        client.createLeague({
+            name: name,
+            success: function(league) {
+                // Log success
+                console.log(JSON.stringify(league, null, 4));
+                
+                // Append new league card
+                appendLeague(league.id.toString(), league.name, league.user_id.toString());
+                
+                // User helper function to revert to default sec view
+                showDefault("leagues");
+                
+                // Dismiss modal on success
+                $('#create-league-modal').modal('hide');
+                
+                // Scroll to bottom of leagues-view div to go to recently added league
+                $('.leagues-view').scrollTop($('.leagues-view')[0].scrollHeight);
+                // make most recent league active
+                $('.leagues-view ul li.league-item').removeClass('active');
+                $('.leagues-view ul li').last().find('span#name').click();
+            },
+            error: function(xhr)  {
+                console.log(JSON.parse(xhr.responseText));
+            }
         });
     }
     else {
@@ -433,7 +471,7 @@ $('.sidebar .view-button').on( "click", function(e) {
         if ($(this).attr('data-related') == id) {
             $(this).show();
             
-            $('input').css('height', $('.button2D').outerHeight());
+            $('input').css('height', $(this).find('a').outerHeight());
         }
     });
 });

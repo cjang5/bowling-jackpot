@@ -31,7 +31,8 @@
 ||===========||*/
 
 /* The "Find Bowler" form*/
-#find-bowler-form {
+#find-bowler-form,
+#find-league-form {
     font-family: 'Arvo', sans-serif;
     font-size: 1.1em;
     display: inline-block;
@@ -49,7 +50,8 @@ input::-webkit-inner-spin-button {
     -webkit-appearance: none;
     margin: 0;
 }
-#submit-find-bowler {
+#submit-find-bowler,
+#submit-find-league {
     border-radius: 0px 3px 3px 0px;
     margin-left: -4px;
     min-width: 0px;

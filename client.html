@@ -102,11 +102,19 @@
                     
                 </div>
 
+                <!-- Leagues view components -->
                 <div class="leagues-components" data-related="My Leagues" style="display: inline-block;">
                     <!-- "Create League" button-->
-                    <a class="button2D long spotify-green" id="create-league-button">
+                    <a class="button2D long spotify-green" id="create-league-button" data-toggle="modal" data-target="#create-league-modal">
                         <span>Create League</span>
                     </a>
+                    
+                    <!-- Search League input form -->
+                    <input type="search" class="clearable form-control" id="find-league-form" placeholder="League ID">
+                    <!-- Search League button -->
+                    <a class="button2D long spotify-green" id="submit-find-league">
+                        <span>Search</span>
+                    </a> 
                 </div>
                 
                 <!-- TEMP BUTTON -->
@@ -235,7 +243,30 @@
                     </div>
                 </div>
             </div>
+        </div>
+        
+        <!-- Create League modal -->
+        <div id="create-league-modal" class="modal fade" tabindex="-1" role="dialog">
+            <div class="modal-dialog modal-sm">
+                <div class="modal-content">
+                    <div class="modal-body">
+                        <!-- Form for new league name -->
+                        <div class="form-group">
+                            <input type="text" class="form-control" id="create-league-id" placeholder="League name">
+                        </div>
 
+                        <!-- Buttons -->
+                        <!-- Chris, you're really high as of writing, but I think we should use
+                        3D buttons instead of 2D for the modal dialog we're about to write
+                        because we need to standardize the modals. The login and register modals both
+                        utilized 3D buttons, so it'd satisfy good UX principles if you reused the same type
+                        of button for this modal as well. I'm sure you'll understand. -->
+                        <a class="button3D spotify-green3D" id="create-league-confirm"> <!-- change color later -->
+                            <span>Create</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
         </div>
         
         <!-- Libraries/Scripts -->
