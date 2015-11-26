@@ -18,27 +18,33 @@ jQuery(function($) {
         ev.preventDefault();
         $(this).removeClass('x onX').val('').change();
         
-        // clear all <li>s from the list
-        $('.bowlers-view ul li:not(:first)').remove();
-        // then prepend the padding li
-        prependHeader();
-        
-        // Send GET request for getting all bowlers
-        client.getBowlers({
-            success: function(bowlers) {
-                console.log(JSON.stringify(bowlers, null, 4));
+        // if this is bowlers-view
+        if ($(this).attr('id') == 'find-bowler-form') {
+            // clear all <li>s from the list
+            $('.bowlers-view ul li:not(:first)').remove();
+            // then prepend the padding li
+            prependHeader("bowlers");
+            
+            // Send GET request for getting all bowlers
+            client.getBowlers({
+                success: function(bowlers) {
+                    console.log(JSON.stringify(bowlers, null, 4));
 
-                // show all bowlers
-                for (var i = 0; i < bowlers.length; i++) {
-                    var b = bowlers[i];
+                    // show all bowlers
+                    for (var i = 0; i < bowlers.length; i++) {
+                        var b = bowlers[i];
 
-                    appendBowler(b.id.toString(), b.name, b.user_id.toString());
+                        appendBowler(b.id.toString(), b.name, b.user_id.toString());
+                    }
+                },
+                error: function(xhr) {
+                    console.log(JSON.parse(xhr.responseText));
                 }
-            },
-            error: function(xhr) {
-                console.log(JSON.parse(xhr.responseText));
-            }
-        });
+            });
+        }
+        else if ($(this).attr('id') == 'find-league-form') {
+            
+        }
     }); 
 });
 
@@ -244,6 +250,7 @@ var showDefault = function(view) {
 
         // bottom stuff
         $('.bowlers-secondary .bottom').css('background', 'white');
+        $('.bowlers-secondary .bottom .add-to-league input').val('');
         $('.bowlers-secondary .bottom div').hide();
         $('.bowlers-secondary .bottom .placeholder').show();
     }
@@ -328,6 +335,32 @@ $('.leagues-view ul').on('click', 'li.league-item', function() {
     
     // update currLeague
     currLeague = id;
+});
+
+/* ADD Bowler to a League */
+$('.bowlers-secondary .bottom .add-to-league a').click(function() {
+    // Make sure that the league id is not empty
+    var league_id = parseInt($('.bowlers-secondary .bottom .add-to-league input').val());
+    if (!isNaN(league_id)) {
+        // attempt to add selected bowler to the specified league
+        client.joinLeague({
+            bowlerId: currBowler,
+            leagueId: league_id,
+            success: function(bowlers) {
+                // Log success
+                console.log(JSON.stringify(bowlers, null, 4));
+                
+                // go back to default
+                showDefault("bowlers");
+            },
+            error: function(xhr)  {
+                console.log(JSON.parse(xhr.responseText));
+                
+                //TODO: Change this
+                alert("Failed to join league!");
+            }
+        });
+    }
 });
 
 /**
