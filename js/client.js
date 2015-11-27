@@ -1,7 +1,7 @@
 // TEMP: MAGIC BUTTON - for testing features with ease
 $('#temp-button').click(function() {
-    var buttonHeight = $('#submit-bowler-league').outerHeight();
-    $('.leagues-secondary .bottom .add-to-league2 #bowler-league-form2').css('height', buttonHeight);
+    // Simulate going back to Leagues view
+    $('#Leagues-button').click();
 });
 
 // Make bowler/league-search input clearable with 'X' button
@@ -638,6 +638,9 @@ $('.leagues-secondary .bottom .league-detailed a').click(function() {
             $(this).show();
         }
     });
+    
+    // Change header text
+    $('.leagues-detailed-view .detailed-top .detailed-header').html(currLeagueName);
 });
 
 // Sidebar code

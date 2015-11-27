@@ -1,5 +1,7 @@
 #Todo list
 + Create detailed view for leagues
+ + List bowlers inside detailed-left
+ + 
 + Make sure forms clear for add-to-league when focus is lost
 + get options in pseudo-nav up floated to the right
 + Transitions?
