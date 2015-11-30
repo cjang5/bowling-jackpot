@@ -138,39 +138,47 @@ html, body {
     margin-right: 19px;
 }
 .bowlers-view ul,
-.leagues-view ul {
+.leagues-view ul,
+.leagues-detailed-view ul {
     padding: 0px;
     list-style-type: none;
     position: relative;
 }
 /* Header for the cards list */
 .bowlers-view ul li.header,
-.leagues-view ul li.header {
+.leagues-view ul li.header,
+.leagues-detailed-view ul li.header {
     position: fixed;
 }
 .bowlers-view .header span,
-.leagues-view .header span {
+.leagues-view .header span,
+.leagues-detailed-view .header span {
     padding-top: 10px !important;
     padding-bottom: 10px !important;
     color: rgb(0, 216, 127);
 }
 .bowlers-view .header span + span,
-.leagues-view .header span + span {
+.leagues-view .header span + span,
+.leagues-detailed-view .header span + span {
     border-left: solid 2px #656565 !important;
     /*border-left: solid 2px rgba(0, 216, 127, 0.5) !important;*/
 }
 .bowlers-view .header #id,
-.leagues-view .header #id {
+.leagues-view .header #id,
+.leagues-detailed-view .header #id {
     margin-right: -4px !important;
 }
 .bowlers-view .header #name,
-.leagues-view .header #name {
+.leagues-view .header #name,
+.leagues-detailed-view .header #name
+.leagues-detailed-view .header #balance{
     margin-right: -6px !important;
 }
 
 /* the cards */
 .bowlers-view li,
-.leagues-view li {
+.leagues-view li,
+.leagues-detailed-view li {
     font-family: 'Arvo', sans-serif;
     font-size: 1.2em;
     padding: 0px;
@@ -191,14 +199,16 @@ html, body {
 }
 /* Three parts to a card item */
 .bowlers-view li #id,
-.leagues-view li #id {
+.leagues-view li #id,
+.leagues-detailed-view .detailed-left li #id {
     padding: 20px;
     width: 20%;
     display: inline-block;
     margin-right: 0px;
 }
 .bowlers-view li #name,
-.leagues-view li #name {
+.leagues-view li #name,
+.leagues-detailed-view .detailed-left li #name {
     display: inline-block;
     padding: 20px;
     width: 54%;
@@ -207,7 +217,8 @@ html, body {
     border-right: solid 2px rgba(0, 0, 0, 0.08);
 }
 .bowlers-view li #userid,
-.leagues-view li #userid {
+.leagues-view li #userid,
+.leagues-detailed-view .detailed-left li #userid {
     display: inline-block;
     padding: 20px;
     width: 25%;
@@ -216,7 +227,8 @@ html, body {
 }
 /* actual hoverable card items NOT HEADER */
 .bowlers-view .bowler-item:hover,
-.leagues-view .league-item:hover {
+.leagues-view .league-item:hover,
+.leagues-detailed-view .bowler-item:hover {
     background: rgba(0, 0, 0, 0.1);
     cursor: pointer;
 }
@@ -347,12 +359,45 @@ html, body {
     border: 1px solid rgba(0, 0, 0, 0.15);
 }
 
+.detailed-left ul li #userid {
+    text-align: center;
+}
+.detailed-left ul li .button2D {
+    padding: 0.25em;
+    margin: 0px;
+    margin-left: 5px;
+    margin-top: -5px;
+    margin-bottom: -5px;
+}
+
 .detailed-right {
     width: 50%;
     height: 75%;
     background: white;
     float: right;
     border: 1px solid rgba(0, 0, 0, 0.15);
+}
+
+.detailed-right li #id {
+    padding: 20px;
+    width: 33%;
+    display: inline-block;
+    margin-right: 0px;
+}
+.detailed-right li #balance {
+    display: inline-block;
+    padding: 20px;
+    width: 33%;
+    margin-right: 0px;
+    border-left: solid 2px rgba(0, 0, 0, 0.08);
+    border-right: solid 2px rgba(0, 0, 0, 0.08);
+}
+.detailed-right li #status {
+    display: inline-block;
+    padding: 20px;
+    width: 33%;
+    /*border-left: solid 2px rgba(0, 0, 0, 0.15);*/
+    margin-right: 0px;
 }
 
 .detailed-top .detailed-header {
