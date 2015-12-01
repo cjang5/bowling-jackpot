@@ -198,7 +198,7 @@ input::-webkit-inner-spin-button {
     background: rgba(0, 0, 0, 0.1);
     cursor: pointer;
 }
-#detailed-lottery-modal .ticket:focus {
+#detailed-lottery-modal .ticket-item:focus {
     box-shadow: none;
     outline: none;
 }
