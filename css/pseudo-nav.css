@@ -118,6 +118,91 @@ input::-webkit-inner-spin-button {
     width: 330px;
 }
 
+/* Detailed lottery modal */
+#detailed-lottery-modal .modal-dialog {
+    width: 500px; 
+}
+#detailed-lottery-modal .modal-content {
+    max-height: 600px;
+}
+#detailed-lottery-modal .modal-content,
+#detailed-lottery-modal .modal-body {
+    padding: 0px !important;
+}
+#detailed-lottery-modal .header-div {
+    width: 100%;
+    padding: 20px;
+    background: #333333;
+    background: white;
+    color: white;
+    color: black;
+    font-family: 'Arvo', sans-serif;
+    font-size: 2em !important;
+    text-align: left;
+}
+#detailed-lottery-modal .body {
+    width: 100%;
+}
+/* Tickets ul in lottery modal */
+#detailed-lottery-modal ul {
+    padding: 0px;
+    list-style-type: none;
+    position: relative;
+}
+#detailed-lottery-modal ul li.header {
+    position: fixed;
+    z-index: 2;
+}
+#detailed-lottery-modal .header span {
+    padding-top: 10px !important;
+    padding-bottom: 10px !important;
+    color: rgb(0, 216, 127);
+}
+#detailed-lottery-modal .header span + span {
+    border-left: solid 2px #656565 !important;
+}
+#detailed-lottery-modal .header #id {
+    margin-right: -4px !important;
+}
+#detailed-lottery-modal .header #buyer {
+    margin-right: -6px !important;
+}
+#detailed-lottery-modal li {
+    font-family: 'Arvo', sans-serif;
+    font-size: 1.2em;
+    padding: 0px;
+    border-bottom: solid 1px rgba(0, 0, 0, 0.08);
+    text-align: left;
+}
+#detailed-lottery-modal li #id {
+    padding: 20px;
+    width: 25%;
+    display: inline-block;
+    margin-right: 0px;
+}
+#detailed-lottery-modal li #buyer {
+    padding: 20px;
+    width: 55%;
+    display: inline-block;
+    margin-right: 0px;
+    border-left: solid 2px rgba(0, 0, 0, 0.08);
+    border-right: solid 2px rgba(0, 0, 0, 0.08);
+}
+#detailed-lottery-modal li #price {
+    padding: 20px;
+    width: 19.5%;
+    display: inline-block;
+    margin-right: 0px;
+}
+#detailed-lottery-modal .ticket-item:hover {
+    background: rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+}
+#detailed-lottery-modal .ticket:focus {
+    box-shadow: none;
+    outline: none;
+}
+
 .clearable {
     background: #fff url(data:image/gif;base64,R0lGODlhBwAHAIAAAP///5KSkiH5BAAAAAAALAAAAAAHAAcAAAIMTICmsGrIXnLxuDMLADs=) no-repeat right -10px center;
     background: url(../img/clear-x.jpg) no-repeat right -30px center;

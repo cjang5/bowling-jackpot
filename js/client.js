@@ -135,6 +135,13 @@ var prependHeader = function(view) {
         $('.leagues-detailed-view .detailed-right li.padding-li').css('height', $('.leagues-detailed-view .detailed-right ul li.header').height());
         $('.leagues-detailed-view .detailed-right li.padding-li span').css('border', 'none');
     }
+    else if (view == "tickets") {
+        $('#detailed-lottery-modal ul li:nth-child(1)').after(
+            $('<li>').attr('class', 'padding-li').attr('tabindex', 1).append(html));
+        
+        $('#detailed-lottery-modal li.padding-li').css('height', $('#detailed-lottery-modal ul li.header').height());
+        $('#detailed-lottery-modal li.padding-li span').css('border', 'none');
+    }
 };
 /** 
  * helper function to append a bowler to our main Bowlers view
@@ -668,10 +675,10 @@ $('.leagues-detailed-view .detailed-left ul').on('click', 'li.bowler-item .butto
             alert("Successfully bought ticket for: " + bId);
             
             // get current balance
-            var balance = parseInt($('.leagues-detailed-view .detailed-right ul li:last-child span#balance').text());
+            var balance = parseInt($('.leagues-detailed-view .detailed-right ul li:nth-child(3) span#balance').text());
             
             // Update balance
-            $('.leagues-detailed-view .detailed-right ul li:last-child span#balance').html(balance + 10);
+            $('.leagues-detailed-view .detailed-right ul li:nth-child(3) span#balance').html(balance + 10);
         },
         error: function(xhr)  {
             console.log(JSON.parse(xhr.responseText));
@@ -705,7 +712,7 @@ var appendLottery = function(id, balance, payout) {
 var prependLottery = function(id, balance, payout) {
     var html =  '<span id="id">'.concat(id).concat('</span>') + 
                 '<span id="balance">'.concat(balance).concat('</span>');
-    
+                
     // depending on payout status, append different status html
     if (payout == null) {
         html = html + '<span id="status">Current</span>';
@@ -715,9 +722,52 @@ var prependLottery = function(id, balance, payout) {
         html = html + '<span id="status">Completed</span>';
     }
     
+    // Details button
+    html = html + '<span id="details"><a data-id="'.concat(id).concat('" class="button2D spotify-green" data-toggle="modal" data-target="#detailed-lottery-modal"><span><i class="fa fa-search"></span></a></span>');
+    
     $('.leagues-detailed-view .detailed-right ul li:nth-child(2)').after(
         $('<li>').attr('class', 'lottery-item').attr('tabindex', 1).append(html));
 };
+
+/* Detailed lottery modal */
+// Helper function to append ticket items
+var appendTicket = function(id, buyer, price) {
+    var html =  '<span id="id">'.concat(id).concat('</span>') + 
+                '<span id="buyer">'.concat(buyer).concat('</span>') +
+                '<span id="price">'.concat(price).concat('</span>');
+    
+    $('#detailed-lottery-modal ul').append(
+        $('<li>').attr('class', 'ticket-item').attr('tabindex', 1).append(html));
+};
+
+$('.leagues-detailed-view .detailed-right ul').on('click', 'li.lottery-item .button2D', function() {
+    $('#detailed-lottery-modal .body ul li.header').css('width', '500px');
+    
+    $('#detailed-lottery-modal .body ul li:not(:first)').remove();
+    
+    // Send GET request to get all tickets for selected lottery
+    client.getTickets({
+        leagueId: detailedLeague,
+        lotteryId: parseInt($(this).attr('data-id')),
+        success: function(lotteries) {
+            // Log success
+            console.log(JSON.stringify(lotteries, null, 4));
+            
+            // Append padding li
+            prependHeader("tickets");
+            
+            // Append all tickets
+            for (var i = 0; i < lotteries.length; i++) {
+                var t = lotteries[i];
+            
+                appendTicket(t.id.toString(), t.bowler_id, t.price)
+            }
+        },
+        error: function(xhr)  {
+            console.log(JSON.parse(xhr.responseText));
+        }
+    });
+});
 
 /*
 ||====================||
@@ -731,6 +781,17 @@ $('.leagues-secondary .bottom .league-detailed a').click(function() {
             $(this).show();
         }
     });
+    
+    // Show pseudo-nav elements
+    $(".pseudo-nav div").each(function() {
+        $(this).hide();
+        if ($(this).attr('data-related') == "Detailed") {
+            $(this).show();
+            
+            $('input').css('height', $(this).find('a').outerHeight());
+        }
+    });
+    
     // update detailedLeague
     detailedLeague = currLeague;
     
@@ -778,9 +839,8 @@ $('.leagues-secondary .bottom .league-detailed a').click(function() {
             // Log success
             console.log(JSON.stringify(lotteries, null, 4));
             
-            appendLottery(lotteries[0].id.toString(), lotteries[0].balance.toString(), lotteries[0].payout);
-            
-            for (var i = 1; i < lotteries.length; i++) {
+            // then we prepend lotteries so the most current one is at the top
+            for (var i = 0; i < lotteries.length; i++) {
                 var l = lotteries[i];
                 
                 prependLottery(l.id.toString(), l.balance.toString(), l.payout);

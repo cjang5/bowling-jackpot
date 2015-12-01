@@ -74,6 +74,9 @@
 .pink-red:hover {
     background: #fe80a3;
 }
+.pink-red:active {
+    background: #ef648b;
+}
 
 .spotify-green {
     font-family: 'Arvo', sans-serif;
@@ -84,4 +87,16 @@
 }
 .spotify-green:active {
     background: #00d87f;
+}
+
+.grey {
+    font-family: 'Arvo', sans-serif;
+    background: #c2c2c2;
+    color: white;
+}
+.grey:hover {
+    background: #b5b5b5;
+}
+.grey:active {
+    background: #a8a8a8;
 }

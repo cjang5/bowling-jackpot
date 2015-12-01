@@ -176,6 +176,7 @@ html, body {
     margin-right: -6px !important;
 }
 
+
 /* the cards */
 .bowlers-view li,
 .leagues-view li,
@@ -229,9 +230,14 @@ html, body {
 /* actual hoverable card items NOT HEADER */
 .bowlers-view .bowler-item:hover,
 .leagues-view .league-item:hover,
-.leagues-detailed-view .bowler-item:hover {
+.leagues-detailed-view .bowler-item:hover,
+.leagues-detailed-view .detailed-right li:hover {
     background: rgba(0, 0, 0, 0.1);
     cursor: pointer;
+}
+.leagues-detailed-view li:focus {
+    box-shadow: none;
+    outline: none;
 }
 
 /*
@@ -363,12 +369,17 @@ html, body {
 .detailed-left ul li #userid {
     text-align: center;
 }
-.detailed-left ul li .button2D {
+.detailed-right ul li #details {
+    text-align: center;
+}
+.detailed-left ul li .button2D,
+.detailed-right ul li .button2D {
     padding: 0.25em;
     margin: 0px;
-    margin-left: 5px;
     margin-top: -5px;
     margin-bottom: -5px;
+    margin-left: 5px;
+    width: 100%;
 }
 
 .detailed-right {
@@ -396,9 +407,14 @@ html, body {
 .detailed-right li #status {
     display: inline-block;
     padding: 20px;
-    width: 45%;
-    /*border-left: solid 2px rgba(0, 0, 0, 0.15);*/
+    width: 25%;
+    border-right: solid 2px rgba(0, 0, 0, 0.08);*/
     margin-right: 0px;
+}
+.detailed-right li #details {
+    display: inline-block;
+    padding: 20px;
+    width: 27%;
 }
 
 .detailed-top .detailed-header {

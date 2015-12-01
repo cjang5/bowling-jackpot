@@ -117,6 +117,14 @@
                     </a> 
                 </div>
                 
+                <!-- Leagues detailed view components -->
+                <div class="leagues-detailed-components" data-related="Detailed" style="display: inline-block;">
+                    <!-- Back button -->
+                    <a class="button2D long grey" id="detailed-back-button">
+                        <span>Back to Leagues</span>
+                    </a>
+                </div>
+                
                 <!-- TEMP BUTTON -->
                 <a class="button2D long pink-red" id="temp-button">
                     <span>Magic button</span>
@@ -229,6 +237,7 @@
                                 <span id="id" style="background: #333333;">Lottery ID</span>
                                 <span id="balance" style="background: #333333;">Balance</span>
                                 <span id="status" style="background: #333333;">Status</span>
+                                <span id="details" style="background: #333333;">Details</span>
                             </li>
                         </ul>
                     </div>
@@ -290,6 +299,31 @@
                         <a class="button3D spotify-green3D" id="create-league-confirm"> <!-- change color later -->
                             <span>Create</span>
                         </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Detailed Lottery modal -->
+        <div id="detailed-lottery-modal" class="modal fade" tabindex="-1" role="dialog">
+            <div class="modal-dialog">
+                <div class="modal-content" style="overflow-y: scroll;">
+                    <div class="modal-body">
+                        <!-- Header -->
+                        <!--
+                        <div class="header-div">
+                            Hello
+                        </div>-->
+                        <div class="body">
+                            <ul>
+                                <li class="header" style="background: #333333;">
+                                    <span id="title" style="border: none; padding: 20px;">Lottery #1273</span><br>
+                                    <span id="id" style="background: #333333;">Ticket ID</span>
+                                    <span id="buyer" style="background: #333333;">Purchased for (Bowler ID)</span>
+                                    <span id="price" style="background: #333333;">Price</span>
+                                </li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </div>
