@@ -719,6 +719,8 @@ $('.leagues-secondary .bottom .league-detailed a').click(function() {
     
     // Change header text
     $('.leagues-detailed-view .detailed-top .detailed-header').html(currLeagueName);
+    // Change header id text
+    $('.leagues-detailed-view .detailed-top .detailed-id').html("League ID: " + currLeague);
     
     // clear all <li>s from the list
     $('.leagues-detailed-view .detailed-left ul li:not(:first)').remove();

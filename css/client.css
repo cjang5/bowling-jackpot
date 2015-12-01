@@ -380,14 +380,14 @@ html, body {
 
 .detailed-right li #id {
     padding: 20px;
-    width: 33%;
+    width: 23%;
     display: inline-block;
     margin-right: 0px;
 }
 .detailed-right li #balance {
     display: inline-block;
     padding: 20px;
-    width: 33%;
+    width: 23%;
     margin-right: 0px;
     border-left: solid 2px rgba(0, 0, 0, 0.08);
     border-right: solid 2px rgba(0, 0, 0, 0.08);
@@ -395,7 +395,7 @@ html, body {
 .detailed-right li #status {
     display: inline-block;
     padding: 20px;
-    width: 33%;
+    width: 45%;
     /*border-left: solid 2px rgba(0, 0, 0, 0.15);*/
     margin-right: 0px;
 }
@@ -404,4 +404,9 @@ html, body {
     color: #00d87f;
     font-family: 'Arvo', sans-serif;
     font-size: 2.5em;
+}
+.detailed-top .detailed-id {
+    color: white;
+    font-family: 'Arvo', sans-serif;
+    font-size: 1.5em;
 }
