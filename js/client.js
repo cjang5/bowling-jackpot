@@ -93,6 +93,11 @@ $(document).ready(function() {
     $('.main-view').css('padding-top', newHeight);
 });
 
+/* Back button for league-detailed */
+$('.leagues-detailed-components a').click(function() {
+    $('#Leagues-button').click(); 
+});
+
 /*
 ||======================||
 ||CREATE A BOWLER/LEAGUE||
