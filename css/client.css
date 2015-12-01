@@ -149,6 +149,7 @@ html, body {
 .leagues-view ul li.header,
 .leagues-detailed-view ul li.header {
     position: fixed;
+    z-index: 2;
 }
 .bowlers-view .header span,
 .leagues-view .header span,

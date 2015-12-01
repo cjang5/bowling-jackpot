@@ -701,6 +701,23 @@ var appendLottery = function(id, balance, payout) {
     $('.leagues-detailed-view .detailed-right ul').append(
         $('<li>').attr('class', 'lottery-item').attr('tabindex', 1).append(html));
 }; 
+// Helper function to prepend lotteries
+var prependLottery = function(id, balance, payout) {
+    var html =  '<span id="id">'.concat(id).concat('</span>') + 
+                '<span id="balance">'.concat(balance).concat('</span>');
+    
+    // depending on payout status, append different status html
+    if (payout == null) {
+        html = html + '<span id="status">Current</span>';
+        currLottery = parseInt(id);
+    }
+    else {
+        html = html + '<span id="status">Completed</span>';
+    }
+    
+    $('.leagues-detailed-view .detailed-right ul li:nth-child(2)').after(
+        $('<li>').attr('class', 'lottery-item').attr('tabindex', 1).append(html));
+};
 
 /*
 ||====================||
@@ -761,10 +778,12 @@ $('.leagues-secondary .bottom .league-detailed a').click(function() {
             // Log success
             console.log(JSON.stringify(lotteries, null, 4));
             
-            for (var i = 0; i < lotteries.length; i++) {
+            appendLottery(lotteries[0].id.toString(), lotteries[0].balance.toString(), lotteries[0].payout);
+            
+            for (var i = 1; i < lotteries.length; i++) {
                 var l = lotteries[i];
                 
-                appendLottery(l.id.toString(), l.balance.toString(), l.payout);
+                prependLottery(l.id.toString(), l.balance.toString(), l.payout);
             }
         },
         error: function(xhr)  {
