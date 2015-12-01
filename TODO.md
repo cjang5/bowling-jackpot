@@ -1,7 +1,5 @@
 #Todo list
-+ Create detailed view for leagues
- + List bowlers inside detailed-left
- + 
++ Write up spec for nextcapital
 + Make sure forms clear for add-to-league when focus is lost
 + get options in pseudo-nav up floated to the right
 + Transitions?
