@@ -1,3 +1,9 @@
+@font-face {
+    font-family: 'South Africa';
+    src:    url(../fonts/SouthAfrican.woff2)    format('woff2'), 
+            url(../fonts/SouthAfrican.ttf)      format('truetype'); /* Safari, Android, iOS */
+}
+
 /*
 ||=====||
 ||FORMS||
@@ -83,7 +89,8 @@ body,
 }
 
 .navbar-brand {
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'South Africa', sans-serif;
+    font-size: 3em;
     cursor: pointer;
 }
 
