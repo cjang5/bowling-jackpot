@@ -228,3 +228,8 @@ body,
     cursor: pointer;
     text-decoration: none;
 }
+
+.register-modal-footer a {
+    cursor: pointer;
+    text-decoration: none;
+}

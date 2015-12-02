@@ -82,6 +82,12 @@ $('#login-modal #login-password').keypress(function(e) {
     } 
 });
 
+// Redirect to registration modal when 'New?' button is clicked
+$('#login-modal .login-modal-footer a').click(function() {
+    $('#login-modal').modal('hide');
+    $('#register-modal').modal('show');
+});
+
 // Logout button
 $(document).on('click', '#logout-button', function() {
     // close the session
@@ -126,6 +132,12 @@ $('#register-modal #register-password').keypress(function(e) {
         return false;
     } 
 });
+
+// Redirect to login modal when 'Already a user?' button is clicked
+$('#register-modal .register-modal-footer a').click(function() {
+    $('#register-modal').modal('hide');
+    $('#login-modal').modal('show');
+})
 
 /*
 ||======||
