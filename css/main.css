@@ -4,6 +4,18 @@
             url(../fonts/SouthAfrican.ttf)      format('truetype'); /* Safari, Android, iOS */
 }
 
+@font-face {
+    font-family: 'Montserrat';
+    src:    url(../fonts/Montserrat-Regular.ttf)    format('truetype'),
+            url(../fonts/Montserrat-Regular.woff2)  format('woff2');
+}
+
+@font-face {
+    font-family: 'Arvo';
+    src:    url(../fonts/Arvo-Regular.ttf)      format('truetype'),
+            url(../fonts/Arvo-Regular.woff2)    format('woff2');
+}
+
 /*
 ||=====||
 ||FORMS||
