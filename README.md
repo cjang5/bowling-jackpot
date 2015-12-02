@@ -25,7 +25,7 @@ Here you can do the same things as the Bowler's tab, i.e you can create leagues,
 
 **In addition**, you can click "Detailed View" once a league is selected and get a more detailed overview of the league where you can see all the bowlers in that league, and all the lotteries (both completed and the current) in that league. You can then purchase lotto tickets for the bowler of your choice, check past results of lotteries and their winners, and roll for the current lottery for a chance to win someone some money!
 
-**_Note:_**Here I wanted to add another input form so we could add bowlers to the league right away instead of having to go back to the Leagues main page and selecting the league again, but I did not have enough time to. I will definitely look into this afterwards.
+**_Note:_** Here I wanted to add another input form so we could add bowlers to the league right away instead of having to go back to the Leagues main page and selecting the league again, but I did not have enough time to. I will definitely look into this afterwards.
 
 #Final Thoughts
 I hope you liked what I've built, it's definitely one of the most fun projects I've created so far, and I know it took a long time, but that's because I'm so meticulous about good UX (something I hope you're looking for). 
