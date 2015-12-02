@@ -59,19 +59,19 @@ body,
 }
 
 .item:nth-child(1) {
-    background-image: url(../img/bowling1.jpg);
+    background-image: url(../img/bowler1.jpg);
     background-repeat: no-repeat;
     background-size: cover;
 }
 
 .item:nth-child(2) {
-    background-image: url(../img/test-img1.jpg);
+    background-image: url(../img/bowler2.jpg);
     background-repeat: no-repeat;
     background-size: cover;
 }
 
 .item:nth-child(3) {
-    background-image: url(../img/test-img1.jpg);
+    background-image: url(../img/bowler3.jpg);
     background-repeat: no-repeat;
     background-size: cover;
 }
