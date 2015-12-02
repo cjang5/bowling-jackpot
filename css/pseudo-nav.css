@@ -149,24 +149,6 @@ input::-webkit-inner-spin-button {
     list-style-type: none;
     position: relative;
 }
-#detailed-lottery-modal ul li.header {
-    position: fixed;
-    z-index: 2;
-}
-#detailed-lottery-modal .header span {
-    padding-top: 10px !important;
-    padding-bottom: 10px !important;
-    color: rgb(0, 216, 127);
-}
-#detailed-lottery-modal .header span + span {
-    border-left: solid 2px #656565 !important;
-}
-#detailed-lottery-modal .header #id {
-    margin-right: -4px !important;
-}
-#detailed-lottery-modal .header #buyer {
-    margin-right: -6px !important;
-}
 #detailed-lottery-modal li {
     font-family: 'Arvo', sans-serif;
     font-size: 1.2em;
@@ -190,7 +172,7 @@ input::-webkit-inner-spin-button {
 }
 #detailed-lottery-modal li #price {
     padding: 20px;
-    width: 19.5%;
+    width: 20%;
     display: inline-block;
     margin-right: 0px;
 }
@@ -201,6 +183,39 @@ input::-webkit-inner-spin-button {
 #detailed-lottery-modal .ticket-item:focus {
     box-shadow: none;
     outline: none;
+}
+#detailed-lottery-modal li#winner {
+    background: #ffe63f;
+}
+#detailed-lottery-modal li#winner:hover {
+    background: #ffed76;
+}
+
+#detailed-lottery-modal .ul-header {
+    background: #333333;
+    padding: 0px;
+    width: 100%;
+    text-align: left;
+}
+#detailed-lottery-modal .ul-header #title {
+    padding: 10px 20px 10px 20px;
+    display: inline-block;
+    border-bottom: 2px solid #656565;
+    width: 100%;
+}
+#detailed-lottery-modal .ul-header #id {
+    width: 25%;
+    display: inline-block;
+}
+#detailed-lottery-modal .ul-header #buyer {
+    width: 55%;
+    display: inline-block;
+    border-left: 2px solid #656565;
+    border-right: 2px solid #656565;
+}
+#detailed-lottery-modal .ul-header #price {
+    width: 20%;
+    display: inline-block;
 }
 
 .clearable {

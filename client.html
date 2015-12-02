@@ -140,14 +140,13 @@
                 </div>
                 
                 <!-- Bowlers view -->
-                <div class="bowlers-view" data-related='My Bowlers' style="overflow: auto;">
-                    <ul>
-                        <li class="header" style="background: #333333;">
-                            <span id="id" style="background: #333333;">ID</span>
-                            <span id="name" style="background: #333333;">Name</span>
-                            <span id="userid" style="background: #333333;">User ID</span>
-                        </li>
-                    </ul>
+                <div class="bowlers-view" data-related='My Bowlers'>
+                    <div class="ul-header" data-related="My Bowlers">
+                        <span id="id">ID</span><span id="name">Bowler Name</span><span id="userid">User ID</span>
+                    </div>        
+                    <div class="ul-container" data-related="My Bowlers">
+                        <ul style="overflow-y:auto;"></ul>
+                    </div>
                 </div>
                 <div class="bowlers-secondary" data-related='My Bowlers'>
                     <div class="top" data-related='My Bowlers'>
@@ -174,14 +173,11 @@
                 </div>
                 
                 <!-- Leagues view -->
-                <div class="leagues-view" data-related="My Leagues" style="overflow: auto;">
-                    <ul>
-                        <li class="header" style="background: #333333;">
-                            <span id="id" style="background: #333333;">ID</span>
-                            <span id="name" style="background: #333333;">League Name</span>
-                            <span id="userid" style="background: #333333;">User ID</span>
-                        </li>
-                    </ul>
+                <div class="leagues-view" data-related="My Leagues">
+                    <div class="ul-header" data-related="My Leagues">
+                        <span id="id" style="background: #333333;">ID</span><span id="name" style="background: #333333;">League Name</span><span id="userid" style="background: #333333;">User ID</span>
+                    </div>
+                    <ul style="overflow-y: auto;"></ul>
                 </div>
                 <!-- Leagues secondary view -->
                 <div class="leagues-secondary" data-related='My Leagues'>
@@ -295,11 +291,6 @@
                         </div>
 
                         <!-- Buttons -->
-                        <!-- Chris, you're really high as of writing, but I think we should use
-                        3D buttons instead of 2D for the modal dialog we're about to write
-                        because we need to standardize the modals. The login and register modals both
-                        utilized 3D buttons, so it'd satisfy good UX principles if you reused the same type
-                        of button for this modal as well. I'm sure you'll understand. -->
                         <a class="button3D spotify-green3D" id="create-league-confirm"> <!-- change color later -->
                             <span>Create</span>
                         </a>
@@ -311,17 +302,13 @@
         <!-- Detailed Lottery modal -->
         <div id="detailed-lottery-modal" class="modal fade" tabindex="-1" role="dialog">
             <div class="modal-dialog">
-                <div class="modal-content" style="overflow-y: scroll;">
+                <div class="modal-content">
                     <div class="modal-body">
                         <div class="body">
-                            <ul>
-                                <li class="header" style="background: #333333;">
-                                    <span id="title" style="border: none; padding: 20px;"></span><br>
-                                    <span id="id" style="background: #333333;">Ticket ID</span>
-                                    <span id="buyer" style="background: #333333;">Purchased for (Bowler ID)</span>
-                                    <span id="price" style="background: #333333;">Price</span>
-                                </li>
-                            </ul>
+                            <div class="ul-header">
+                                <span id="title"></span><br><span id="id">Ticket ID</span><span id="buyer">Purchased for (Bowler ID)</span><span id="price">Price</span>
+                            </div>
+                            <ul style="overflow-y: auto;"></ul>
                         </div>
                     </div>
                 </div>

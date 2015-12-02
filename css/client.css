@@ -145,35 +145,66 @@ html, body {
     position: relative;
 }
 /* Header for the cards list */
-.bowlers-view ul li.header,
+
 .leagues-view ul li.header,
 .leagues-detailed-view ul li.header {
+    width: auto;
     position: fixed;
     z-index: 2;
 }
-.bowlers-view .header span,
+
 .leagues-view .header span,
 .leagues-detailed-view .header span {
     padding-top: 10px !important;
     padding-bottom: 10px !important;
     color: rgb(0, 216, 127);
 }
-.bowlers-view .header span + span,
+
 .leagues-view .header span + span,
 .leagues-detailed-view .header span + span {
     border-left: solid 2px #656565 !important;
     /*border-left: solid 2px rgba(0, 216, 127, 0.5) !important;*/
 }
-.bowlers-view .header #id,
+
 .leagues-view .header #id,
 .leagues-detailed-view .header #id {
     margin-right: -4px !important;
 }
-.bowlers-view .header #name,
+
 .leagues-view .header #name,
 .leagues-detailed-view .header #name
 .leagues-detailed-view .header #balance{
     margin-right: -6px !important;
+}
+
+/*
+||=======||
+||HEADERS||
+||=======||*/
+.ul-header {
+    background: #333333;
+    color: #00d87f;
+    font-family: 'Arvo', sans-serif;
+}
+.ul-header span {
+    padding: 10px 20px 10px 20px;
+    margin-right: 0px;
+    margin-left: 0px;
+    font-size: 1.2em;
+}
+.ul-header #name {
+    width: 55%;
+    display: inline-block;
+    border-left: 2px solid #656565;
+    border-right: 2px solid #656565;
+}
+.ul-header #id {
+    width: 20%;
+    display: inline-block;
+}
+.ul-header #userid {
+    width: 25%;
+    display: inline-block;
 }
 
 
@@ -213,7 +244,7 @@ html, body {
 .leagues-detailed-view .detailed-left li #name {
     display: inline-block;
     padding: 20px;
-    width: 54%;
+    width: 55%;
     margin-right: 0px;
     border-left: solid 2px rgba(0, 0, 0, 0.08);
     border-right: solid 2px rgba(0, 0, 0, 0.08);

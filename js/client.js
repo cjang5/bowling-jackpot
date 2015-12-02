@@ -1,7 +1,8 @@
 // TEMP: MAGIC BUTTON - for testing features with ease
 $('#temp-button').click(function() {
     // Random roll
-    console.log(Math.floor(Math.random() * 11));
+    alert($('.bowlers-view ul li.header').outerWidth() + ";" + $('.bowlers-view').outerWidth());
+    //$('.bowlers-view ul li.header').css('width', $('.bowlers-view').width());
 });
 
 // Make bowler/league-search input clearable with 'X' button
@@ -45,8 +46,6 @@ jQuery(function($) {
         else if ($(this).attr('id') == 'find-league-form') {
             // Clear all <li>s from the list
             $('.leagues-view ul li:not(:first)').remove();
-            // then prepend the padding li
-            prependHeader("leagues");
             
             // Send GET request to get all leagues
             client.getLeagues({
@@ -273,8 +272,9 @@ $('#create-league-modal #create-league-confirm').click(function() {
 $('#submit-find-bowler').click(function() {
     // make sure input form isn't empty
     if ($('#find-bowler-form').val() != '') {
+        
         // clear all <li>s from the list
-        $('.bowlers-view ul li:not(:first)').remove();
+        $('.bowlers-view ul li').remove();
 
         // get the id from the text form
         var id = parseInt($('#find-bowler-form').val());
@@ -284,9 +284,6 @@ $('#submit-find-bowler').click(function() {
             success: function(bowler) {
                 // log success
                 console.log(JSON.stringify(bowler, null, 4));
-
-                // Prepend the header padding li
-                prependHeader("bowlers");
                 
                 // append li for the bowler we found
                 appendBowler(bowler.id.toString(), bowler.name, bowler.user_id.toString());
@@ -301,8 +298,9 @@ $('#submit-find-bowler').click(function() {
 $('#submit-find-league').click(function() {
     // make sure input form isn't empty
     if ($('#find-league-form').val() != '') {
+        
         // clear all <li>s from the list
-        $('.leagues-view ul li:not(:first)').remove();
+        $('.leagues-view ul li').remove();
         
         // get the id from the text form
         var id = parseInt($('#find-league-form').val());
@@ -313,9 +311,6 @@ $('#submit-find-league').click(function() {
             success: function(league) {
                 // Log success
                 console.log(JSON.stringify(league, null, 4));
-                
-                // Prepend the header padding li
-                prependHeader("leagues");
                 
                 // append the li for the league we found
                 appendLeague(league.id.toString(), league.name, league.user_id.toString());
@@ -571,7 +566,7 @@ $('#Bowlers-button').click(function() {
     showDefault("bowlers");
     
     // clear all <li>s from the list
-    $('.bowlers-view ul li:not(:first)').remove();
+    $('.bowlers-view ul li').remove();
     
     // if the height hasn't been set yet for .placeholder
     if (!set) {
@@ -583,11 +578,9 @@ $('#Bowlers-button').click(function() {
         // flip the flag
         set = true;
         
-        $('.bowlers-view ul li.header').css('width', $('.bowlers-view').width());
+        // adjust height of ul
+        $('.bowlers-view ul').css('height', $('.bowlers-view').height() - $('.bowlers-view .ul-header').outerHeight());
     }
-    
-    // Prepend the header padding li
-    prependHeader("bowlers");
     
     // Send GET request for getting all bowlers
     client.getBowlers({
@@ -616,7 +609,7 @@ $('#Leagues-button').click(function() {
     showDefault("leagues");
     
     // clear all <li>s from the list
-    $('.leagues-view ul li:not(:first)').remove();
+    $('.leagues-view ul li').remove();
     
     // if the height hasn't been set yet for .placeholder
     if (!league_set) {
@@ -628,11 +621,9 @@ $('#Leagues-button').click(function() {
         // flip the flag
         league_set = true;
         
-        $('.leagues-view ul li.header').css('width', $('.leagues-view').width());
+        // Adjust height of the ul
+        $('.leagues-view ul').css('height', $('.leagues-view').height() - $('.leagues-view .ul-header').outerHeight());
     }
-    
-    // Prepend the header padding li
-    prependHeader("leagues");
     
     // Send GET request for getting all leagues
     client.getLeagues({
@@ -736,29 +727,38 @@ var prependLottery = function(id, balance, payout) {
 
 /* Detailed lottery modal */
 // Helper function to append ticket items
-var appendTicket = function(id, buyer, price) {
+var appendTicket = function(id, buyer, price, isWinner) {
     var html =  '<span id="id">'.concat(id).concat('</span>') + 
                 '<span id="buyer">'.concat(buyer).concat('</span>') +
                 '<span id="price">'.concat(price).concat('</span>');
 
-    $('#detailed-lottery-modal ul').append(
-        $('<li>').attr('class', 'ticket-item').attr('tabindex', 1).append(html));
+    // Check if current ticket is a winner
+    if (isWinner) {
+        $('#detailed-lottery-modal ul').append(
+            $('<li>').attr('class', 'ticket-item').attr('id', 'winner').attr('tabindex', 1).append(html));
+    }
+    else {
+        $('#detailed-lottery-modal ul').append(
+            $('<li>').attr('class', 'ticket-item').attr('tabindex', 1).append(html));
+    }
+    
+    
 };
 
 $('.leagues-detailed-view .detailed-right ul').on('click', 'li.lottery-item .button2D', function() {
     $('#detailed-lottery-modal .body ul li.header').css('width', '500px');
     
-    // Clear ul of tickets
-    $('#detailed-lottery-modal .body ul li:not(:first)').remove();
+    // Adjust max-height of ul of tickets
+    $('#detailed-lottery-modal ul').css('height', "500px");
     
-    // Append padding li
-    //prependHeader("tickets");
+    // Clear ul of tickets
+    $('#detailed-lottery-modal .body ul li').remove();
     
     // Variables representing current lottery
     var lottery_id = parseInt($(this).attr('data-id'));
 
     // Update header
-    $('#detailed-lottery-modal .body ul li.header span#title').html('Lottery #' + lottery_id);
+    $('#detailed-lottery-modal .body .ul-header span#title').html('Lottery #' + lottery_id);
     
     // Send GET request to get all tickets for selected lottery
     client.getTickets({
@@ -768,27 +768,20 @@ $('.leagues-detailed-view .detailed-right ul').on('click', 'li.lottery-item .but
             // Log success
             console.log(JSON.stringify(lotteries, null, 4));
             
-            prependHeader("tickets");
-            
             // Append all tickets
-            for (var i = 0; i < lotteries.length; i++) {
-                var t = lotteries[i];
-                
-                appendTicket(t.id.toString(), t.bowler_id, t.price);
-                
-                // if this bowler was the winner
-                
-                if (t.is_winner) {
-                    $('#detailed-lottery-modal .body ul li.header span#title').html('Lottery #' + lottery_id + " - Winner: Bowler #" + t.bowler_id);
+            lotteries.forEach(function(lottery) {
+                if (lottery.is_winner) {
+                    appendTicket(lottery.id.toString(), lottery.bowler_id + " - WINNER!", lottery.price, lottery.is_winner);
                 }
-            }
+                else {
+                    appendTicket(lottery.id.toString(), lottery.bowler_id, lottery.price, lottery.is_winner);
+                }
+            });
         },
         error: function(xhr)  {
             console.log(JSON.parse(xhr.responseText));
         }
     });
-    
-    
 });
 
 /*
