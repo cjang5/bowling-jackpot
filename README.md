@@ -9,6 +9,7 @@ Here are there a bunch of features I've yet to implement, and didn't enough time
 + **News Feed** *(I was thinking of posting an item here whenever an action was performed on a different page of the dashboard)*
 + **Jackpots Page** *(I was going to have a list of every jackpot in the account here, but instead just implemented that in the Leagues page)*
 + **Options dialog** in the navbar of the client 
++ There will be a bunch of buttons and links that don't do anything, and this is again due to me not having the time to implement their features, although you will definitely be able to tell what they were supposed to do!
 
 You may find some kinks I haven't ironed out, but I needed to get my submission to you guys soon or it'd be pointless *(sorry by the way for my really delayed submission)*
 
