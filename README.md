@@ -33,4 +33,6 @@ I hope you liked what I've built, it's definitely one of the most fun projects I
 
 The landing page is not nearly what I wanted it to look like, it was going to have much more, but I hope what's there serves to show what I would have gone for given the time. I did my best to provide a good UX given a small amount of time (what with all my schoolwork and final exams coming up). 
 
+Also, if you're using a Windows machine, the scrollbars may mess up margins and make it look uneven (something I will also fix when I have time!), so I hope you're not as much of a UI/UX freak as me!
+
 ###Thanks for checking it out!
