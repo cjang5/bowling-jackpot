@@ -26,51 +26,6 @@
     </head>
     
     <body>
-        <!--
-        <button id="createUser2" onclick="myFunc()">PLS</button>
-        <script type="text/javascript">
-            function myFunc() {
-                var client2 = new BowlingApiClient('http://bowling-api.nextcapital.com/api');
-                
-                console.log('Creating acc via myFunc()...');
-                
-                client2.createUser({
-                    email: 'test66@example.com',
-                    password: 'pleasework23234',
-                    success: function(user) {
-                        console.log(user);
-                    },
-                    error: function(xhr) {
-                        console.log(JSON.parse(xhr.responseText));
-                    }
-                });
-                
-                client2.getLeagues({
-                    success: function(leagues) {
-                        console.log(leagues);
-                    },
-                    error: function(xhr) {
-                        console.log(JSON.parse(xhr.responseText));
-                    }
-                });
-            };
-        </script> -->
-        
-        <!-- Login form -->
-        <!-- username input -->
-        <!--<input type='text' id='username' name='username' value='test43@example.com'><br>-->
-        <!-- password input -->
-        <!--<input type='password' id='password' name='password' value='password'><br>-->
-        <!-- Login button -->
-        <!--<button id='login_button'>LOGIN</button>-->
-        <!-- Logout button -->
-        <!--<button id='logout_button'>LOGOUT</button>-->
-        <!-- Register button -->
-        <!--<button id='register_button'>REGISTER</button>-->
-        
-        <!-- TEMP -->
-        <!--<button id='session'>Session status</button>-->
-        
         <!-- navbar -->
         <nav id='navbar' class='navbar navbar-default navbar-fixed-top'>
             <div class='container-fluid'>
@@ -92,12 +47,6 @@
                 <a class="button2D clear navbar-right" id="login-button" data-toggle="modal" data-target="#login-modal">
                     <span>Log in</span>
                 </a>
-                
-                <!-- Options button -->
-                <!--
-                <a class="button2D clear no-fixed navbar-right" id="options-button" data-placement="bottom" style="display: none;">
-                    <i class="fa fa-cog"></i>
-                </a>-->
                 
                 <div class="dropdown navbar-right">
                     <!-- Options Button -->
@@ -174,11 +123,6 @@
         <div id="login-modal" class="modal fade" tabindex="-1" role="dialog">
             <div class="modal-dialog modal-sm">
                 <div class="modal-content">
-                    <!--
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                        New Account
-                    </div>-->
                     <div class="modal-body">
                         <div class="form-group">
                             <input type="email" class="form-control" id="login-username" placeholder="Email Address">
@@ -218,15 +162,7 @@
         <div id="register-modal" class="modal fade" tabindex="-1" role="dialog">
             <div class="modal-dialog modal-sm">
                 <div class="modal-content">
-                    <!--
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                        New Account
-                    </div>-->
                     <div class="modal-body">
-                        <!--
-                        <span id="header">New Account</span>
-                        <hr>-->
                         <div class="form-group">
                             <input type="email" class="form-control" id="register-username" placeholder="Email Address">
                         </div>

@@ -1,18 +1,12 @@
 #Todo list
 + Write up spec for nextcapital
-+ Make sure forms clear for add-to-league when focus is lost
 + get options in pseudo-nav up floated to the right
 + Transitions?
-+ Don't let user search for nothing in Search bowler
- + Also don't allow negative values
-+ ~~Handle which buttons to show in client.pseudo-nav based on which view you're currently in~~
- + Do this for every view
 + Catch incorrect logins/failed registration
  + Add the dialog that will pop up - maybe tooltip? or div under button?
 + Finalize Registration modal
  + ~~Automatically login after successful registration~~
 + For sidebar, highlight current view
-+ Decrease sidebar size when expanded
 + find BG images for carousel slides
 + Make logo
  + Then put logo in navbar-brand
@@ -58,3 +52,9 @@
 + ~~Link up functionality for Add-to-league for bowlers~~
 + ~~Maybe automatically select new bowler post-creation? Good UX :)~~
 + ~~Start drafting League view based on this view~~
++ ~~Make sure forms clear for add-to-league when focus is lost~~
++ ~~Don't let user search for nothing in Search bowler~~
++ ~~Also don't allow negative values~~
++ ~~Handle which buttons to show in client.pseudo-nav based on which view you're currently in~~
+ + ~~Do this for every view~~
++ ~~Decrease sidebar size when expanded~~

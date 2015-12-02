@@ -74,6 +74,14 @@ $('#submit-login').click(function() {
     login(userText, passText);
 });
 
+// Allow for 'enter' keypress to login
+$('#login-modal #login-password').keypress(function(e) {
+    if (e.which == 13) {
+        $('#submit-login').click();
+        return false;
+    } 
+});
+
 // Logout button
 $(document).on('click', '#logout-button', function() {
     // close the session
@@ -96,8 +104,7 @@ $('#submit-register').click(function() {
         email: userText,
         password: passText,
         success: function(user) {
-            alert('Successfully registered as: ' + userText);
-            console.log(user);
+            console.log(JSON.stringify(user, null, 4));
             
             // flip 'logged_in' flag and update status
             logged_in = true;
@@ -110,9 +117,14 @@ $('#submit-register').click(function() {
             console.log(JSON.parse(xhr.responseText));
         }
     });
-    
-    //TEMP
-    //window.location.reload();
+});
+
+// Allow for keypress 'Enter' to register
+$('#register-modal #register-password').keypress(function(e) {
+    if (e.which == 13) {
+        $('#submit-register').click();
+        return false;
+    } 
 });
 
 /*

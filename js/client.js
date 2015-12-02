@@ -135,14 +135,14 @@ $('#create-bowler-modal').on('hidden.bs.modal', function() {
 $('#create-league-modal').on('hidden.bs.modal', function() {
     // Reset the input form FOR EVEN BETTER UX
     $('input#create-league-id').val('');
-})
+});
 
 // If user wants to create a new bowler...
 $('#create-bowler-modal #create-bowler-confirm').click(function() {
     var name = $('#create-bowler-modal #create-bowler-id').val();
     
     // make sure there is actually a name in the form
-    if (name != '') {
+    if (name.replace(/\s+/g,'') != '') {
         client.createBowler ({
             name: name,
             success: function(bowler) {
@@ -177,12 +177,20 @@ $('#create-bowler-modal #create-bowler-confirm').click(function() {
     
 });
 
+// Allow for keypress 'Enter' to create a bowler
+$('#create-bowler-id').keypress(function(e) {
+    if (e.which == 13) {
+        $('#create-bowler-modal #create-bowler-confirm').click();
+        return false;
+    }
+});
+
 // If user wants to create a new league
 $('#create-league-modal #create-league-confirm').click(function() {
     var name = $('#create-league-modal #create-league-id').val();
     
     // make sure there is actually a name in the form
-    if (name != '') {
+    if (name.replace(/\s+/g, '') != '') {
         client.createLeague({
             name: name,
             success: function(league) {
@@ -215,6 +223,14 @@ $('#create-league-modal #create-league-confirm').click(function() {
     
 });
 
+// Allow for keypress 'Enter' to create league
+$('#create-league-id').keypress(function(e) {
+    if (e.which == 13) {
+        $('#create-league-modal #create-league-confirm').click();
+        return false;
+    }
+});
+
 /*
 ||==========================||
 ||SEARCH FOR A BOWLER/LEAGUE||
@@ -245,6 +261,14 @@ $('#submit-find-bowler').click(function() {
     }
 });
 
+// Allow for keypress 'Enter' to search for a bowler
+$('#find-bowler-form').keypress(function(e) {
+    if (e.which == 13) {
+        $('#submit-find-bowler').click();
+        return false;
+    }
+});
+
 $('#submit-find-league').click(function() {
     // make sure input form isn't empty
     if ($('#find-league-form').val() != '') {
@@ -269,6 +293,14 @@ $('#submit-find-league').click(function() {
                 console.log(JSON.parse(xhr.responseText));
             }
         });
+    }
+});
+
+// Allow for keypress 'Enter' to search for a league
+$('#find-league-form').keypress(function(e) {
+    if (e.which == 13) {
+        $('#submit-find-league').click();
+        return false;
     }
 });
 
@@ -321,6 +353,7 @@ var showDefault = function(view) {
         
         // bottom stuff 
         $('.leagues-secondary .bottom').css('background', 'white');
+        $('.leagues-secondary .bottom .add-to-league input').val('');
         $('.leagues-secondary .bottom div').hide();
         $('.leagues-secondary .bottom .placeholder').show();
     }
@@ -399,7 +432,7 @@ $('.leagues-view ul').on('click', 'li.league-item', function() {
     currLeagueName = name;
 });
 
-/* ADD Bowler to a League */
+/* ADD Bowler to a League from bowlers-secondary */
 $('.bowlers-secondary .bottom .add-to-league a').click(function() {
     // Make sure that the league id is not empty
     var league_id = parseInt($('.bowlers-secondary .bottom .add-to-league input').val());
@@ -422,6 +455,49 @@ $('.bowlers-secondary .bottom .add-to-league a').click(function() {
                 alert("Failed to join league!");
             }
         });
+    }
+});
+
+// Allow for keypress 'Enter' to add to league
+$('.bowlers-secondary .bottom .add-to-league #bowler-league-form').keypress(function(e) {
+    if (e.which == 13) {
+        $('.bowlers-secondary .bottom .add-to-league a').click();
+        return false;
+    }
+});
+
+/* Add bowler to a league from leagues-secondary */
+$('.leagues-secondary .bottom .add-to-league a').click(function() {
+    // Make sure that the bowler id is not empty
+    var bowler_id = parseInt($('.leagues-secondary .bottom .add-to-league input').val());
+    
+    if (!isNaN(bowler_id)) {
+        // attempt to add specified bowler to selected league
+        client.joinLeague({
+            bowlerId: bowler_id,
+            leagueId: currLeague,
+            success: function(bowlers) {
+                // Log success
+                console.log(JSON.stringify(bowlers, null, 4));
+                
+                // go back to default
+                showDefault("leagues");
+            },
+            error: function(xhr)  {
+                console.log(JSON.parse(xhr.responseText));
+                
+                //TODO: Change this
+                alert("Failed to join league!");
+            }
+        });
+    }
+});
+
+// Allow for keypress 'Enter' to add to league
+$('.leagues-secondary .bottom .add-to-league #bowler-league-form2').keypress(function(e) {
+    if (e.which == 13) {
+        $('.leagues-secondary .bottom .add-to-league a').click();
+        return false;
     }
 });
 
