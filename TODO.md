@@ -4,8 +4,6 @@
 + Transitions?
 + Catch incorrect logins/failed registration
  + Add the dialog that will pop up - maybe tooltip? or div under button?
-+ Finalize Registration modal
- + ~~Automatically login after successful registration~~
 + For sidebar, highlight current view
 + find BG images for carousel slides
 + Make logo
@@ -14,8 +12,6 @@
 + Create tooltip(?) or modal for help dialog
 + Create rest of landing page
 + create footer
-+ Allow 'Enter' press instead of clicking 'log in' or 'sign up' in modals
- + look into jQuery .keyPress() for this..?
 + Use nprogress.js for the thin loading line at the top???
  
 ##Completed
@@ -58,3 +54,7 @@
 + ~~Handle which buttons to show in client.pseudo-nav based on which view you're currently in~~
  + ~~Do this for every view~~
 + ~~Decrease sidebar size when expanded~~
++ ~~Allow 'Enter' press instead of clicking 'log in' or 'sign up' in modals~~
+ + ~~look into jQuery .keyPress() for this..?~~
++ ~~Finalize Registration modal~~
+ + ~~Automatically login after successful registration~~
