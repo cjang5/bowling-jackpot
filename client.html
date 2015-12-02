@@ -222,24 +222,17 @@
                         </a><br>
                         <span class="detailed-id"></span>
                     </div>
-                    <div class="detailed-left" data-related="Detailed" style="overflow: auto;">
-                        <ul>
-                            <li class="header" style="background: #333333;">
-                                <span id="id" style="background: #333333;">ID</span>
-                                <span id="name" style="background: #333333;">Bowler Name</span>
-                                <span id="userid" style="background: #333333;">Buy Ticket</span>
-                            </li>
-                        </ul>
+                    <div class="detailed-left" data-related="Detailed">
+                        <div class="ul-header" data-related="Detailed">
+                            <span id="id">ID</span><span id="name">Bowler Name</span><span id="userid">Buy Ticket</span>
+                        </div>
+                        <ul style="overflow-y: auto;"></ul>
                     </div>
-                    <div class="detailed-right" data-related="Detailed" style="overflow: auto;">
-                        <ul>
-                            <li class="header" style="background: #333333;">
-                                <span id="id" style="background: #333333;">Lottery ID</span>
-                                <span id="balance" style="background: #333333;">Balance</span>
-                                <span id="status" style="background: #333333;">Status</span>
-                                <span id="details" style="background: #333333;">Details</span>
-                            </li>
-                        </ul>
+                    <div class="detailed-right" data-related="Detailed">
+                        <div class="ul-header" data-related="Detailed">
+                            <span id="id">Lottery ID</span><span id="balance">Balance</span><span id="status">Status</span><span id="details">Details</span>
+                        </div>
+                        <ul style="overflow-y: auto;"></ul>
                     </div>
                 </div>
                 
@@ -267,11 +260,6 @@
                         </div>
 
                         <!-- Buttons -->
-                        <!-- Chris, you're really high as of writing, but I think we should use
-                        3D buttons instead of 2D for the modal dialog we're about to write
-                        because we need to standardize the modals. The login and register modals both
-                        utilized 3D buttons, so it'd satisfy good UX principles if you reused the same type
-                        of button for this modal as well. I'm sure you'll understand. -->
                         <a class="button3D spotify-green3D" id="create-bowler-confirm"> <!-- change color later -->
                             <span>Create</span>
                         </a>

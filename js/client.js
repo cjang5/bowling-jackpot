@@ -1,8 +1,6 @@
 // TEMP: MAGIC BUTTON - for testing features with ease
 $('#temp-button').click(function() {
-    // Random roll
-    alert($('.bowlers-view ul li.header').outerWidth() + ";" + $('.bowlers-view').outerWidth());
-    //$('.bowlers-view ul li.header').css('width', $('.bowlers-view').width());
+    alert(currLeagueName);
 });
 
 // Make bowler/league-search input clearable with 'X' button
@@ -687,23 +685,6 @@ var detailedLeague = null;
 // Variable representing current lottery
 var currLottery = null;
 
-// Helper function to append lotteries
-var appendLottery = function(id, balance, payout) {
-    var html =  '<span id="id">'.concat(id).concat('</span>') + 
-                '<span id="balance">'.concat(balance).concat('</span>');
-    
-    // depending on payout status, append different status html
-    if (payout == null) {
-        html = html + '<span id="status">Current</span>';
-        currLottery = parseInt(id);
-    }
-    else {
-        html = html + '<span id="status">Completed</span>';
-    }
-    
-    $('.leagues-detailed-view .detailed-right ul').append(
-        $('<li>').attr('class', 'lottery-item').attr('tabindex', 1).append(html));
-}; 
 // Helper function to prepend lotteries
 var prependLottery = function(id, balance, payout) {
     var html =  '<span id="id">'.concat(id).concat('</span>') + 
@@ -721,7 +702,7 @@ var prependLottery = function(id, balance, payout) {
     // Details button
     html = html + '<span id="details"><a data-id="'.concat(id).concat('" class="button2D spotify-green" data-toggle="modal" data-target="#detailed-lottery-modal"><span><i class="fa fa-search"></span></a></span>');
     
-    $('.leagues-detailed-view .detailed-right ul li:nth-child(2)').after(
+    $('.leagues-detailed-view .detailed-right ul').prepend(
         $('<li>').attr('class', 'lottery-item').attr('tabindex', 1).append(html));
 };
 
@@ -741,8 +722,6 @@ var appendTicket = function(id, buyer, price, isWinner) {
         $('#detailed-lottery-modal ul').append(
             $('<li>').attr('class', 'ticket-item').attr('tabindex', 1).append(html));
     }
-    
-    
 };
 
 $('.leagues-detailed-view .detailed-right ul').on('click', 'li.lottery-item .button2D', function() {
@@ -816,14 +795,10 @@ $('.leagues-secondary .bottom .league-detailed a').click(function() {
     $('.leagues-detailed-view .detailed-top .detailed-id').html("League ID: " + currLeague);
     
     // clear all <li>s from the list
-    $('.leagues-detailed-view .detailed-left ul li:not(:first)').remove();
+    $('.leagues-detailed-view .detailed-left ul li').remove();
     
-    
-    // adjust header width
-    $('.leagues-detailed-view ul li.header').css('width', $('.leagues-detailed-view .detailed-left').width());
-    
-    // Prepend the header padding li
-    prependHeader("bowlers-detailed");
+    // Adjust height of ul of bowlers
+    $('.leagues-detailed-view .detailed-left ul').css('height', $('.leagues-detailed-view .detailed-left').height() - $('.leagues-detailed-view .detailed-left .ul-header').outerHeight());
     
     // Send GET request to get all bowlers in selected league
     client.getBowlers({
@@ -844,10 +819,11 @@ $('.leagues-secondary .bottom .league-detailed a').click(function() {
         }
     });
     
-    $('.leagues-detailed-view .detailed-right ul li:not(:first)').remove();
+    // CLear li's in ul for lotteries
+    $('.leagues-detailed-view .detailed-right ul li').remove();
     
-    // prepend header
-    prependHeader("lotteries-detailed");
+    // Adjust height of ul of lotteries
+    $('.leagues-detailed-view .detailed-right ul').css('height', $('.leagues-detailed-view .detailed-right').height() - $('.leagues-detailed-view .detailed-right .ul-header').outerHeight());
     
     // Send GET request to get all lotteries in the selected league
     client.getLotteries({

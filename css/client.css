@@ -389,6 +389,8 @@ html, body {
     border: 1px solid rgba(0, 0, 0, 0.15);
 }
 
+/* Detailed header */
+
 .detailed-left {
     width: 50%; 
     height: 75%;
@@ -407,9 +409,8 @@ html, body {
 .detailed-right ul li .button2D {
     padding: 0.25em;
     margin: 0px;
-    margin-top: -5px;
+    margin-top: -6px;
     margin-bottom: -5px;
-    margin-left: 5px;
     width: 100%;
 }
 
@@ -443,16 +444,34 @@ html, body {
     margin-right: 0px;
 }
 .detailed-right li #details {
+    text-align: center;
     display: inline-block;
     padding: 20px;
-    width: 27%;
+    width: 29%;
 }
 
-.detailed-top .detailed-header {
-    color: #00d87f;
-    font-family: 'Arvo', sans-serif;
-    font-size: 2.5em;
+/* Header for ul for detailed-right */
+.detailed-right .ul-header #id {
+    width: 23%;
+    display: inline-block;
 }
+.detailed-right .ul-header #balance {
+    width: 23%;
+    display: inline-block;
+    border-left: 2px solid #656565;
+    border-right: 2px solid #656565;
+}
+.detailed-right .ul-header #status {
+    width: 25%;
+    display: inline-block;
+    border-right: 2px solid #656565;
+}
+.detailed-right .ul-header #details {
+    width: 29%;
+    display: inline-block;
+}
+
+/* Details button for each lottery */
 .detailed-top .detailed-id {
     color: white;
     font-family: 'Arvo', sans-serif;
