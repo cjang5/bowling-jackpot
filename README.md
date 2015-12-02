@@ -17,4 +17,5 @@ You can open a console in the browser of your choice (preferably Chrome or Firef
 
 ##Bowlers tab
 Here you can create a bowler by clicking the button in the navigation bar, search for bowlers by providing the id, and select individual bowlers and add them to leagues by specifying the league id. 
+
 *Note:* The process for adding bowlers to leagues is not very streamlined, as you must **know** the league id at the moment you want to add a bowler to it, and if you don't you must go to the leagues tab to find the league id, and then go back... very unintuitive. But it serves the minimum purpose, I may go back and fix this afterwards
