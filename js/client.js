@@ -1,6 +1,6 @@
 // TEMP: MAGIC BUTTON - for testing features with ease
 $('#temp-button').click(function() {
-    alert(currLeagueName);
+    
 });
 
 // Make bowler/league-search input clearable with 'X' button
@@ -20,9 +20,7 @@ jQuery(function($) {
         // if this is bowlers-view
         if ($(this).attr('id') == 'find-bowler-form') {
             // clear all <li>s from the list
-            $('.bowlers-view ul li:not(:first)').remove();
-            // then prepend the padding li
-            prependHeader("bowlers");
+            $('.bowlers-view ul li').remove();
             
             // Send GET request for getting all bowlers
             client.getBowlers({
@@ -43,7 +41,7 @@ jQuery(function($) {
         }
         else if ($(this).attr('id') == 'find-league-form') {
             // Clear all <li>s from the list
-            $('.leagues-view ul li:not(:first)').remove();
+            $('.leagues-view ul li').remove();
             
             // Send GET request to get all leagues
             client.getLeagues({
@@ -86,7 +84,7 @@ client.loginUser({
 ||===========||*/
 $(document).ready(function() {
     // Fix pseudo-nav to top of screen
-    var newHeight = parseInt($('.main-view').css('padding-top').replace("px", "")) + $('.pseudo-nav').outerHeight() + 5;
+    var newHeight = parseInt($('.main-view').css('padding-top').replace("px", "")) + $('.pseudo-nav').outerHeight();
     $('.main-view').css('padding-top', newHeight);
 });
 
@@ -99,52 +97,6 @@ $('.leagues-detailed-components a').click(function() {
 ||======================||
 ||CREATE A BOWLER/LEAGUE||
 ||======================||*/
-/** 
- * This is a helper function to prepend a padding li item
- * so that our list will look better. This will allow for the first
- * li, 'header', to stay fixed at the top of the ul div
- */
-var prependHeader = function(view) {
-    var html =  '<span id="id">ID</span>' + 
-                '<span id="name">Name</span' + 
-                '<span id="userid">User ID</span>';
-    
-    if (view == "bowlers") {
-        $('.bowlers-view ul li:nth-child(1)').after(
-            $('<li>').attr('class', 'padding-li').attr('tabindex', 1).append(html));
-    
-        $('.bowlers-view li.padding-li').css('height', $('.bowlers-view ul li.header').height());
-        $('.bowlers-view li.padding-li span').css('border', 'none');
-    }
-    else if (view == "leagues") {
-        $('.leagues-view ul li:nth-child(1)').after(
-            $('<li>').attr('class', 'padding-li').attr('tabindex', 1).append(html));
-        
-        $('.leagues-view li.padding-li').css('height', $('.leagues-view ul li.header').height());
-        $('.leagues-view li.padding-li span').css('border', 'none');
-    }
-    else if (view == "bowlers-detailed") {
-        $('.leagues-detailed-view  .detailed-left ul li:nth-child(1)').after(
-            $('<li>').attr('class', 'padding-li').attr('tabindex', 1).append(html));
-    
-        $('.leagues-detailed-view .detailed-left li.padding-li').css('height', $('.leagues-detailed-view .detailed-left ul li.header').height());
-        $('.leagues-detailed-view .detailed-left li.padding-li span').css('border', 'none');
-    }
-    else if (view == "lotteries-detailed") {
-        $('.leagues-detailed-view .detailed-right ul li:nth-child(1)').after(
-            $('<li>').attr('class', 'padding-li').attr('tabindex', 1).append(html));
-        
-        $('.leagues-detailed-view .detailed-right li.padding-li').css('height', $('.leagues-detailed-view .detailed-right ul li.header').height());
-        $('.leagues-detailed-view .detailed-right li.padding-li span').css('border', 'none');
-    }
-    else if (view == "tickets") {
-        $('#detailed-lottery-modal ul li:nth-child(1)').after(
-            $('<li>').attr('class', 'padding-li').attr('tabindex', 1).append(html));
-        
-        $('#detailed-lottery-modal li.padding-li').css('height', $('#detailed-lottery-modal ul li.header').height());
-        $('#detailed-lottery-modal li.padding-li span').css('border', 'none');
-    }
-};
 /** 
  * helper function to append a bowler to our main Bowlers view
  * created because we repeat this same process 3 times
@@ -209,7 +161,7 @@ $('#create-bowler-modal #create-bowler-confirm').click(function() {
                 $('#create-bowler-modal').modal('hide');
 
                 // scroll to bottom of bowlers-view div to go to recently added bowler
-                $('.bowlers-view').scrollTop($('.bowlers-view')[0].scrollHeight);
+                $('.bowlers-view ul').scrollTop($('.bowlers-view ul')[0].scrollHeight);
                 // make most recent bowler active
                 $('.bowlers-view ul li.bowler-item').removeClass('active');
                 $('.bowlers-view ul li').last().find('span#name').click();
@@ -247,7 +199,7 @@ $('#create-league-modal #create-league-confirm').click(function() {
                 $('#create-league-modal').modal('hide');
                 
                 // Scroll to bottom of leagues-view div to go to recently added league
-                $('.leagues-view').scrollTop($('.leagues-view')[0].scrollHeight);
+                $('.leagues-view ul').scrollTop($('.leagues-view ul')[0].scrollHeight);
                 // make most recent league active
                 $('.leagues-view ul li.league-item').removeClass('active');
                 $('.leagues-view ul li').last().find('span#name').click();
@@ -669,10 +621,10 @@ $('.leagues-detailed-view .detailed-left ul').on('click', 'li.bowler-item .butto
             alert("Successfully bought ticket for: " + bId);
             
             // get current balance
-            var balance = parseInt($('.leagues-detailed-view .detailed-right ul li:nth-child(3) span#balance').text());
+            var balance = parseInt($('.leagues-detailed-view .detailed-right ul li:first span#balance').text());
             
             // Update balance
-            $('.leagues-detailed-view .detailed-right ul li:nth-child(3) span#balance').html(balance + 10);
+            $('.leagues-detailed-view .detailed-right ul li:first span#balance').html(balance + 10);
         },
         error: function(xhr)  {
             console.log(JSON.parse(xhr.responseText));
@@ -868,12 +820,9 @@ $('.leagues-detailed-view .detailed-top a').click(function() {
                     // Log success
                     console.log(JSON.stringify(roll, null, 4));
                     
-                    alert("Bowler #" + roll.bowler_id + " won $" + roll.payout + "!");
+                    alert("Bowler #" + roll.bowler_id + " won $" + Math.round(roll.payout) + "!");
                     
-                    $('.leagues-detailed-view .detailed-right ul li:not(:first)').remove();
-    
-                    // prepend header
-                    prependHeader("lotteries-detailed");
+                    $('.leagues-detailed-view .detailed-right ul li').remove();
 
                     // Send GET request to get all lotteries in the selected league
                     client.getLotteries({

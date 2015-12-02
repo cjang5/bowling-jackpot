@@ -23,7 +23,7 @@ html, body {
 }
 
 .open-nav {
-    width: 250px;
+    width: 175px;
 }
 
 .sidebar ul {
@@ -95,7 +95,7 @@ html, body {
 
 /* TODO: RENAME THIS ISH */
 .open-nav2 {
-    margin-left: 250px;
+    margin-left: 175px;
 }
 
 /*
@@ -424,14 +424,14 @@ html, body {
 
 .detailed-right li #id {
     padding: 20px;
-    width: 23%;
+    width: 25%;
     display: inline-block;
     margin-right: 0px;
 }
 .detailed-right li #balance {
     display: inline-block;
     padding: 20px;
-    width: 23%;
+    width: 22%;
     margin-right: 0px;
     border-left: solid 2px rgba(0, 0, 0, 0.08);
     border-right: solid 2px rgba(0, 0, 0, 0.08);
@@ -439,7 +439,7 @@ html, body {
 .detailed-right li #status {
     display: inline-block;
     padding: 20px;
-    width: 25%;
+    width: 28%;
     border-right: solid 2px rgba(0, 0, 0, 0.08);*/
     margin-right: 0px;
 }
@@ -447,28 +447,35 @@ html, body {
     text-align: center;
     display: inline-block;
     padding: 20px;
-    width: 29%;
+    width: 25%;
 }
 
 /* Header for ul for detailed-right */
 .detailed-right .ul-header #id {
-    width: 23%;
+    width: 25%;
     display: inline-block;
 }
 .detailed-right .ul-header #balance {
-    width: 23%;
+    width: 22%;
     display: inline-block;
     border-left: 2px solid #656565;
     border-right: 2px solid #656565;
 }
 .detailed-right .ul-header #status {
-    width: 25%;
+    width: 28%;
     display: inline-block;
     border-right: 2px solid #656565;
 }
 .detailed-right .ul-header #details {
-    width: 29%;
+    width: 25%;
     display: inline-block;
+}
+
+/* header for Detailed view */
+.detailed-top .detailed-header {
+    color: #00d87f;
+    font-family: 'Arvo', sans-serif;
+    font-size: 2.5em;
 }
 
 /* Details button for each lottery */
